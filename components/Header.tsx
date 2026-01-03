@@ -60,7 +60,7 @@ export function Header() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    className="absolute left-0 top-full mt-2 w-64 rounded-xl border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
+                                    className="absolute left-0 top-full mt-2 w-64 rounded-lg border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
                                 >
                                     <Link href="/features" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
                                         <Rocket className="mt-0.5 h-5 w-5 text-blue-600" />
@@ -97,7 +97,7 @@ export function Header() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    className="absolute left-0 top-full mt-2 w-64 rounded-xl border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
+                                    className="absolute left-0 top-full mt-2 w-64 rounded-lg border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
                                 >
                                     <Link href="/blog" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
                                         <BookOpen className="mt-0.5 h-5 w-5 text-purple-600" />
@@ -131,21 +131,6 @@ export function Header() {
 
                 {/* Block 3: Actions */}
                 <div className="hidden md:flex items-center gap-4">
-                    {/* Theme Switcher */}
-                    {/* Theme Switcher */}
-                    {mounted && (
-                        <button
-                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 bg-white hover:bg-gray-100 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800 transition-colors"
-                            aria-label="Toggle theme"
-                        >
-                            {theme === 'dark' ? (
-                                <Moon className="h-4 w-4 text-white" />
-                            ) : (
-                                <Sun className="h-4 w-4 text-gray-600" />
-                            )}
-                        </button>
-                    )}
 
                     <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                         Log in
@@ -153,6 +138,21 @@ export function Header() {
                     <Link href="/signup" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 hover:shadow-md">
                         Get Started
                     </Link>
+
+                    {/* Theme Switcher - Moved to Extreme Right */}
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                            className="ml-4 flex items-center justify-center w-10 h-10 rounded-full bg-transparent hover:bg-gray-100 text-gray-500 transition-colors dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                            aria-label="Toggle theme"
+                        >
+                            {theme === 'dark' ? (
+                                <Moon className="h-5 w-5" />
+                            ) : (
+                                <Sun className="h-5 w-5" />
+                            )}
+                        </button>
+                    )}
                 </div>
 
                 {/* Mobile Menu Button */}
