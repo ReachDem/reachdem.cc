@@ -88,13 +88,13 @@ export function Footer() {
 							<Link href="/" className="flex items-center gap-2">
 								<div className="relative h-6 w-6">
 									<Image
-										src="/Black.png"
+										src="/White Variant.png"
 										alt="ReachDem Logo"
 										fill
 										className="object-contain dark:hidden"
 									/>
 									<Image
-										src="/White Variant.png"
+										src="/Black.png"
 										alt="ReachDem Logo"
 										fill
 										className="object-contain hidden dark:block"
