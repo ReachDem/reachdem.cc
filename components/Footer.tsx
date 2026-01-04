@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Linkedin } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
+import { Button } from './ui/button';
 
 const navigation = [
 	{
@@ -52,12 +53,9 @@ export function Footer() {
 						Reach Them, Convert <br />
 						<span className="text-sand-600">Without complexity.</span>
 					</h2>
-					<Link
-						href="/get-started"
-						className="mt-10 rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-black hover:bg-gray-100 transition-colors"
-					>
-						Get started for free
-					</Link>
+          <Button asChild variant="secondary" size="lg" className="mt-9">
+            <Link href="/get-started">Get started for free</Link>
+          </Button>
 				</div>
 
 				{/* Navigation Section */}
@@ -90,10 +88,16 @@ export function Footer() {
 							<Link href="/" className="flex items-center gap-2">
 								<div className="relative h-6 w-6">
 									<Image
+										src="/Black.png"
+										alt="ReachDem Logo"
+										fill
+										className="object-contain dark:hidden"
+									/>
+									<Image
 										src="/White Variant.png"
 										alt="ReachDem Logo"
 										fill
-										className="object-contain"
+										className="object-contain hidden dark:block"
 									/>
 								</div>
 								<span className="font-semibold">ReachDem</span>
