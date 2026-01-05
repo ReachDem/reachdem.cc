@@ -16,11 +16,11 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
             🔔 *Push Notification*
-            
+
             *Repository:* ${{ github.repository }}
             *Branch:* ${{ github.ref_name }}
             *Pusher:* @${{ github.actor }}
             *Commit:* ${{ github.event.head_commit.message }}
-            
+
             [View Commit](${{ github.event.head_commit.url }})
           format: markdown

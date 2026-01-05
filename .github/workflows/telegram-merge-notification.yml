@@ -16,12 +16,12 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
             ✅ *Pull Request Merged*
-            
+
             *Repository:* ${{ github.repository }}
             *PR:* #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}
             *Author:* @${{ github.event.pull_request.user.login }}
             *Merged by:* @${{ github.event.pull_request.merged_by.login }}
             *Branch:* ${{ github.event.pull_request.head.ref }} → ${{ github.event.pull_request.base.ref }}
-            
+
             [View Pull Request](${{ github.event.pull_request.html_url }})
           format: markdown
