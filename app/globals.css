@@ -108,6 +108,8 @@
   @media (width >= --theme(--breakpoint-sm)) {
     max-width: none;
   }
+  /* Container max-width at 1400px: 1228px provides optimal reading width 
+     while maintaining 86px horizontal margins for visual balance */
   @media (width >= 1400px) {
     max-width: 1228px;
   }

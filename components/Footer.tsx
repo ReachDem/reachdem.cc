@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Linkedin } from 'lucide-react';
-import { FaXTwitter } from 'react-icons/fa6';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 import { Button } from './ui/button';
 
 const navigation = [
@@ -48,10 +47,10 @@ export function Footer() {
 		<footer className="bg-primary text-primary-foreground">
 			<div className='bg-primary'>
 				{/* CTA Section */}
-				<div className="border-sand-600 mx-auto flex max-w-[80vw] flex-col items-center border-b py-10 text-center md:py-14 lg:py-20">
+				<div className="border-border mx-auto flex max-w-[80vw] flex-col items-center border-b py-10 text-center md:py-14 lg:py-20">
 					<h2 className="max-w-[800px] text-5xl leading-none font-semibold tracking-tight text-balance lg:text-6xl">
 						Reach Them, Convert <br />
-						<span className="text-sand-600">Without complexity.</span>
+						<span className="text-muted-foreground">Without complexity.</span>
 					</h2>
           <Button asChild variant="secondary" size="lg" className="mt-9">
             <Link href="/get-started">Get started for free</Link>
@@ -59,7 +58,7 @@ export function Footer() {
 				</div>
 
 				{/* Navigation Section */}
-				<nav className="border-sand-600/50 mx-auto max-w-[80vw] border-b py-6">
+				<nav className="border-border/50 mx-auto max-w-[80vw] border-b py-6">
 					<div className="container flex flex-wrap gap-x-32 gap-y-12 md:justify-between md:gap-y-16 lg:gap-y-24">
 						{navigation.map((section) => (
 							<div key={section.title}>
@@ -88,13 +87,13 @@ export function Footer() {
 							<Link href="/" className="flex items-center gap-2">
 								<div className="relative h-6 w-6">
 									<Image
-										src="/White Variant.png"
+										src="/Black.png"
 										alt="ReachDem Logo"
 										fill
 										className="object-contain dark:hidden"
 									/>
 									<Image
-										src="/Black.png"
+										src="/White Variant.png"
 										alt="ReachDem Logo"
 										fill
 										className="object-contain hidden dark:block"
@@ -109,7 +108,7 @@ export function Footer() {
 						<div className="flex items-center gap-6">
 							{socialLinks.map((link) => (
 								<Link
-									aria-label={link.href}
+									aria-label={link.label}
 									key={link.href}
 									href={link.href}
 									className="hover:text-muted-foreground transition-colors"
