@@ -61,7 +61,9 @@ jobs:
 
           # Get commits in the PR
           echo "### Commits:" >> "$CHANGELOG_FILE"
-          git log --pretty=format:"- %s (%h)" ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} >> "$CHANGELOG_FILE" || echo "- No commits found" >> "$CHANGELOG_FILE"
+          git log --pretty=format:"- %s (%h)" \
+            ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} \
+            >> "$CHANGELOG_FILE" || echo "- No commits found" >> "$CHANGELOG_FILE"
           echo "" >> "$CHANGELOG_FILE"
           echo "" >> "$CHANGELOG_FILE"
           echo "---" >> "$CHANGELOG_FILE"
@@ -99,7 +101,7 @@ jobs:
           git push origin ${{ github.event.pull_request.base.ref }}
 
       - name: Send Telegram notification
-        uses: appleboy/telegram-action@v1.1.5
+        uses: appleboy/telegram-action@v1.1.0
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
