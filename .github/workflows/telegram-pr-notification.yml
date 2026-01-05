@@ -7,6 +7,8 @@ on:
 jobs:
   notify-pr:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     steps:
       - name: Get reviewer mentions
         id: reviewers
