@@ -96,6 +96,7 @@ jobs:
           fi
           
           echo "CHANGELOG_FILE=$CHANGELOG_FILE" >> $GITHUB_ENV
+          echo "CHANGELOG_DATE=$DATE" >> $GITHUB_ENV
       
       - name: Commit and push changelog
         run: |
@@ -112,7 +113,7 @@ jobs:
           fi
       
       - name: Send Telegram notification
-        uses: appleboy/telegram-action@master
+        uses: appleboy/telegram-action@v1.0.0
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -122,7 +123,7 @@ jobs:
             
             *Repository:* ${{ github.repository }}
             *Branch:* `${{ github.ref_name }}`
-            *Date:* $(date +%Y-%m-%d)
+            *Date:* ${{ env.CHANGELOG_DATE }}
             
             A new changelog has been generated and committed to the repository.
             
