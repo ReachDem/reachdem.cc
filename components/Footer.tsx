@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Linkedin } from 'lucide-react';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { Button } from './ui/button';
 
 const navigation = [
@@ -37,8 +36,8 @@ const navigation = [
 
 const socialLinks = [
 	{ name: 'Twitter', icon: FaXTwitter, href: 'https://x.com' },
-	{ name: 'GitHub', icon: Github, href: 'https://github.com' },
-	{ name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
+	{ name: 'GitHub', icon: FaGithub, href: 'https://github.com' },
+	{ name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com' },
 ];
 
 export function Footer() {
