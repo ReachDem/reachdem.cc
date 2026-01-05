@@ -52,9 +52,9 @@ export function Footer() {
 					Reach Them, Convert <br />
 					<span className="text-sand-600">Without complexity.</span>
 				</h2>
-          <Button asChild variant="secondary" size="lg" className="mt-9">
-            <Link href="/get-started">Get started for free</Link>
-          </Button>
+				<Button asChild variant="secondary" size="lg" className="mt-9">
+					<Link href="/get-started">Get started for free</Link>
+				</Button>
 			</div>
 
 			{/* Navigation Section */}
