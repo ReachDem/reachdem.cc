@@ -36,9 +36,9 @@ const navigation = [
 
 
 const socialLinks = [
-	{ icon: FaXTwitter, href: 'https://x.com' },
-	{ icon: Github, href: 'https://github.com' },
-	{ icon: Linkedin, href: 'https://linkedin.com' },
+	{ name: 'Twitter', icon: FaXTwitter, href: 'https://x.com' },
+	{ name: 'GitHub', icon: Github, href: 'https://github.com' },
+	{ name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
 ];
 
 export function Footer() {
