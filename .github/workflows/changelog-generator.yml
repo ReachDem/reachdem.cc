@@ -1,0 +1,118 @@
+name: Changelog Generator
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - dev
+      - main
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create CHANGELOG directory if it doesn't exist
+        run: |
+          mkdir -p CHANGELOG
+
+      - name: Generate changelog entry
+        id: changelog
+        run: |
+          # Get current date
+          DATE=$(date +"%Y-%m-%d")
+
+          # Get PR information
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          PR_URL="${{ github.event.pull_request.html_url }}"
+          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+
+          # Create changelog file name based on branch
+          CHANGELOG_FILE="CHANGELOG/${BASE_BRANCH}-${DATE}.md"
+
+          # Create or append to changelog
+          if [ ! -f "$CHANGELOG_FILE" ]; then
+            echo "# Changelog - $BASE_BRANCH - $DATE" > "$CHANGELOG_FILE"
+            echo "" >> "$CHANGELOG_FILE"
+          fi
+
+          # Add entry to changelog
+          echo "## PR #$PR_NUMBER - $PR_TITLE" >> "$CHANGELOG_FILE"
+          echo "- **Author:** @$PR_AUTHOR" >> "$CHANGELOG_FILE"
+          echo "- **Date:** $DATE" >> "$CHANGELOG_FILE"
+          echo "- **Link:** [View PR]($PR_URL)" >> "$CHANGELOG_FILE"
+          echo "" >> "$CHANGELOG_FILE"
+
+          # Get commits in the PR
+          echo "### Commits:" >> "$CHANGELOG_FILE"
+          git log --pretty=format:"- %s (%h)" \
+            ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} \
+            >> "$CHANGELOG_FILE" || echo "- No commits found" >> "$CHANGELOG_FILE"
+          echo "" >> "$CHANGELOG_FILE"
+          echo "" >> "$CHANGELOG_FILE"
+          echo "---" >> "$CHANGELOG_FILE"
+          echo "" >> "$CHANGELOG_FILE"
+
+          echo "changelog_file=$CHANGELOG_FILE" >> $GITHUB_OUTPUT
+
+      - name: Update main CHANGELOG.md
+        run: |
+          # Create main CHANGELOG.md if it doesn't exist
+          if [ ! -f "CHANGELOG.md" ]; then
+            echo "# Changelog" > CHANGELOG.md
+            echo "" >> CHANGELOG.md
+            echo "All notable changes to this project will be documented in this file." >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          # Get the new entry
+          NEW_ENTRY=$(cat "${{ steps.changelog.outputs.changelog_file }}")
+
+          # Create a temporary file with the new entry at the top
+          {
+            head -n 4 CHANGELOG.md
+            echo ""
+            cat "${{ steps.changelog.outputs.changelog_file }}" | tail -n +2
+            tail -n +5 CHANGELOG.md
+          } > CHANGELOG.md.tmp
+
+          mv CHANGELOG.md.tmp CHANGELOG.md
+
+      - name: Commit and push changelog
+        run: |
+          git add CHANGELOG.md CHANGELOG/
+          git diff --staged --quiet || git commit -m "chore: update changelog for PR #${{ github.event.pull_request.number }}"
+          git push origin ${{ github.event.pull_request.base.ref }}
+
+      - name: Send Telegram notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            📝 *Changelog Updated*
+
+            *Repository:* ${{ github.repository }}
+            *Branch:* ${{ github.event.pull_request.base.ref }}
+            *PR:* #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}
+
+            A new changelog entry has been created.
+
+            [View Repository](${{ github.event.repository.html_url }})
+          format: markdown
