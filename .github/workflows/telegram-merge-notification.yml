@@ -1,0 +1,32 @@
+name: Telegram Merge Notification
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  notify-merge:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          message: |
+            ✅ *Pull Request Merged*
+            
+            *Repository:* ${{ github.repository }}
+            *PR #${{ github.event.pull_request.number }}:* ${{ github.event.pull_request.title }}
+            *Merged by:* @${{ github.event.pull_request.merged_by.login }}
+            *Author:* @${{ github.event.pull_request.user.login }}
+            *Branch:* `${{ github.event.pull_request.head.ref }}` → `${{ github.event.pull_request.base.ref }}`
+            
+            *Commits:* ${{ github.event.pull_request.commits }}
+            *Files changed:* ${{ github.event.pull_request.changed_files }}
+            *Additions:* +${{ github.event.pull_request.additions }}
+            *Deletions:* -${{ github.event.pull_request.deletions }}
+            
+            [View Merged PR](${{ github.event.pull_request.html_url }})

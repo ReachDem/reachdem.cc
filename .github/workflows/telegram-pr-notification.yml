@@ -1,0 +1,48 @@
+name: Telegram Pull Request Notification
+
+on:
+  pull_request:
+    types: [opened, reopened, review_requested]
+
+jobs:
+  notify-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get reviewers
+        id: reviewers
+        run: |
+          REVIEWERS="${{ join(github.event.pull_request.requested_reviewers.*.login, ', @') }}"
+          TEAM_REVIEWERS="${{ join(github.event.pull_request.requested_teams.*.name, ', @') }}"
+          
+          if [ -n "$REVIEWERS" ] && [ -n "$TEAM_REVIEWERS" ]; then
+            ALL_REVIEWERS="@$REVIEWERS, @$TEAM_REVIEWERS"
+          elif [ -n "$REVIEWERS" ]; then
+            ALL_REVIEWERS="@$REVIEWERS"
+          elif [ -n "$TEAM_REVIEWERS" ]; then
+            ALL_REVIEWERS="@$TEAM_REVIEWERS"
+          else
+            ALL_REVIEWERS="No reviewers assigned"
+          fi
+          
+          echo "reviewers=$ALL_REVIEWERS" >> $GITHUB_OUTPUT
+      
+      - name: Send Telegram notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          message: |
+            🔍 *Pull Request ${{ github.event.action }}*
+            
+            *Repository:* ${{ github.repository }}
+            *PR #${{ github.event.pull_request.number }}:* ${{ github.event.pull_request.title }}
+            *Author:* @${{ github.event.pull_request.user.login }}
+            *Branch:* `${{ github.event.pull_request.head.ref }}` → `${{ github.event.pull_request.base.ref }}`
+            
+            *Reviewers:* ${{ steps.reviewers.outputs.reviewers }}
+            
+            *Description:*
+            ${{ github.event.pull_request.body }}
+            
+            [View Pull Request](${{ github.event.pull_request.html_url }})
