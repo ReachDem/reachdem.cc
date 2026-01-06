@@ -1,289 +1,221 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-interface FAQCategory {
-  id: string;
-  title: string;
-  items: FAQItem[];
-}
-
-const faqData: FAQCategory[] = [
-  {
-    id: "platform",
-    title: "About the Platform",
-    items: [
-      {
-        question: "What is this platform?",
-        answer:
-          "This is a solution designed to facilitate the management of your online processes, automate your key tasks, and improve communication with your users.",
-      },
-      {
-        question: "What makes our solution unique?",
-        answer:
-          "Our platform stands out for its ease of use, optimized performance, and features tailored to the real needs of today's users.",
-      },
-      {
-        question: "Who is this platform for?",
-        answer:
-          "Our platform is designed for individuals, professionals, and businesses looking to streamline their online operations and improve their workflow efficiency.",
-      },
-    ],
-  },
-  {
-    id: "pricing",
-    title: "Pricing & Plans",
-    items: [
-      {
-        question: "Is there a free version?",
-        answer:
-          "Yes, we offer a free plan with basic features to get you started right away. Advanced plans are available to access additional tools.",
-      },
-      {
-        question: "Why do prices vary between plans?",
-        answer:
-          "Each plan includes different features and levels of support, tailored to specific needs (personal, professional, or enterprise).",
-      },
-      {
-        question: "Can I upgrade or downgrade my plan?",
-        answer:
-          "Yes, you can change your plan at any time. When upgrading, you'll get immediate access to new features. When downgrading, changes take effect at the start of your next billing cycle.",
-      },
-      {
-        question: "What payment methods do you accept?",
-        answer:
-          "We accept all major credit cards, debit cards, and PayPal. Enterprise customers can also arrange for invoice-based billing.",
-      },
-    ],
-  },
-  {
-    id: "support",
-    title: "Support & Assistance",
-    items: [
-      {
-        question: "Is support free?",
-        answer:
-          "Basic support is included for free. Premium support options may be available depending on your plan.",
-      },
-      {
-        question: "How do I get immediate assistance?",
-        answer:
-          "You can contact our team via the contact form on the site or directly by email for a quick response.",
-      },
-      {
-        question: "What are your support hours?",
-        answer:
-          "Our support team is available Monday through Friday, 9 AM to 6 PM (local time). Premium plan members have access to extended support hours.",
-      },
-    ],
-  },
-  {
-    id: "security",
-    title: "Security & Data",
-    items: [
-      {
-        question: "Is my data secure?",
-        answer:
-          "Yes, we use modern security protocols to protect your personal information and data.",
-      },
-      {
-        question: "What happens in case of a breach or outage?",
-        answer:
-          "A continuity plan and regular backups are in place to minimize the impact of potential incidents.",
-      },
-      {
-        question: "Where is my data stored?",
-        answer:
-          "Your data is stored on secure servers in certified data centers that comply with international security standards and regulations.",
-      },
-      {
-        question: "Can I export my data?",
-        answer:
-          "Yes, you can export your data at any time in standard formats. We believe in data portability and will never lock in your information.",
-      },
-    ],
-  },
-  {
-    id: "features",
-    title: "Features & Integrations",
-    items: [
-      {
-        question: "Can I integrate other tools or services?",
-        answer:
-          "Yes, our platform supports numerous integrations with external tools to optimize your workflows.",
-      },
-      {
-        question: "Can I update my account without losing my data?",
-        answer:
-          "Yes, any update to your account or information is done without interruption or content loss.",
-      },
-      {
-        question: "Do you offer an API?",
-        answer:
-          "Yes, we provide a comprehensive REST API that allows you to integrate our platform with your existing systems and build custom solutions.",
-      },
-    ],
-  },
-  {
-    id: "misc",
-    title: "Miscellaneous",
-    items: [
-      {
-        question: "What if I forget my password?",
-        answer:
-          "You can use the email recovery feature to reset your password easily.",
-      },
-      {
-        question: "Is there a roadmap for future features?",
-        answer:
-          "Yes, we regularly publish our updates and announcements to keep you informed of upcoming improvements.",
-      },
-      {
-        question: "Do you have an automatic backup system?",
-        answer:
-          "Yes, regular backups are performed to ensure your data remains available and protected.",
-      },
-    ],
-  },
-];
+import Link from "next/link";
 
 export default function FAQPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("platform");
-  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
-  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
-
-  // Scroll detection to auto-highlight menu sections
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
-      for (const category of faqData) {
-        const section = sectionRefs.current[category.id];
-        if (section) {
-          const { offsetTop, offsetHeight } = section;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveCategory(category.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleQuestion = (categoryId: string, questionIndex: number) => {
-    const questionId = `${categoryId}-${questionIndex}`;
-    setOpenQuestion(openQuestion === questionId ? null : questionId);
-  };
-
-  const scrollToSection = (categoryId: string) => {
-    const section = sectionRefs.current[categoryId];
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-[#EDECE7] dark:bg-black">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        {/* Header Section */}
-        <div className="mb-20 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            We Have Answers
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-zinc-600 dark:text-zinc-400">
-            It would really be an LLM, but we&apos;re waiting for RAG to truly
-            reach the baseline product stage before we get into it.
-          </p>
-        </div>
-
-        {/* FAQ Content - Two Column Layout */}
-        <div className="mt-8 grid max-w-5xl gap-8 md:mt-12 md:grid-cols-[200px_1fr] md:gap-12 lg:mt-16">
-          {/* Sidebar */}
-          <div className="sticky top-24 flex h-fit flex-col gap-4 max-md:hidden">
-            {faqData.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => scrollToSection(category.id)}
-                className={`justify-start text-left text-xl transition-colors ${
-                  activeCategory === category.id
-                    ? "font-semibold"
-                    : "font-normal hover:opacity-75"
-                }`}
-              >
-                {category.title}
-              </button>
-            ))}
-          </div>
-
-          {/* Right Column - Questions and Answers */}
-          <main>
-            <div className="space-y-8">
-              {faqData.map((category) => (
-                <section
-                  key={category.id}
-                  id={category.id}
-                  ref={(el) => {
-                    sectionRefs.current[category.id] = el;
-                  }}
-                  className="space-y-4"
-                >
-                  {category.items.map((item, index) => {
-                    const questionId = `${category.id}-${index}`;
-                    const isOpen = openQuestion === questionId;
-
-                    return (
-                      <div
-                        key={index}
-                        className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm dark:border-zinc-700 dark:bg-zinc-900"
-                      >
-                        <button
-                          onClick={() => toggleQuestion(category.id, index)}
-                          className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800"
-                        >
-                          <span className="text-base font-semibold text-foreground">
-                            {item.question}
-                          </span>
-                          <svg
-                            className={`h-5 w-5 flex-shrink-0 text-zinc-400 transition-transform ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </button>
-                        {isOpen && (
-                          <div className="border-t border-zinc-100 px-6 py-4 dark:border-zinc-800">
-                            <p className="text-zinc-600 dark:text-zinc-400">{item.answer}</p>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </section>
-              ))}
+    return (
+        <div className="container mx-auto px-4 py-16 max-w-6xl">
+            <div className="mb-16 text-center">
+                <h1 className="text-4xl font-bold mb-4">We have answers</h1>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    It would really be an LLM, but we are waiting for RAG to truly reach the
+                    commodity product stage before we look into it.
+                </p>
             </div>
-          </main>
+
+            <div className="flex flex-col md:flex-row gap-12">
+                {/* Sidebar Navigation */}
+                <aside className="md:w-1/4">
+                    <nav className="sticky top-24 space-y-2">
+                        <Link
+                            href="#about"
+                            className="block p-2 hover:bg-accent rounded-lg transition-colors font-medium text-muted-foreground hover:text-foreground"
+                        >
+                            About the Platform
+                        </Link>
+                        <Link
+                            href="#pricing"
+                            className="block p-2 hover:bg-accent rounded-lg transition-colors font-medium text-muted-foreground hover:text-foreground"
+                        >
+                            Pricing & Plans
+                        </Link>
+                        <Link
+                            href="#support"
+                            className="block p-2 hover:bg-accent rounded-lg transition-colors font-medium text-muted-foreground hover:text-foreground"
+                        >
+                            Support & Assistance
+                        </Link>
+                        <Link
+                            href="#security"
+                            className="block p-2 hover:bg-accent rounded-lg transition-colors font-medium text-muted-foreground hover:text-foreground"
+                        >
+                            Security & Data
+                        </Link>
+                        <Link
+                            href="#features"
+                            className="block p-2 hover:bg-accent rounded-lg transition-colors font-medium text-muted-foreground hover:text-foreground"
+                        >
+                            Features & Integrations
+                        </Link>
+                        <Link
+                            href="#misc"
+                            className="block p-2 hover:bg-accent rounded-lg transition-colors font-medium text-muted-foreground hover:text-foreground"
+                        >
+                            Misc
+                        </Link>
+                    </nav>
+                </aside>
+
+                {/* FAQ Content */}
+                <div className="md:w-3/4 space-y-16">
+                    <section id="about" className="scroll-mt-24">
+                        <h2 className="text-2xl font-bold mb-6">About the Platform</h2>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    What is this platform?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    It is a solution designed to facilitate the management of your
+                                    online processes, automate your key tasks, and improve
+                                    communication with your users.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    What makes our solution unique?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Our platform stands out for its ease of use, optimized
+                                    performance, and features adapted to the real needs of
+                                    today&apos;s users.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="pricing" className="scroll-mt-24">
+                        <h2 className="text-2xl font-bold mb-6">Pricing & Plans</h2>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Is there a free version?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Yes, we offer a free plan with basic features to allow you to
+                                    start immediately. Advanced plans are available to access
+                                    additional tools.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Why do prices vary by plan?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Each plan includes different features and levels of support,
+                                    tailored to specific needs (personal, professional, or
+                                    enterprise).
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="support" className="scroll-mt-24">
+                        <h2 className="text-2xl font-bold mb-6">Support & Assistance</h2>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Is support free?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Basic support is included for free. Premium support options may
+                                    be available depending on your plan.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    How to get immediate assistance?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    You can contact our team via the contact form on the site or
+                                    directly by email for a quick response.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="security" className="scroll-mt-24">
+                        <h2 className="text-2xl font-bold mb-6">Security & Data</h2>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Are my data secure?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Yes, we use modern security protocols to protect your personal
+                                    information and data.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    What happens in case of a leak or outage?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    A continuity plan and regular backups are in place to reduce
+                                    the impact of potential incidents.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="features" className="scroll-mt-24">
+                        <h2 className="text-2xl font-bold mb-6">
+                            Features & Integrations
+                        </h2>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Can I integrate other tools or services?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Yes, our platform supports numerous integrations with external
+                                    tools to optimize your workflows.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Can I update my account without losing my data?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Yes, any update to your account or information is done without
+                                    interruption or loss of content.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="misc" className="scroll-mt-24">
+                        <h2 className="text-2xl font-bold mb-6">Misc</h2>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    What if I forget my password?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    You can use the password recovery feature via email to reset
+                                    your password easily.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Is there a roadmap of future features?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Yes, we regularly publish our updates and announcements to keep
+                                    you informed of upcoming improvements.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">
+                                    Do you have an automatic backup system?
+                                </h3>
+                                <p className="text-muted-foreground">
+                                    Yes, regular backups are performed to guarantee that your data
+                                    remains available and protected.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
