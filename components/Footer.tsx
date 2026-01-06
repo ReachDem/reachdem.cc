@@ -1,119 +1,125 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Rocket, Twitter, Github, Linkedin } from 'lucide-react';
+import { FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { Button } from './ui/button';
+
+const navigation = [
+	{
+		title: 'Product',
+		links: [
+			{ name: 'Features', href: '/#features' },
+			{ name: 'Pricing', href: '/pricing' },
+			{ name: 'Use Cases', href: '/use-cases' },
+			{ name: 'FAQ', href: '/faq' },
+		],
+	},
+	{
+		title: 'Company',
+		links: [
+			{ name: 'About', href: '/about' },
+			{ name: 'Blog', href: '/blog' },
+			{ name: 'Contact', href: '/contact' },
+			{ name: 'Careers', href: '/careers' },
+		],
+	},
+	{
+		title: 'Legal',
+		links: [
+			{ name: 'Terms of Service', href: '/legal/terms' },
+			{ name: 'Privacy Policy', href: '/legal/privacy' },
+			{ name: 'Cookie Policy', href: '/legal/cookie' },
+			{ name: 'Security', href: '/legal/compliance' },
+		],
+	},
+];
+
+
+const socialLinks = [
+	{ name: 'Twitter', icon: FaXTwitter, href: 'https://x.com' },
+	{ name: 'GitHub', icon: FaGithub, href: 'https://github.com' },
+	{ name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com' },
+];
 
 export function Footer() {
-    const currentYear = new Date().getFullYear();
+	const currentYear = new Date().getFullYear();
 
-    return (
-        <footer className="border-t border-gray-100 bg-gray-50">
-            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-                <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-                    {/* Brand & Context */}
-                    <div className="space-y-4 xl:col-span-1">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="relative h-8 w-8">
-                                <Image
-                                    src="/Black.png"
-                                    alt="ReachDem Logo"
-                                    fill
-                                    className="object-contain dark:hidden"
-                                />
-                                <Image
-                                    src="/White Variant.png"
-                                    alt="ReachDem Logo"
-                                    fill
-                                    className="object-contain hidden dark:block"
-                                />
-                            </div>
-                            <span className="text-xl font-bold text-gray-900 dark:text-white">ReachDem</span>
-                        </Link>
-                        <p className="max-w-xs text-sm text-gray-500">
-                            Empowering your communication with seamless reach and engagement. The platform for growth.
-                        </p>
-                        <div className="flex space-x-5">
-                            <a href="#" className="text-gray-400 hover:text-gray-500">
-                                <span className="sr-only">Twitter</span>
-                                <Twitter className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-gray-500">
-                                <span className="sr-only">GitHub</span>
-                                <Github className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-gray-500">
-                                <span className="sr-only">LinkedIn</span>
-                                <Linkedin className="h-5 w-5" />
-                            </a>
-                        </div>
-                    </div>
+	return (
+		<footer className="bg-primary text-primary-foreground">
+			{/* CTA Section */}
+			<div className="border-sand-600 mx-auto flex max-w-[80vw] flex-col items-center border-b py-10 text-center md:py-14 lg:py-20">
+				<h2 className="max-w-[800px] text-5xl leading-none font-semibold tracking-tight text-balance lg:text-6xl">
+					Reach Them, Convert <br />
+					<span className="text-sand-600">Without complexity.</span>
+				</h2>
+				<Button asChild variant="secondary" size="lg" className="mt-9">
+					<Link href="/get-started">Get started for free</Link>
+				</Button>
+			</div>
 
-                    {/* Navigation Links */}
-                    <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-                        <div className="md:grid md:grid-cols-2 md:gap-8">
-                            <div>
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">Product</h3>
-                                <ul className="mt-4 space-y-3">
-                                    <li>
-                                        <Link href="#" className="text-sm text-gray-500 hover:text-gray-900">Features</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/pricing" className="text-sm text-gray-500 hover:text-gray-900">Pricing</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/use-cases" className="text-sm text-gray-500 hover:text-gray-900">Use Cases</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/faq" className="text-sm text-gray-500 hover:text-gray-900">FAQ</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="mt-12 md:mt-0">
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">Company</h3>
-                                <ul className="mt-4 space-y-3">
-                                    <li>
-                                        <Link href="/about" className="text-sm text-gray-500 hover:text-gray-900">About</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/blog" className="text-sm text-gray-500 hover:text-gray-900">Blog</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-900">Contact</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/careers" className="text-sm text-gray-500 hover:text-gray-900">Careers</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="md:grid md:grid-cols-2 md:gap-8">
-                            <div>
-                                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">Legal</h3>
-                                <ul className="mt-4 space-y-3">
-                                    <li>
-                                        <Link href="/legal/terms" className="text-sm text-gray-500 hover:text-gray-900">Terms of Service</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/legal/privacy" className="text-sm text-gray-500 hover:text-gray-900">Privacy Policy</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/legal/cookie" className="text-sm text-gray-500 hover:text-gray-900">Cookie Policy</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/legal/compliance" className="text-sm text-gray-500 hover:text-gray-900">Security</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+			{/* Navigation Section */}
+			<nav className="border-sand-600/50 mx-auto max-w-[80vw] border-b py-6">
+				<div className="container flex flex-wrap gap-x-32 gap-y-12 md:justify-between md:gap-y-16 lg:gap-y-24">
+					{navigation.map((section) => (
+						<div key={section.title}>
+							<h3 className="mb-6 font-medium lg:text-lg">{section.title}</h3>
+							<ul className="space-y-4">
+								{section.links.map((link) => (
+									<li key={link.name}>
+										<Link
+											href={link.href}
+											className="hover:text-muted-foreground transition-colors lg:text-lg"
+										>
+											{link.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</nav>
 
-                {/* Bottom Section */}
-                <div className="mt-12 border-t border-gray-200 pt-8">
-                    <p className="text-base text-gray-400 xl:text-center">
-                        &copy; {currentYear} ReachDem. All rights reserved.
-                    </p>
-                </div>
-            </div>
-        </footer>
-    );
+			{/* Bottom Section */}
+			<div className="container mx-auto max-w-[80vw] py-8">
+				<div className="flex flex-wrap items-center justify-between gap-6">
+					<div className="flex items-center gap-3">
+						<Link href="/" className="flex items-center gap-2">
+							<div className="relative h-6 w-6">
+								<Image
+									src="/White Variant.png"
+									alt="ReachDem Logo"
+									fill
+									className="object-contain dark:hidden"
+								/>
+								<Image
+									src="/Black.png"
+									alt="ReachDem Logo"
+									fill
+									className="object-contain hidden dark:block"
+								/>
+							</div>
+							<span className="font-semibold">ReachDem</span>
+						</Link>
+						<span>
+							© {currentYear} ReachDem. All rights reserved.
+						</span>
+					</div>
+					<div className="flex items-center gap-6">
+						{socialLinks.map((link) => (
+							<Link
+								aria-label={link.href}
+								key={link.href}
+								href={link.href}
+								className="hover:text-muted-foreground transition-colors"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<link.icon size={20} />
+							</Link>
+						))}
+					</div>
+				</div>
+			</div>
+		</footer>
+	);
 }
