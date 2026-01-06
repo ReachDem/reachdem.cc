@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface FAQItem {
   question: string;
@@ -155,23 +155,55 @@ const faqData: FAQCategory[] = [
 export default function FAQPage() {
   const [activeCategory, setActiveCategory] = useState<string>("platform");
   const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Scroll detection to auto-highlight menu sections
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+
+      for (const category of faqData) {
+        const section = sectionRefs.current[category.id];
+        if (section) {
+          const { offsetTop, offsetHeight } = section;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveCategory(category.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleQuestion = (categoryId: string, questionIndex: number) => {
     const questionId = `${categoryId}-${questionIndex}`;
     setOpenQuestion(openQuestion === questionId ? null : questionId);
   };
 
+  const scrollToSection = (categoryId: string) => {
+    const section = sectionRefs.current[categoryId];
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-[#EDECE7] dark:bg-black">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         {/* Header Section */}
-        <div className="mb-16 text-center">
+        <div className="mb-20 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             We Have Answers
           </h1>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-zinc-600 dark:text-zinc-400">
-            It would really be an LLM, but we&apos;re waiting for RAG to truly reach
-            the baseline product stage before we get into it.
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-zinc-600 dark:text-zinc-400">
+            It would really be an LLM, but we&apos;re waiting for RAG to truly
+            reach the baseline product stage before we get into it.
           </p>
         </div>
 
@@ -179,15 +211,15 @@ export default function FAQPage() {
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
           {/* Left Column - Category Navigation */}
           <aside className="lg:w-1/4">
-            <nav className="sticky top-8 space-y-1">
+            <nav className="sticky top-24 space-y-2">
               {faqData.map((category) => (
                 <button
                   key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => scrollToSection(category.id)}
                   className={`block w-full rounded-lg px-4 py-3 text-left text-sm font-medium transition-colors ${
                     activeCategory === category.id
                       ? "bg-foreground text-background"
-                      : "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-900"
+                      : "text-zinc-700 hover:bg-white/50 dark:text-zinc-300 dark:hover:bg-zinc-800/50"
                   }`}
                 >
                   {category.title}
@@ -198,62 +230,56 @@ export default function FAQPage() {
 
           {/* Right Column - Questions and Answers */}
           <main className="lg:w-3/4">
-            <div className="space-y-12">
+            <div className="space-y-8">
               {faqData.map((category) => (
                 <section
                   key={category.id}
                   id={category.id}
-                  className={`${
-                    activeCategory !== category.id ? "hidden lg:block" : ""
-                  }`}
+                  ref={(el) => {
+                    sectionRefs.current[category.id] = el;
+                  }}
+                  className="space-y-4"
                 >
-                  <h2 className="mb-6 text-2xl font-bold text-foreground">
-                    {category.title}
-                  </h2>
-                  <div className="space-y-4">
-                    {category.items.map((item, index) => {
-                      const questionId = `${category.id}-${index}`;
-                      const isOpen = openQuestion === questionId;
+                  {category.items.map((item, index) => {
+                    const questionId = `${category.id}-${index}`;
+                    const isOpen = openQuestion === questionId;
 
-                      return (
-                        <div
-                          key={index}
-                          className="border-b border-zinc-200 dark:border-zinc-800"
+                    return (
+                      <div
+                        key={index}
+                        className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm dark:border-zinc-700 dark:bg-zinc-900"
+                      >
+                        <button
+                          onClick={() => toggleQuestion(category.id, index)}
+                          className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800"
                         >
-                          <button
-                            onClick={() => toggleQuestion(category.id, index)}
-                            className="flex w-full items-center justify-between py-4 text-left transition-colors hover:text-zinc-600 dark:hover:text-zinc-400"
+                          <span className="text-base font-semibold text-foreground">
+                            {item.question}
+                          </span>
+                          <svg
+                            className={`h-5 w-5 flex-shrink-0 text-zinc-400 transition-transform ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                           >
-                            <span className="text-base font-semibold text-foreground">
-                              {item.question}
-                            </span>
-                            <svg
-                              className={`h-5 w-5 flex-shrink-0 transition-transform ${
-                                isOpen ? "rotate-180" : ""
-                              }`}
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 9l-7 7-7-7"
-                              />
-                            </svg>
-                          </button>
-                          {isOpen && (
-                            <div className="pb-4">
-                              <p className="text-zinc-600 dark:text-zinc-400">
-                                {item.answer}
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                        {isOpen && (
+                          <div className="border-t border-zinc-100 px-6 py-4 dark:border-zinc-800">
+                            <p className="text-zinc-600 dark:text-zinc-400">{item.answer}</p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </section>
               ))}
             </div>
