@@ -208,28 +208,26 @@ export default function FAQPage() {
         </div>
 
         {/* FAQ Content - Two Column Layout */}
-        <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
-          {/* Left Column - Category Navigation */}
-          <aside className="lg:w-1/4">
-            <nav className="sticky top-24 space-y-2">
-              {faqData.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => scrollToSection(category.id)}
-                  className={`block w-full rounded-lg px-4 py-3 text-left text-sm font-medium transition-colors ${
-                    activeCategory === category.id
-                      ? "bg-foreground text-background"
-                      : "text-zinc-700 hover:bg-white/50 dark:text-zinc-300 dark:hover:bg-zinc-800/50"
-                  }`}
-                >
-                  {category.title}
-                </button>
-              ))}
-            </nav>
-          </aside>
+        <div className="mt-8 grid max-w-5xl gap-8 md:mt-12 md:grid-cols-[200px_1fr] md:gap-12 lg:mt-16">
+          {/* Sidebar */}
+          <div className="sticky top-24 flex h-fit flex-col gap-4 max-md:hidden">
+            {faqData.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => scrollToSection(category.id)}
+                className={`justify-start text-left text-xl transition-colors ${
+                  activeCategory === category.id
+                    ? "font-semibold"
+                    : "font-normal hover:opacity-75"
+                }`}
+              >
+                {category.title}
+              </button>
+            ))}
+          </div>
 
           {/* Right Column - Questions and Answers */}
-          <main className="lg:w-3/4">
+          <main>
             <div className="space-y-8">
               {faqData.map((category) => (
                 <section
