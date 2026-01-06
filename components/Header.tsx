@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
-import { Menu, X, ChevronDown, Rocket, LifeBuoy, BookOpen, Sun, Moon, Monitor } from "lucide-react";
+import { Menu, X, ChevronDown, Rocket, LifeBuoy, BookOpen, Sun, Moon } from "lucide-react";
 
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
