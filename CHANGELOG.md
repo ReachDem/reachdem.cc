@@ -1,0 +1,24 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+
+
+## PR #6 - Add GitHub workflows for Telegram notifications and changelog generation (REA2-7)
+- **Author:** @Copilot
+- **Date:** 2026-01-05
+- **Link:** [View PR](https://github.com/ReachDem/reachdem.cc/pull/6)
+
+### Commits:
+- fix: use telegram-action@master as requested (989e5ab)
+- fix: use telegram-action@v1 instead of v1.1.0 (e0e7537)
+- fix: replace telegram-action version from v1.1.5 to v1.1.0 (fc9b235)
+- security: add explicit permissions blocks to all workflows (9f99a2e)
+- fix: pin telegram-action to v1.1.5 and add error handling (b21e06c)
+- docs: add setup guide for GitHub workflows (fc6e573)
+- chore: remove trailing spaces from workflow files (94991de)
+- feat: add GitHub workflows for Telegram notifications and changelog generation (REA2-7) (b427a83)
+- Initial plan (4fa87ca)
+
+---
+

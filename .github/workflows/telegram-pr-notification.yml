@@ -1,0 +1,55 @@
+name: Telegram PR Notification
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, review_requested]
+
+jobs:
+  notify-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Get reviewer mentions
+        id: reviewers
+        run: |
+          # Get reviewers from the PR and format them with @ mentions
+          REVIEWERS=$(echo '${{ toJson(github.event.pull_request.requested_reviewers) }}' | jq -r '.[].login' | sed 's/^/@/' | paste -sd ", " -)
+          TEAM_REVIEWERS=$(echo '${{ toJson(github.event.pull_request.requested_teams) }}' | jq -r '.[].name' | sed 's/^/@/' | paste -sd ", " -)
+
+          # Combine both types of reviewers
+          ALL_REVIEWERS=""
+          if [ -n "$REVIEWERS" ]; then
+            ALL_REVIEWERS="$REVIEWERS"
+          fi
+          if [ -n "$TEAM_REVIEWERS" ]; then
+            if [ -n "$ALL_REVIEWERS" ]; then
+              ALL_REVIEWERS="$ALL_REVIEWERS, $TEAM_REVIEWERS"
+            else
+              ALL_REVIEWERS="$TEAM_REVIEWERS"
+            fi
+          fi
+
+          # If no reviewers, set a default message
+          if [ -z "$ALL_REVIEWERS" ]; then
+            ALL_REVIEWERS="No reviewers assigned"
+          fi
+
+          echo "reviewers=$ALL_REVIEWERS" >> $GITHUB_OUTPUT
+
+      - name: Send Telegram notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            📥 *Pull Request ${{ github.event.action }}*
+
+            *Repository:* ${{ github.repository }}
+            *PR:* #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}
+            *Author:* @${{ github.event.pull_request.user.login }}
+            *Branch:* ${{ github.event.pull_request.head.ref }} → ${{ github.event.pull_request.base.ref }}
+            *Reviewers:* ${{ steps.reviewers.outputs.reviewers }}
+
+            [View Pull Request](${{ github.event.pull_request.html_url }})
+          format: markdown
