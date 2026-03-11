@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
@@ -12,11 +11,6 @@ export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const { theme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md dark:bg-black/80 dark:border-white/10">
@@ -24,20 +18,6 @@ export function Header() {
                 {/* Block 1: Logo + Name */}
                 <div className="flex items-center gap-2">
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="relative h-8 w-8">
-                            <Image
-                                src="/Black.png"
-                                alt="ReachDem Logo"
-                                fill
-                                className="object-contain dark:hidden"
-                            />
-                            <Image
-                                src="/White Variant.png"
-                                alt="ReachDem Logo"
-                                fill
-                                className="object-contain hidden dark:block"
-                            />
-                        </div>
                         <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">ReachDem</span>
                     </Link>
                 </div>
@@ -63,14 +43,14 @@ export function Header() {
                                     className="absolute left-0 top-full mt-2 w-64 rounded-lg border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
                                 >
                                     <Link href="/features" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <Rocket className="mt-0.5 h-5 w-5 text-blue-600" />
+                                        <Rocket className="mt-0.5 h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold text-gray-900 dark:text-white">Features</div>
                                             <div className="text-xs text-gray-500 dark:text-gray-400">Discover what ReachDem can do</div>
                                         </div>
                                     </Link>
                                     <Link href="/use-cases" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <BookOpen className="mt-0.5 h-5 w-5 text-blue-600" />
+                                        <BookOpen className="mt-0.5 h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold text-gray-900 dark:text-white">Use Cases</div>
                                             <div className="text-xs text-gray-500 dark:text-gray-400">Solutions for your needs</div>
@@ -100,14 +80,14 @@ export function Header() {
                                     className="absolute left-0 top-full mt-2 w-64 rounded-lg border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
                                 >
                                     <Link href="/blog" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <BookOpen className="mt-0.5 h-5 w-5 text-purple-600" />
+                                        <BookOpen className="mt-0.5 h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold text-gray-900 dark:text-white">Blog</div>
                                             <div className="text-xs text-gray-500 dark:text-gray-400">Latest updates and stories</div>
                                         </div>
                                     </Link>
                                     <Link href="/help" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <LifeBuoy className="mt-0.5 h-5 w-5 text-purple-600" />
+                                        <LifeBuoy className="mt-0.5 h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold text-gray-900 dark:text-white">Help Center</div>
                                             <div className="text-xs text-gray-500 dark:text-gray-400">Guides and documentation</div>
@@ -135,24 +115,19 @@ export function Header() {
                     <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                         Log in
                     </Link>
-                    <Link href="/signup" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 hover:shadow-md">
+                    <Link href="/signup" className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 hover:shadow-md">
                         Get Started
                     </Link>
 
                     {/* Theme Switcher - Moved to Extreme Right */}
-                    {mounted && (
-                        <button
-                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="ml-4 flex items-center justify-center w-10 h-10 rounded-full bg-transparent hover:bg-gray-100 text-gray-500 transition-colors dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-white"
-                            aria-label="Toggle theme"
-                        >
-                            {theme === 'dark' ? (
-                                <Moon className="h-5 w-5" />
-                            ) : (
-                                <Sun className="h-5 w-5" />
-                            )}
-                        </button>
-                    )}
+                    <button
+                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                        className="ml-4 flex items-center justify-center w-10 h-10 rounded-full bg-transparent hover:bg-gray-100 text-gray-500 transition-colors dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                        aria-label="Toggle theme"
+                    >
+                        <Sun className="h-5 w-5 dark:hidden" />
+                        <Moon className="hidden h-5 w-5 dark:block" />
+                    </button>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -202,7 +177,7 @@ export function Header() {
                                 <Link href="/login" className="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-base font-medium text-gray-900 hover:text-gray-900 hover:bg-gray-50 dark:bg-black dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800">
                                     Log in
                                 </Link>
-                                <Link href="/signup" className="flex w-full items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
+                                <Link href="/signup" className="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-2 text-base font-medium text-primary-foreground hover:bg-primary/90">
                                     Get Started
                                 </Link>
                             </div>

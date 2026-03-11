@@ -1,125 +1,149 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaXTwitter, FaGithub, FaLinkedin } from 'react-icons/fa6';
-import { Button } from './ui/button';
+import Image from "next/image";
+import Link from "next/link";
+import { FaFacebook, FaLinkedin, FaTelegram, FaXTwitter } from "react-icons/fa6";
+import { FontSwitcher } from "@/components/FontSwitcher";
 
 const navigation = [
-	{
-		title: 'Product',
-		links: [
-			{ name: 'Features', href: '/#features' },
-			{ name: 'Pricing', href: '/pricing' },
-			{ name: 'Use Cases', href: '/use-cases' },
-			{ name: 'FAQ', href: '/faq' },
-		],
-	},
-	{
-		title: 'Company',
-		links: [
-			{ name: 'About', href: '/about' },
-			{ name: 'Blog', href: '/blog' },
-			{ name: 'Contact', href: '/contact' },
-			{ name: 'Careers', href: '/careers' },
-		],
-	},
-	{
-		title: 'Legal',
-		links: [
-			{ name: 'Terms of Service', href: '/legal/terms' },
-			{ name: 'Privacy Policy', href: '/legal/privacy' },
-			{ name: 'Cookie Policy', href: '/legal/cookie' },
-			{ name: 'Security', href: '/legal/compliance' },
-		],
-	},
+  {
+    title: "Products",
+    links: [
+      { name: "SMS", href: "/pricing" },
+      { name: "Email", href: "/pricing" },
+      { name: "Campaigns", href: "/campaigns" },
+      { name: "Contacts", href: "/contacts" },
+      { name: "API", href: "#" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { name: "Pricing", href: "/pricing" },
+      { name: "FAQ", href: "/faq" },
+      { name: "Demo", href: "/demo" },
+      { name: "Contact", href: "/about" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { name: "About", href: "/about" },
+      { name: "Terms of Service", href: "#" },
+      { name: "Privacy Policy", href: "#" },
+    ],
+  },
 ];
 
-
 const socialLinks = [
-	{ name: 'Twitter', icon: FaXTwitter, href: 'https://x.com' },
-	{ name: 'GitHub', icon: FaGithub, href: 'https://github.com' },
-	{ name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com' },
+  { name: "Twitter", icon: FaXTwitter, href: "https://twitter.com" },
+  { name: "Facebook", icon: FaFacebook, href: "https://facebook.com/" },
+  { name: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/company/101800400" },
+  { name: "Telegram", icon: FaTelegram, href: "https://t.me/reachdem" },
 ];
 
 export function Footer() {
-	const currentYear = new Date().getFullYear();
+  return (
+    <footer className="relative overflow-hidden bg-[#09090b] text-white">
+      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
 
-	return (
-		<footer className="bg-primary text-primary-foreground">
-			{/* CTA Section */}
-			<div className="border-sand-600 mx-auto flex max-w-[80vw] flex-col items-center border-b py-10 text-center md:py-14 lg:py-20">
-				<h2 className="max-w-[800px] text-5xl leading-none font-semibold tracking-tight text-balance lg:text-6xl">
-					Reach Them, Convert <br />
-					<span className="text-sand-600">Without complexity.</span>
-				</h2>
-				<Button asChild variant="secondary" size="lg" className="mt-9">
-					<Link href="/get-started">Get started for free</Link>
-				</Button>
-			</div>
+      <div className="container relative z-10 mx-auto max-w-full px-4 pt-16 pb-8 sm:px-6 sm:pt-20 lg:px-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="max-w-md">
+            <Link href="/" className="inline-block">
+              <Image
+                src="/images/reachdem.png"
+                alt="ReachDem logo"
+                width={70}
+                height={32}
+                className="h-8 w-auto invert"
+              />
+            </Link>
+            <p className="mt-4 text-base leading-relaxed text-white/50">
+              Building communication solutions for businesses and individuals around the globe.
+              Send SMS and emails efficiently with our platform.
+            </p>
 
-			{/* Navigation Section */}
-			<nav className="border-sand-600/50 mx-auto max-w-[80vw] border-b py-6">
-				<div className="container flex flex-wrap gap-x-32 gap-y-12 md:justify-between md:gap-y-16 lg:gap-y-24">
-					{navigation.map((section) => (
-						<div key={section.title}>
-							<h3 className="mb-6 font-medium lg:text-lg">{section.title}</h3>
-							<ul className="space-y-4">
-								{section.links.map((link) => (
-									<li key={link.name}>
-										<Link
-											href={link.href}
-											className="hover:text-muted-foreground transition-colors lg:text-lg"
-										>
-											{link.name}
-										</Link>
-									</li>
-								))}
-							</ul>
-						</div>
-					))}
-				</div>
-			</nav>
+            <form className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                placeholder="Your email..."
+                autoComplete="email"
+                className="h-11 flex-1 rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/30 focus:border-white/20 focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="h-11 rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
 
-			{/* Bottom Section */}
-			<div className="container mx-auto max-w-[80vw] py-8">
-				<div className="flex flex-wrap items-center justify-between gap-6">
-					<div className="flex items-center gap-3">
-						<Link href="/" className="flex items-center gap-2">
-							<div className="relative h-6 w-6">
-								<Image
-									src="/White Variant.png"
-									alt="ReachDem Logo"
-									fill
-									className="object-contain dark:hidden"
-								/>
-								<Image
-									src="/Black.png"
-									alt="ReachDem Logo"
-									fill
-									className="object-contain hidden dark:block"
-								/>
-							</div>
-							<span className="font-semibold">ReachDem</span>
-						</Link>
-						<span>
-							© {currentYear} ReachDem. All rights reserved.
-						</span>
-					</div>
-					<div className="flex items-center gap-6">
-						{socialLinks.map((link) => (
-							<Link
-								aria-label={link.href}
-								key={link.href}
-								href={link.href}
-								className="hover:text-muted-foreground transition-colors"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<link.icon size={20} />
-							</Link>
-						))}
-					</div>
-				</div>
-			</div>
-		</footer>
-	);
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            {navigation.map((section) => (
+              <div key={section.title}>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-white/70">
+                  {section.title}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {section.links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-white/40 transition-colors duration-200 hover:text-white"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        <div className="mt-12 border-t border-white/[0.06] pt-8">
+          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+              <p className="text-sm text-white/30">
+                &copy; {new Date().getFullYear()} ReachDem. All rights reserved.
+              </p>
+              <FontSwitcher dark />
+            </div>
+
+            <a
+              href="https://elevenlabs.io/startup-grants"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity duration-200 hover:opacity-80"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp"
+                alt="ElevenLabs Startup Grants"
+                width={180}
+                height={48}
+                loading="lazy"
+                className="h-10 w-auto invert brightness-200"
+              />
+            </a>
+
+            <div className="flex items-center gap-1">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit our ${link.name} page`}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-white/40 transition-colors duration-200 hover:bg-white/5 hover:text-white"
+                >
+                  <link.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
