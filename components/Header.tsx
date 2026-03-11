@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,7 +10,55 @@ import { Menu, X, ChevronDown, Rocket, LifeBuoy, BookOpen, Sun, Moon } from "luc
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
+    const currentTheme = resolvedTheme === "dark" ? "dark" : "light";
+
+    const setTransitionOrigin = (element: HTMLElement) => {
+        const rect = element.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+
+        document.documentElement.style.setProperty("--theme-wave-x", `${x}px`);
+        document.documentElement.style.setProperty("--theme-wave-y", `${y}px`);
+    };
+
+    const changeThemeWithWave = (nextTheme: "light" | "dark", element: HTMLElement) => {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const currentTheme = resolvedTheme === "dark" ? "dark" : "light";
+
+        if (currentTheme === nextTheme) {
+            return;
+        }
+
+        setTransitionOrigin(element);
+
+        const transitionDocument = document as Document & {
+            startViewTransition?: (callback: () => void) => { finished: Promise<void> };
+        };
+
+        if (!transitionDocument.startViewTransition || prefersReducedMotion) {
+            setTheme(nextTheme);
+            return;
+        }
+
+        document.documentElement.classList.add("theme-transition");
+
+        const transition = transitionDocument.startViewTransition(() => {
+            setTheme(nextTheme);
+        });
+
+        transition.finished.finally(() => {
+            document.documentElement.classList.remove("theme-transition");
+        });
+    };
+
+    const toggleThemeWithWave = (event: MouseEvent<HTMLButtonElement>) => {
+        changeThemeWithWave(currentTheme === "dark" ? "light" : "dark", event.currentTarget);
+    };
+
+    const setSpecificThemeWithWave = (event: MouseEvent<HTMLButtonElement>, nextTheme: "light" | "dark") => {
+        changeThemeWithWave(nextTheme, event.currentTarget);
+    };
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md dark:bg-black/80 dark:border-white/10">
@@ -121,12 +169,43 @@ export function Header() {
 
                     {/* Theme Switcher - Moved to Extreme Right */}
                     <button
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        className="ml-4 flex items-center justify-center w-10 h-10 rounded-full bg-transparent hover:bg-gray-100 text-gray-500 transition-colors dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                        onClick={toggleThemeWithWave}
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-gray-500 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-white"
                         aria-label="Toggle theme"
                     >
-                        <Sun className="h-5 w-5 dark:hidden" />
-                        <Moon className="hidden h-5 w-5 dark:block" />
+                        <AnimatePresence mode="wait" initial={false}>
+                            {currentTheme === "dark" ? (
+                                <motion.span
+                                    key="moon"
+                                    initial={{ rotate: 140, scale: 0.35, opacity: 0, y: 6 }}
+                                    animate={{ rotate: 0, scale: 1, opacity: 1, y: 0 }}
+                                    exit={{ rotate: -120, scale: 0.35, opacity: 0, y: -6 }}
+                                    transition={{
+                                        duration: 0.5,
+                                        ease: [0.22, 1, 0.36, 1],
+                                        scale: { type: "spring", stiffness: 260, damping: 16 },
+                                    }}
+                                    className="flex items-center justify-center"
+                                >
+                                    <Moon className="h-5 w-5" />
+                                </motion.span>
+                            ) : (
+                                <motion.span
+                                    key="sun"
+                                    initial={{ rotate: -140, scale: 0.35, opacity: 0, y: 6 }}
+                                    animate={{ rotate: 0, scale: 1, opacity: 1, y: 0 }}
+                                    exit={{ rotate: 120, scale: 0.35, opacity: 0, y: -6 }}
+                                    transition={{
+                                        duration: 0.5,
+                                        ease: [0.22, 1, 0.36, 1],
+                                        scale: { type: "spring", stiffness: 260, damping: 16 },
+                                    }}
+                                    className="flex items-center justify-center"
+                                >
+                                    <Sun className="h-5 w-5" />
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
                     </button>
                 </div>
 
@@ -165,10 +244,10 @@ export function Header() {
 
                             {/* Mobile Theme Switcher */}
                             <div className="flex gap-2 py-4">
-                                <button onClick={() => setTheme('light')} className="flex-1 rounded-lg border border-gray-200 p-2 text-sm font-medium text-gray-900 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-800 text-center">
+                                <button onClick={(event) => setSpecificThemeWithWave(event, 'light')} className="flex-1 rounded-lg border border-gray-200 p-2 text-sm font-medium text-gray-900 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-800 text-center">
                                     Light
                                 </button>
-                                <button onClick={() => setTheme('dark')} className="flex-1 rounded-lg border border-gray-200 p-2 text-sm font-medium text-gray-900 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-800 text-center">
+                                <button onClick={(event) => setSpecificThemeWithWave(event, 'dark')} className="flex-1 rounded-lg border border-gray-200 p-2 text-sm font-medium text-gray-900 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-800 text-center">
                                     Dark
                                 </button>
                             </div>
