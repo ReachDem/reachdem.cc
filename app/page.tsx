@@ -10,16 +10,25 @@ export default function Home() {
     <>
       <Hero195
         title={
-          <span className="xl:inline-flex xl:items-baseline xl:gap-[0.35em] xl:whitespace-nowrap">
-            <span className="block xl:inline">Reach them</span>
-            <span className="block xl:inline-block">
+          <>
+            <span className="block lg:hidden">
+              <span className="block">Reach them</span>
               <WordRotate
-                className="min-w-[10ch] xl:min-w-0"
-                duration={2000}
+                className="mt-1 block"
+                duration={3500}
                 words={["everywhere", "anytime"]}
               />
             </span>
-          </span>
+            <span className="hidden lg:inline-flex lg:items-baseline lg:gap-[0.35em] lg:whitespace-nowrap">
+              <span className="inline">Reach them</span>
+              <WordRotate
+                className="lg:min-w-0"
+                duration={3500}
+                smoothWidth
+                words={["everywhere", "anytime"]}
+              />
+            </span>
+          </>
         }
         description="Maximize your communications impact by reaching all your customers through SMS, from one fast and reliable platform."
         primaryButtonText="Get started for free"

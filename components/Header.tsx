@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,6 +11,11 @@ export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const { resolvedTheme, setTheme } = useTheme();
+    const mounted = useSyncExternalStore(
+        () => () => {},
+        () => true,
+        () => false,
+    );
     const currentTheme = resolvedTheme === "dark" ? "dark" : "light";
 
     const setTransitionOrigin = (element: HTMLElement) => {
@@ -173,39 +178,45 @@ export function Header() {
                         className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-gray-500 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-white"
                         aria-label="Toggle theme"
                     >
-                        <AnimatePresence mode="wait" initial={false}>
-                            {currentTheme === "dark" ? (
-                                <motion.span
-                                    key="moon"
-                                    initial={{ rotate: 140, scale: 0.35, opacity: 0, y: 6 }}
-                                    animate={{ rotate: 0, scale: 1, opacity: 1, y: 0 }}
-                                    exit={{ rotate: -120, scale: 0.35, opacity: 0, y: -6 }}
-                                    transition={{
-                                        duration: 0.5,
-                                        ease: [0.22, 1, 0.36, 1],
-                                        scale: { type: "spring", stiffness: 260, damping: 16 },
-                                    }}
-                                    className="flex items-center justify-center"
-                                >
-                                    <Moon className="h-5 w-5" />
-                                </motion.span>
-                            ) : (
-                                <motion.span
-                                    key="sun"
-                                    initial={{ rotate: -140, scale: 0.35, opacity: 0, y: 6 }}
-                                    animate={{ rotate: 0, scale: 1, opacity: 1, y: 0 }}
-                                    exit={{ rotate: 120, scale: 0.35, opacity: 0, y: -6 }}
-                                    transition={{
-                                        duration: 0.5,
-                                        ease: [0.22, 1, 0.36, 1],
-                                        scale: { type: "spring", stiffness: 260, damping: 16 },
-                                    }}
-                                    className="flex items-center justify-center"
-                                >
-                                    <Sun className="h-5 w-5" />
-                                </motion.span>
-                            )}
-                        </AnimatePresence>
+                        {!mounted ? (
+                            <span className="flex items-center justify-center">
+                                <Sun className="h-5 w-5" />
+                            </span>
+                        ) : (
+                            <AnimatePresence mode="wait" initial={false}>
+                                {currentTheme === "dark" ? (
+                                    <motion.span
+                                        key="moon"
+                                        initial={{ rotate: 140, scale: 0.35, opacity: 0, y: 6 }}
+                                        animate={{ rotate: 0, scale: 1, opacity: 1, y: 0 }}
+                                        exit={{ rotate: -120, scale: 0.35, opacity: 0, y: -6 }}
+                                        transition={{
+                                            duration: 0.5,
+                                            ease: [0.22, 1, 0.36, 1],
+                                            scale: { type: "spring", stiffness: 260, damping: 16 },
+                                        }}
+                                        className="flex items-center justify-center"
+                                    >
+                                        <Moon className="h-5 w-5" />
+                                    </motion.span>
+                                ) : (
+                                    <motion.span
+                                        key="sun"
+                                        initial={{ rotate: -140, scale: 0.35, opacity: 0, y: 6 }}
+                                        animate={{ rotate: 0, scale: 1, opacity: 1, y: 0 }}
+                                        exit={{ rotate: 120, scale: 0.35, opacity: 0, y: -6 }}
+                                        transition={{
+                                            duration: 0.5,
+                                            ease: [0.22, 1, 0.36, 1],
+                                            scale: { type: "spring", stiffness: 260, damping: 16 },
+                                        }}
+                                        className="flex items-center justify-center"
+                                    >
+                                        <Sun className="h-5 w-5" />
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
+                        )}
                     </button>
                 </div>
 
