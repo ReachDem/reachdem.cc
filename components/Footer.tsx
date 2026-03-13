@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaTelegram, FaXTwitter } from "react-icons/fa6";
 import { FontSwitcher } from "@/components/FontSwitcher";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const navigation = [
   {
@@ -26,9 +28,10 @@ const navigation = [
   {
     title: "Company",
     links: [
+      { name: "Roadmap", href: "/roadmap" },
       { name: "About", href: "/about" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Privacy Policy", href: "#" },
+      { name: "Terms of Service", href: "/terms" },
+      { name: "Privacy Policy", href: "/privacy" },
     ],
   },
 ];
@@ -63,19 +66,36 @@ export function Footer() {
             </p>
 
             <form className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <input
+              <Input
                 type="email"
                 placeholder="Your email..."
                 autoComplete="email"
-                className="h-11 flex-1 rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/30 focus:border-white/20 focus:outline-none"
+                className="h-11 flex-1 border-white/10 bg-white/5 px-4 text-sm text-white shadow-none placeholder:text-white/30 focus-visible:border-white/20 focus-visible:ring-white/10"
               />
-              <button
+              <Button
                 type="submit"
-                className="h-11 rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                className="h-11 rounded-xl px-6 text-sm font-semibold"
               >
                 Subscribe
-              </button>
+              </Button>
             </form>
+            <p className="mt-6 text-sm text-white/30">Backed by</p>
+            <a
+              href="https://elevenlabs.io/startup-grants"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex transition-opacity duration-200 hover:opacity-80"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp"
+                alt="ElevenLabs Startup Grants"
+                width={100}
+                height={25}
+                loading="lazy"
+                className="h-7 w-auto invert brightness-200"
+              />
+            </a>
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
@@ -109,23 +129,6 @@ export function Footer() {
               </p>
               <FontSwitcher dark />
             </div>
-
-            <a
-              href="https://elevenlabs.io/startup-grants"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-opacity duration-200 hover:opacity-80"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp"
-                alt="ElevenLabs Startup Grants"
-                width={180}
-                height={48}
-                loading="lazy"
-                className="h-10 w-auto invert brightness-200"
-              />
-            </a>
 
             <div className="flex items-center gap-1">
               {socialLinks.map((link) => (

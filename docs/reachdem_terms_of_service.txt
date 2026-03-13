@@ -1,0 +1,202 @@
+# Terms of Service
+
+**Effective Date:** March 12, 2026  
+**Last Updated:** March 12, 2026
+
+These Terms of Service (“**Terms**”) govern your access to and use of the website, platform, applications, APIs, communication tools, analytics tools, public profile tools, link management features, and related products and services provided by **REACHDEM INC.**, located in **Miami, Florida, United States** (“**ReachDem**,” “**we**,” “**us**,” or “**our**”), including **Links by ReachDem** and any related offerings (collectively, the “**Services**”).
+
+By accessing, browsing, registering for, or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, you must not access or use the Services.
+
+If you use the Services on behalf of a company, organization, agency, or other legal entity, you represent and warrant that you have authority to bind that entity to these Terms, in which case “you” and “your” refer to that entity as well as the individual acting on its behalf.
+
+## 1. About ReachDem
+
+ReachDem provides a software platform and related tools designed to help businesses, professionals, entrepreneurs, and organizations manage communication, contacts, audience segmentation, campaigns, links, analytics, public profile pages, digital identity experiences, and related workflows across supported channels.
+
+Depending on the features enabled, the Services may include account and workspace management, contacts and groups, dynamic segmentation, campaign creation and delivery, link shortening and tracking, public profile or link pages, digital business card experiences, analytics, APIs, integrations, automations, and AI-assisted functionality.
+
+## 2. Eligibility and Acceptable Use
+
+You may use the Services only if you are legally capable of entering into a binding agreement and are authorized to do so under applicable law. The Services are intended primarily for professional, business, commercial, entrepreneurial, and organizational use.
+
+You agree to use the Services only in compliance with these Terms and all applicable laws, regulations, platform policies, industry rules, communication rules, anti-spam laws, privacy laws, telecom requirements, and third-party requirements applicable to your use case.
+
+You may not use the Services for unlawful, misleading, fraudulent, abusive, harassing, defamatory, discriminatory, infringing, or deceptive purposes. You may not use the Services to distribute malware, phishing content, unsolicited bulk messages, scam content, illegal promotions, harmful code, or any content that violates the rights of others or could damage the integrity, availability, or reputation of the Services.
+
+You also may not attempt to gain unauthorized access to the Services, reverse engineer restricted parts of the platform except where expressly permitted by law, interfere with the operation of the Services, bypass usage limitations, or use the Services in a way that imposes unreasonable load or risk on our systems or partners.
+
+## 3. Accounts and Workspace Responsibility
+
+To access certain features, you may be required to create an account or be invited to a workspace. You agree to provide accurate, complete, and current information and to keep your account information updated.
+
+You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account or within your workspace, whether or not such activities are authorized by you. If you believe your account has been compromised or used without authorization, you must notify us promptly.
+
+If you create or administer a workspace, you are responsible for managing users, permissions, roles, configurations, content, and customer data associated with that workspace. Workspace owners and administrators are responsible for ensuring that team members and collaborators comply with these Terms.
+
+## 4. Customer Data
+
+As between ReachDem and you, you retain responsibility for the data, content, contact records, messages, links, media, forms, campaigns, custom fields, and other material that you upload, submit, sync, create, send, or otherwise process through the Services (“**Customer Data**”).
+
+You represent and warrant that you have all rights, permissions, and lawful bases necessary to collect, use, upload, store, process, share, and transmit Customer Data through the Services, including for communications sent to contacts, leads, prospects, subscribers, or other recipients.
+
+You are solely responsible for the accuracy, quality, legality, integrity, and appropriateness of Customer Data and for the means by which you obtained it. ReachDem does not independently verify whether your Customer Data was collected lawfully, whether recipients consented to be contacted, or whether your campaigns comply with applicable law.
+
+We may process Customer Data as necessary to provide the Services, maintain security, comply with law, enforce these Terms, and perform our contractual obligations, as described in our Privacy Policy and any applicable data processing agreement.
+
+## 5. Communications, Campaigns, and Messaging Compliance
+
+If you use ReachDem to create, route, send, schedule, manage, or analyze communications, you are solely responsible for ensuring that such communications comply with all applicable laws and platform rules. This includes laws and rules relating to consent, opt-in requirements, subscription management, sender identification, message content, promotions, telecom regulations, consumer protection, privacy, and anti-spam obligations.
+
+You must not use the Services to send unsolicited or unlawful communications, including spam, abusive outreach, misleading commercial messages, or content that violates recipient rights or third-party platform rules.
+
+You are responsible for honoring unsubscribe requests, opt-out instructions, do-not-contact preferences, and suppression obligations. You are also responsible for ensuring that your recipient lists are lawfully sourced, maintained, and used.
+
+ReachDem reserves the right to monitor for abuse indicators, enforce usage limitations, suspend messaging activity, remove prohibited content, or restrict access where necessary to protect the Services, our partners, recipients, or other users.
+
+## 6. Public Pages, Links, and Profiles
+
+Certain features of the Services, including Links by ReachDem, may allow you to create public-facing pages, short links, digital profile pages, bio pages, form pages, and related public content experiences.
+
+You are solely responsible for all information, links, text, media, business details, contact information, promotional content, forms, and other material that you publish or make publicly accessible through those features. You acknowledge that any content you choose to make public may be accessed, copied, indexed, shared, or used by third parties.
+
+ReachDem may remove or restrict public content that violates these Terms, applicable law, third-party rights, or platform integrity standards.
+
+## 7. APIs, Integrations, and Developer Use
+
+If ReachDem provides APIs, webhooks, developer tools, or integration capabilities, your use of those features must comply with these Terms and any additional developer documentation, technical limits, or supplemental policies that we may publish.
+
+You may not misuse the API, exceed reasonable rate limits, access unauthorized data, interfere with service stability, or use the API in a manner that compromises security, privacy, or platform performance. We may suspend or restrict API access at any time to prevent abuse, enforce limits, or protect the Services.
+
+You are responsible for the security, legality, and reliability of any applications, automations, or integrations you build or connect to the Services.
+
+## 8. AI Features
+
+ReachDem may provide AI-powered or automated features, including content suggestions, personalization assistance, message drafting support, predictive insights, optimization recommendations, workflow enhancements, or similar functionality.
+
+These features are provided for convenience and operational assistance only. AI-generated outputs may be incomplete, inaccurate, unsuitable, biased, or contextually incorrect. You remain fully responsible for reviewing, validating, editing, and approving any AI-generated output before using it in campaigns, communications, workflows, or business decisions.
+
+You may not use AI features in a way that violates law, infringes rights, or creates unlawful profiling, deceptive practices, or harmful automated outcomes.
+
+## 9. Fees, Billing, and Subscriptions
+
+Certain parts of the Services may be offered on a paid basis, including subscriptions, usage-based pricing, premium features, add-ons, messaging credits, or enterprise plans. By purchasing or subscribing to paid Services, you agree to pay all applicable fees, charges, taxes, and amounts due under the plan or pricing structure in effect at the time of purchase.
+
+Unless otherwise stated in writing, fees are non-refundable except where required by law. Subscription plans may renew automatically unless canceled before the applicable renewal date. You authorize us, and our third-party payment providers, to charge the payment method on file for recurring fees, usage charges, overages, taxes, and other applicable amounts.
+
+If payment cannot be completed, we may suspend or restrict access to paid features until the outstanding amount is resolved. We reserve the right to change pricing, packaging, feature availability, or billing structure at any time, provided that any material changes will apply prospectively.
+
+## 10. Trials, Beta Features, and Early Access
+
+We may offer free trials, pilot programs, beta features, experimental tools, or early access functionality. Such features may be modified, limited, interrupted, or discontinued at any time without liability.
+
+Beta or early access features are provided “as is” and may contain bugs, errors, limitations, or reduced support. We make no commitment that such features will become generally available or remain available in their current form.
+
+## 11. Intellectual Property
+
+The Services, including all software, code, designs, interfaces, workflows, trademarks, logos, branding, graphics, text, documentation, analytics structures, and related materials provided by ReachDem, are owned by or licensed to ReachDem and are protected by intellectual property laws.
+
+Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable right to access and use the Services for your internal business or authorized commercial purposes during the applicable subscription or access period.
+
+Except as expressly permitted in these Terms, you may not copy, modify, distribute, sell, lease, sublicense, reverse engineer, decompile, create derivative works from, or otherwise exploit the Services or any part of them without our prior written consent.
+
+“ReachDem,” “Links by ReachDem,” and related names, marks, logos, product names, and branding elements are our trademarks or those of our licensors. You may not use them without prior written permission except as allowed by law.
+
+## 12. Ownership of Customer Data and Feedback
+
+You retain ownership of your Customer Data, subject to the rights you grant us to host, copy, process, transmit, display, analyze, and otherwise use that data as necessary to provide, support, improve, secure, and operate the Services and to comply with law and enforce these Terms.
+
+If you provide us with suggestions, ideas, enhancement requests, comments, or other feedback relating to the Services, you agree that we may use such feedback without restriction or compensation, and without any obligation to you, provided that we do not publicly identify your confidential business information as part of that use.
+
+## 13. Privacy and Data Protection
+
+Our collection and use of personal data are described in our Privacy Policy. By using the Services, you acknowledge that personal data may be collected, processed, and used as described there.
+
+Where ReachDem processes personal data on your behalf as a processor or service provider, you remain responsible for ensuring that you have an appropriate lawful basis and all required notices, consents, and permissions for the personal data you use through the Services.
+
+## 14. Confidentiality
+
+If you receive non-public information from ReachDem relating to the Services, technology, security, business operations, roadmap, pricing, or other confidential matters, you agree not to disclose or use such information except as necessary to use the Services in accordance with these Terms.
+
+Likewise, we will treat your non-public Customer Data as confidential and will use it only as permitted by these Terms, our Privacy Policy, applicable agreements, and applicable law.
+
+Confidentiality obligations do not apply to information that is or becomes publicly available without breach, was already lawfully known, is independently developed without misuse of confidential information, or is lawfully obtained from a third party without confidentiality restriction.
+
+## 15. Service Availability and Changes
+
+We may modify, improve, update, suspend, or discontinue any part of the Services at any time. We do not guarantee that any specific feature, integration, channel, or functionality will always be available, uninterrupted, or error-free.
+
+From time to time, the Services may be unavailable due to maintenance, upgrades, outages, third-party failures, abuse prevention measures, or events beyond our reasonable control. We will use commercially reasonable efforts to maintain service continuity, but we do not guarantee uninterrupted availability.
+
+We may also impose technical or usage limits where necessary for security, stability, compliance, pricing, or operational reasons.
+
+## 16. Third-Party Services
+
+The Services may integrate with or rely on third-party products, platforms, messaging providers, payment providers, infrastructure vendors, external websites, social networks, or software tools. Your use of third-party services is governed by the terms and privacy practices of those third parties.
+
+ReachDem is not responsible for third-party services, including their availability, pricing, functionality, policies, downtime, or data handling practices. If a third-party service changes, restricts, suspends, or stops supporting an integration or channel, we may need to modify or discontinue the related functionality within ReachDem.
+
+## 17. Suspension and Termination
+
+We may suspend, restrict, or terminate your access to all or part of the Services at any time, with or without notice, if we reasonably believe that you have violated these Terms, created legal or security risk, failed to pay applicable fees, engaged in abusive or fraudulent conduct, or used the Services in a way that may harm ReachDem, other users, third parties, or recipients.
+
+You may stop using the Services at any time. If you are on a paid plan, termination or cancellation does not automatically entitle you to a refund unless required by law or expressly stated otherwise.
+
+Upon termination, your right to use the Services will cease. We may delete or disable access to Customer Data in accordance with our retention practices, contractual commitments, legal obligations, and technical policies.
+
+Sections of these Terms that by their nature should survive termination will survive, including provisions relating to fees owed, intellectual property, disclaimers, limitations of liability, indemnification, confidentiality, governing law, and dispute resolution.
+
+## 18. Disclaimers
+
+THE SERVICES ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS TO THE MAXIMUM EXTENT PERMITTED BY LAW. REACHDEM DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, QUIET ENJOYMENT, OR THAT THE SERVICES WILL BE UNINTERRUPTED, SECURE, ACCURATE, ERROR-FREE, OR SUITABLE FOR YOUR PARTICULAR NEEDS.
+
+We do not warrant that campaigns will be delivered successfully, that messages will reach recipients, that recipients will engage with content, that analytics will be error-free, or that third-party channels will remain available or unchanged.
+
+No advice or information given by ReachDem, whether oral or written, creates any warranty unless expressly stated in writing.
+
+## 19. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, REACHDEM AND ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, LICENSORS, AND SERVICE PROVIDERS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, BUSINESS, GOODWILL, USE, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATING TO THE SERVICES OR THESE TERMS, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE TOTAL AGGREGATE LIABILITY OF REACHDEM FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THE SERVICES OR THESE TERMS SHALL NOT EXCEED THE AMOUNT PAID BY YOU TO REACHDEM FOR THE SERVICES DURING THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM, OR ONE HUNDRED U.S. DOLLARS (USD $100) IF YOU HAVE NOT PAID ANY AMOUNTS TO REACHDEM, WHICHEVER IS GREATER.
+
+Some jurisdictions do not allow certain exclusions or limitations, so some of the above may not apply to you to the extent prohibited by law.
+
+## 20. Indemnification
+
+You agree to defend, indemnify, and hold harmless ReachDem, its affiliates, officers, directors, employees, contractors, and agents from and against any claims, liabilities, damages, losses, judgments, settlements, penalties, fines, costs, and expenses, including reasonable attorneys’ fees, arising out of or relating to your Customer Data, your use of the Services, your communications or campaigns, your violation of these Terms, your violation of applicable law, or your violation of any rights of a third party.
+
+## 21. Governing Law and Dispute Resolution
+
+These Terms are governed by the laws of the **State of Florida**, without regard to conflict of law principles.
+
+Any dispute, claim, or controversy arising out of or relating to these Terms or the Services shall be brought in the state or federal courts located in **Miami, Florida**, and you consent to the personal jurisdiction and venue of those courts, unless otherwise required by applicable law.
+
+## 22. Export Controls and Sanctions
+
+You agree not to access or use the Services in violation of applicable export control laws, sanctions laws, or trade restrictions of the United States or other applicable jurisdictions. You represent that you are not located in, organized under the laws of, or ordinarily resident in a country or territory subject to comprehensive sanctions in a manner that would prohibit access to the Services, and that you are not listed on any applicable restricted party list.
+
+## 23. Entire Agreement
+
+These Terms, together with our Privacy Policy and any additional written agreement, order form, subscription terms, or data processing agreement that applies to your use of the Services, constitute the entire agreement between you and ReachDem regarding the Services and supersede any prior or contemporaneous understandings, communications, or agreements relating to the same subject matter.
+
+## 24. Severability and Waiver
+
+If any provision of these Terms is held to be invalid, illegal, or unenforceable, the remaining provisions will remain in full force and effect. A failure by ReachDem to enforce any provision of these Terms shall not constitute a waiver of that provision or any other right.
+
+## 25. Assignment
+
+You may not assign or transfer these Terms, in whole or in part, without our prior written consent. We may assign or transfer these Terms, in whole or in part, including in connection with a merger, acquisition, corporate reorganization, or sale of assets.
+
+## 26. Changes to These Terms
+
+We may update these Terms from time to time to reflect changes in the Services, business operations, legal requirements, pricing models, or compliance needs. When we make changes, we will update the “Last Updated” date at the top of this page. Material changes may also be communicated through the Services, by email, or by other appropriate means.
+
+Your continued use of the Services after updated Terms become effective constitutes your acceptance of the revised Terms, to the extent permitted by law.
+
+## 27. Contact Information
+
+If you have any questions about these Terms, you may contact us at:
+
+**REACHDEM INC.**  
+Miami, Florida, USA  
+Email: **contact@reachdem.cc**  

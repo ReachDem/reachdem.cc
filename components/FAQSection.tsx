@@ -82,7 +82,7 @@ const faqItems: FAQItem[] = [
     category: "Support",
     question: "How do I get immediate assistance?",
     answer:
-      "You can contact our team via the contact form on the site or directly by email for a quick response.",
+      "You can contact our team via the contact form on the site or directly through contact@reachdem.cc for a quick response.",
   },
   {
     category: "Support",

@@ -146,6 +146,13 @@ export function Header() {
                                             <div className="text-xs text-gray-500 dark:text-gray-400">Guides and documentation</div>
                                         </div>
                                     </Link>
+                                    <Link href="/roadmap" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
+                                        <Rocket className="mt-0.5 h-5 w-5 text-primary" />
+                                        <div>
+                                            <div className="font-semibold text-gray-900 dark:text-white">Roadmap</div>
+                                            <div className="text-xs text-gray-500 dark:text-gray-400">See what ReachDem is shipping next</div>
+                                        </div>
+                                    </Link>
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -248,6 +255,7 @@ export function Header() {
                                 <div className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-gray-400">Resources</div>
                                 <Link href="/blog" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Blog</Link>
                                 <Link href="/help" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Help Center</Link>
+                                <Link href="/roadmap" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Roadmap</Link>
                             </div>
                             <Link href="/pricing" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Pricing</Link>
                             <Link href="/faq" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">FAQ</Link>
