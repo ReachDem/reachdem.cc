@@ -30,131 +30,123 @@ const faqItems: FAQItem[] = [
   // Platform Questions
   {
     category: "Platform",
-    question: "What is this platform?",
+    question: "What is ReachDem?",
     answer:
-      "This is a solution designed to facilitate the management of your online processes, automate your key tasks, and improve communication with your users.",
+      "ReachDem is a communication and engagement platform that helps businesses centralize their audience operations, manage contacts, segment users, launch campaigns, and track performance from a single workspace.",
   },
   {
     category: "Platform",
-    question: "What makes our solution unique?",
+    question: "Who is ReachDem built for?",
     answer:
-      "Our platform stands out for its ease of use, optimized performance, and features tailored to the real needs of today's users.",
+      "ReachDem is built for startups, small and medium-sized businesses, agencies, sales teams, marketing teams, and organizations that want a more structured and scalable way to communicate with their customers.",
   },
   {
     category: "Platform",
-    question: "Who is this platform for?",
+    question: "Do I need technical skills to use ReachDem?",
     answer:
-      "Our platform is designed for individuals, professionals, and businesses looking to streamline their online operations and improve their workflow efficiency.",
+      "No. ReachDem is designed to be easy to use for non-technical teams, while still offering advanced capabilities for developers and technical teams through APIs and integrations.",
   },
+
   // Pricing Questions
   {
     category: "Pricing",
-    question: "Is there a free version?",
+    question: "How does ReachDem pricing work?",
     answer:
-      "Yes, we offer a free plan with basic features to get you started right away. Advanced plans are available to access additional tools.",
+      "ReachDem pricing is generally based on your usage, the features you need, and the scale of your organization. This makes it easier to choose a plan that fits your current stage and growth goals.",
   },
   {
     category: "Pricing",
-    question: "Why do prices vary between plans?",
+    question: "Do you offer plans for small businesses?",
     answer:
-      "Each plan includes different features and levels of support, tailored to specific needs (personal, professional, or enterprise).",
+      "Yes. ReachDem is designed to support growing businesses with flexible plans that allow teams to start with the essentials and expand as their needs evolve.",
   },
   {
     category: "Pricing",
-    question: "Can I upgrade or downgrade my plan?",
+    question: "Are there any hidden fees?",
     answer:
-      "Yes, you can change your plan at any time. When upgrading, you'll get immediate access to new features. When downgrading, changes take effect at the start of your next billing cycle.",
+      "No. We aim to keep pricing transparent. Any additional costs related to higher usage, premium features, or specific communication channels are clearly outlined in advance.",
   },
-  {
-    category: "Pricing",
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept all major credit cards, debit cards, and PayPal. Enterprise customers can also arrange for invoice-based billing.",
-  },
+
   // Support Questions
   {
     category: "Support",
-    question: "Is support free?",
+    question: "What kind of support does ReachDem provide?",
     answer:
-      "Basic support is included for free. Premium support options may be available depending on your plan.",
+      "ReachDem provides support to help customers get started, configure their workspace, understand key features, and resolve technical or operational issues as they arise.",
   },
   {
     category: "Support",
-    question: "How do I get immediate assistance?",
+    question: "Do you help with onboarding?",
     answer:
-      "You can contact our team via the contact form on the site or directly through contact@reachdem.cc for a quick response.",
+      "Yes. We can help with onboarding, including workspace setup, contact imports, audience organization, and the launch of your first campaigns.",
   },
   {
     category: "Support",
-    question: "What are your support hours?",
+    question: "How can I contact support?",
     answer:
-      "Our support team is available Monday through Friday, 9 AM to 6 PM (local time). Premium plan members have access to extended support hours.",
+      "You can contact the ReachDem team through the support channels available on the platform, such as email, contact forms, or any support options included in your plan.",
   },
+
   // Security Questions
   {
     category: "Security",
-    question: "Is my data secure?",
+    question: "Is my contact and customer data secure?",
     answer:
-      "Yes, we use modern security protocols to protect your personal information and data.",
+      "Yes. ReachDem takes data security seriously and applies technical and organizational measures to help protect the information stored on the platform.",
   },
   {
     category: "Security",
-    question: "What happens in case of a breach or outage?",
+    question: "Who can access data in my workspace?",
     answer:
-      "A continuity plan and regular backups are in place to minimize the impact of potential incidents.",
+      "Access to data depends on the roles and permissions configured within your organization, helping you control who can view, manage, or update specific information and actions.",
   },
   {
     category: "Security",
-    question: "Where is my data stored?",
+    question: "How does ReachDem protect user accounts?",
     answer:
-      "Your data is stored on secure servers in certified data centers that comply with international security standards and regulations.",
+      "ReachDem uses secure authentication practices and access controls to reduce the risk of unauthorized access and help keep user accounts protected.",
   },
-  {
-    category: "Security",
-    question: "Can I export my data?",
-    answer:
-      "Yes, you can export your data at any time in standard formats. We believe in data portability and will never lock in your information.",
-  },
+
   // Features Questions
   {
     category: "Features",
-    question: "Can I integrate other tools or services?",
+    question: "What can I do with ReachDem?",
     answer:
-      "Yes, our platform supports numerous integrations with external tools to optimize your workflows.",
+      "With ReachDem, you can manage contacts, organize groups and segments, run communication campaigns, track engagement, and streamline customer communication workflows from one place.",
   },
   {
     category: "Features",
-    question: "Can I update my account without losing my data?",
+    question: "Can I segment my audience?",
     answer:
-      "Yes, any update to your account or information is done without interruption or content loss.",
+      "Yes. ReachDem lets you structure and segment your audience so you can send more targeted, relevant, and personalized communication to the right people.",
   },
   {
     category: "Features",
-    question: "Do you offer an API?",
+    question: "Can I track campaign performance?",
     answer:
-      "Yes, we provide a comprehensive REST API that allows you to integrate our platform with your existing systems and build custom solutions.",
+      "Yes. ReachDem provides campaign tracking and performance insights to help you measure engagement, understand audience behavior, and improve future communication results.",
   },
+
   // Other Questions
   {
     category: "Other",
-    question: "What if I forget my password?",
+    question: "Can ReachDem grow with my business?",
     answer:
-      "You can use the email recovery feature to reset your password easily.",
+      "Yes. ReachDem is designed to scale with your business as your number of contacts, campaigns, users, and communication needs increase over time.",
   },
   {
     category: "Other",
-    question: "Is there a roadmap for future features?",
+    question: "Can multiple teams use ReachDem?",
     answer:
-      "Yes, we regularly publish our updates and announcements to keep you informed of upcoming improvements.",
+      "Yes. ReachDem can be structured to support multiple teams, workflows, or business units, making collaboration and organization easier across your operations.",
   },
   {
     category: "Other",
-    question: "Do you have an automatic backup system?",
+    question: "Why choose ReachDem instead of using multiple separate tools?",
     answer:
-      "Yes, regular backups are performed to ensure your data remains available and protected.",
+      "ReachDem helps centralize your communication operations in one environment, reducing tool fragmentation, improving data consistency, and making your workflows more efficient.",
   },
 ];
-
 const categories: Category[] = [
   "Platform",
   "Pricing",
