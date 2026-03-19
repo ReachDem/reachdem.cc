@@ -2,10 +2,25 @@
 
 import { MouseEvent, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
-import { Menu, X, ChevronDown, Rocket, LifeBuoy, BookOpen, Sun, Moon } from "lucide-react";
+import { Menu, X, ChevronDown, Sun, Moon, ArrowRight, Link2, Check, Flag, Map, History } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+const productFeatures = [
+    {
+        title: "Contact management",
+    },
+    {
+        title: "Email & SMS campaigns",
+    },
+    {
+        title: "Analytics",
+    },
+];
 
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -93,22 +108,106 @@ export function Header() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    className="absolute left-0 top-full mt-2 w-64 rounded-lg border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
+                                    transition={{ duration: 0.2, ease: "easeOut" }}
+                                    className="absolute left-1/2 top-full mt-4 w-[50rem] -translate-x-1/2 rounded-[1.75rem] border border-black/8 bg-white/95 p-4 shadow-[0_32px_90px_-42px_rgba(15,23,42,0.45)] ring-1 ring-black/5 backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/95 dark:ring-white/10"
                                 >
-                                    <Link href="/features" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <Rocket className="mt-0.5 h-5 w-5 text-primary" />
-                                        <div>
-                                            <div className="font-semibold text-gray-900 dark:text-white">Features</div>
-                                            <div className="text-xs text-gray-500 dark:text-gray-400">Discover what ReachDem can do</div>
-                                        </div>
-                                    </Link>
-                                    <Link href="/use-cases" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <BookOpen className="mt-0.5 h-5 w-5 text-primary" />
-                                        <div>
-                                            <div className="font-semibold text-gray-900 dark:text-white">Use Cases</div>
-                                            <div className="text-xs text-gray-500 dark:text-gray-400">Solutions for your needs</div>
-                                        </div>
-                                    </Link>
+                                    <div className="grid grid-cols-[1.35fr_0.9fr_0.95fr] gap-2">
+                                        <Card className="rounded-[1.35rem] border-black/8 bg-white shadow-none dark:border-white/10 dark:bg-zinc-950">
+                                            <CardHeader className="space-y-4 p-6">
+                                                <div className="flex items-center justify-between gap-3">
+                                                    <Badge variant="subtle" size="sm" className="tracking-normal">Platform</Badge>
+                                                    <span className="text-sm font-semibold text-gray-950 dark:text-white">ReachDem</span>
+                                                </div>
+                                                <div>
+                                                    <CardTitle className="text-base text-gray-950 dark:text-white">
+                                                        One workspace for audience growth
+                                                    </CardTitle>
+                                                    <CardDescription className="mt-2 max-w-xs text-xs leading-5 text-gray-600 dark:text-gray-300">
+                                                        Manage contacts, launch campaigns, and follow performance without switching tools.
+                                                    </CardDescription>
+                                                </div>
+                                            </CardHeader>
+                                            <CardContent className="p-6 pt-0">
+                                                <div className="mb-4 flex flex-wrap gap-2">
+                                                    <Badge variant="outline" size="xs" className="rounded-full bg-transparent">SMS</Badge>
+                                                    <Badge variant="outline" size="xs" className="rounded-full bg-transparent">Email</Badge>
+                                                    <Badge variant="outline" size="xs" className="rounded-full bg-transparent">Analytics</Badge>
+                                                </div>
+                                                <div className="space-y-3">
+                                                {productFeatures.map((feature) => (
+                                                    <div key={feature.title} className="flex items-start gap-3">
+                                                        <div className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/12 text-primary">
+                                                            <Check className="h-3.5 w-3.5" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-[13px] font-medium text-gray-950 dark:text-white">
+                                                                {feature.title}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+
+                                        <Link
+                                            href="/links"
+                                            className="group flex min-h-[18rem] flex-col rounded-[1.35rem] border border-black/8 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-white/10 dark:bg-zinc-950"
+                                        >
+                                            <div className="flex items-center justify-between gap-3">
+                                                <div className="flex items-center gap-2 text-sm font-semibold text-gray-950 dark:text-white">
+                                                    <Link2 className="h-4 w-4 text-primary" />
+                                                    Links
+                                                </div>
+                                                <Badge variant="subtle" size="xs" className="tracking-normal">
+                                                    Coming soon
+                                                </Badge>
+                                            </div>
+                                            <div className="mt-4 flex flex-1 flex-col justify-between">
+                                                <div>
+                                                    <div className="text-base font-semibold text-gray-950 dark:text-white">
+                                                        Build your profile
+                                                    </div>
+                                                    <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                                                        Add links, services, and contact methods to shape the digital profile your card will share.
+                                                    </p>
+                                                </div>
+                                                <div className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-medium text-primary">
+                                                    Join the waitlist
+                                                    <ArrowRight className="h-3.5 w-3.5" />
+                                                </div>
+                                            </div>
+                                        </Link>
+
+                                        <a
+                                            href="https://cards-by-reachdem.vercel.app/order"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="group flex min-h-[18rem] flex-col rounded-[1.35rem] border border-black/8 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-white/10 dark:bg-zinc-950"
+                                        >
+                                            <div className="text-sm font-semibold text-gray-950 dark:text-white">Cards</div>
+                                            <div className="relative mt-4 h-28 overflow-hidden rounded-[0.8rem] bg-sand-50 dark:bg-zinc-900">
+                                                <Image
+                                                    src="/images/card-black-design2.png"
+                                                    alt="ReachDem premium black contactless business card"
+                                                    fill
+                                                    className="object-contain transition duration-500 group-hover:scale-[1.03]"
+                                                />
+                                            </div>
+                                            <div className="mt-4">
+                                                <div className="text-base font-semibold text-gray-950 dark:text-white">
+                                                    Contactless business cards
+                                                </div>
+                                                <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                                                    Share your profile in one tap and turn every introduction into a follow-up.
+                                                </p>
+                                                <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary">
+                                                    Pre-order now
+                                                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -130,27 +229,27 @@ export function Header() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    className="absolute left-0 top-full mt-2 w-64 rounded-lg border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
+                                    className="absolute left-0 top-full mt-4 w-64 rounded-lg border border-gray-100 bg-white p-2 shadow-lg ring-1 ring-gray-900/5 dark:bg-zinc-900 dark:border-zinc-800"
                                 >
-                                    <Link href="/blog" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <BookOpen className="mt-0.5 h-5 w-5 text-primary" />
+                                    <Link href="/docs/getting-started" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
+                                        <Flag className="mt-0.5 h-5 w-5 text-primary" />
                                         <div>
-                                            <div className="font-semibold text-gray-900 dark:text-white">Blog</div>
-                                            <div className="text-xs text-gray-500 dark:text-gray-400">Latest updates and stories</div>
-                                        </div>
-                                    </Link>
-                                    <Link href="/help" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <LifeBuoy className="mt-0.5 h-5 w-5 text-primary" />
-                                        <div>
-                                            <div className="font-semibold text-gray-900 dark:text-white">Help Center</div>
-                                            <div className="text-xs text-gray-500 dark:text-gray-400">Guides and documentation</div>
+                                            <div className="font-semibold text-gray-900 dark:text-white">Getting Started</div>
+                                            <div className="text-xs text-gray-500 dark:text-gray-400">Set up your workspace and ship faster</div>
                                         </div>
                                     </Link>
                                     <Link href="/roadmap" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
-                                        <Rocket className="mt-0.5 h-5 w-5 text-primary" />
+                                        <Map className="mt-0.5 h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold text-gray-900 dark:text-white">Roadmap</div>
                                             <div className="text-xs text-gray-500 dark:text-gray-400">See what ReachDem is shipping next</div>
+                                        </div>
+                                    </Link>
+                                    <Link href="/changelog" className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-zinc-800">
+                                        <History className="mt-0.5 h-5 w-5 text-primary" />
+                                        <div>
+                                            <div className="font-semibold text-gray-900 dark:text-white">Changelog</div>
+                                            <div className="text-xs text-gray-500 dark:text-gray-400">Follow the latest product milestones</div>
                                         </div>
                                     </Link>
                                 </motion.div>
@@ -248,14 +347,14 @@ export function Header() {
                         <div className="space-y-1 p-4">
                             <div className="py-2">
                                 <div className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-gray-400">Product</div>
-                                <Link href="/features" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Features</Link>
-                                <Link href="/use-cases" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Use Cases</Link>
+                                <Link href="/#features" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Features</Link>
+                                <Link href="/docs/getting-started" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Getting Started</Link>
                             </div>
                             <div className="py-2">
                                 <div className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-gray-400">Resources</div>
-                                <Link href="/blog" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Blog</Link>
-                                <Link href="/help" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Help Center</Link>
+                                <Link href="/docs/getting-started" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Getting Started</Link>
                                 <Link href="/roadmap" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Roadmap</Link>
+                                <Link href="/changelog" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Changelog</Link>
                             </div>
                             <Link href="/pricing" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Pricing</Link>
                             <Link href="/faq" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">FAQ</Link>

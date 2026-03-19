@@ -49,6 +49,15 @@ export function ProcessSection() {
 
         <div className="relative mt-16 grid gap-10 md:grid-cols-3 md:gap-12">
           <div
+            className="pointer-events-none absolute top-7 bottom-7 left-1/2 w-px -translate-x-1/2 md:hidden"
+            aria-hidden="true"
+          >
+            <div className="relative h-full w-full overflow-hidden bg-primary/20">
+              <div className="process-signal absolute inset-x-0 top-0 h-28 w-full" />
+            </div>
+          </div>
+
+          <div
             className="pointer-events-none absolute top-7 left-[16.67%] right-[16.67%] hidden h-px md:block"
             aria-hidden="true"
           >
@@ -67,13 +76,13 @@ export function ProcessSection() {
                 {step.number}
               </div>
 
-              <div className="mt-6 flex justify-center">
+              <div className="mt-6 hidden justify-center md:flex">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <step.icon className="h-6 w-6" aria-hidden="true" />
                 </div>
               </div>
 
-              <h3 className="mt-4 font-display text-xl font-semibold text-foreground">{step.title}</h3>
+              <h3 className="mt-4 font-display text-xl font-semibold text-foreground md:mt-4">{step.title}</h3>
               <p className="mx-auto mt-2 max-w-xs text-base text-muted-foreground">{step.description}</p>
             </motion.div>
           ))}

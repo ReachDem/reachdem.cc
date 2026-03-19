@@ -52,13 +52,11 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="max-w-md">
             <Link href="/" className="inline-block">
-              <Image
-                src="/images/reachdem.png"
-                alt="ReachDem logo"
-                width={70}
-                height={32}
-                className="h-8 w-auto invert"
-              />
+                <img
+                  src="/icon.png"
+                  alt="ReachDem icon"
+                  className="h-10 object-cover invert"
+                />
             </Link>
             <p className="mt-4 text-base leading-relaxed text-white/50">
               Building communication solutions for businesses and individuals around the globe.
