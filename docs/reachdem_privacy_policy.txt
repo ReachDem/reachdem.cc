@@ -1,0 +1,170 @@
+# Privacy Policy
+
+Effective Date: March 12, 2026  
+Last Updated: March 12, 2026
+
+This Privacy Policy explains how REACHDEM INC., located in Miami, Florida, United States (“ReachDem,” “we,” “us,” or “our”), collects, uses, discloses, stores, and protects personal data when you access or use our website, products, services, software, applications, APIs, communication tools, analytics features, and related offerings, including Links by ReachDem (collectively, the “Services”).
+
+We are committed to handling personal data responsibly, transparently, and in accordance with applicable privacy and data protection laws. This Privacy Policy applies to visitors to our website, users of our platform, business customers, team members, leads, prospects, and individuals whose personal data may be processed through the Services by our customers.
+
+By accessing or using the Services, you acknowledge that you have read and understood this Privacy Policy.
+
+1. Who We Are
+
+ReachDem is a communication and engagement platform designed to help businesses, teams, entrepreneurs, and organizations manage digital communication, customer engagement, contact data, audience segmentation, campaign workflows, analytics, public profile pages, and related interactions across supported channels.
+
+Depending on the Services used, ReachDem may provide functionality relating to contact and audience management, group and segment organization, messaging campaigns, link shortening and tracking, analytics and reporting, public profile and link pages, digital business card experiences, integrations, API access, workflow automation, and AI-assisted features.
+
+For the purposes of applicable privacy laws, ReachDem may act either as a data controller for personal data collected for its own business operations, or as a data processor or service provider when processing personal data on behalf of its customers.
+
+2. Scope of This Privacy Policy
+
+This Privacy Policy applies to personal data collected through our website, account registration and account administration, customer onboarding, dashboard usage, public profile pages, communication tools, link and campaign analytics, contact management features, support interactions, integrations, APIs, and other related business operations.
+
+This Privacy Policy does not apply to third-party websites, services, or platforms that may be linked to, integrated with, or accessible through our Services. Those third parties operate under their own terms and privacy policies, and we encourage you to review them separately.
+
+3. Personal Data We Collect
+
+We may collect personal data directly from you, automatically when you use the Services, from our customers, from third-party integrations, and from service providers that support our business operations.
+
+The personal data we collect may include your name, email address, phone number, company name, job title, business contact details, account credentials, profile details, workspace information, billing information, subscription information, support inquiries, survey responses, and any other information you choose to provide to us.
+
+Where customers use ReachDem to import, create, organize, or manage contact databases, we may process contact information such as names, phone numbers, email addresses, business details, addresses, birthdays, tags, segmentation attributes, custom fields, campaign preferences, communication history, and other metadata associated with a contact record.
+
+When the Services are used to create, send, route, or analyze communications, we may process personal data relating to the sender and recipient, including names, addresses, channel identifiers, message content, subject lines, attached media, delivery timestamps, delivery status, engagement events, unsubscribe events, and related campaign metadata.
+
+When users interact with ReachDem pages, shortened links, digital business card pages, or Links by ReachDem profiles, we may collect data such as page views, link clicks, referral sources, approximate geolocation inferred from IP address, browser type, device information, operating system, session activity, timestamps, campaign attribution parameters, and other interaction metrics.
+
+We also collect technical and usage information when users access the Services, including IP address, log data, browser settings, device identifiers, access times, navigation patterns, API logs, crash reports, security signals, and diagnostic information necessary to maintain, secure, and improve the Services.
+
+If payments are processed in connection with the Services, we may receive billing-related information, payment status, invoicing details, subscription records, and limited transaction metadata. Full payment card details are typically processed by third-party payment providers and are not stored by us unless expressly stated otherwise.
+
+Where AI-enabled features are available, we may process user prompts, instructions, campaign context, contact-related context, analytics inputs, generated outputs, user feedback, and related metadata necessary to provide those features.
+
+4. How We Collect Personal Data
+
+We collect personal data in several ways. Some information is collected directly when you register for an account, complete forms, contact us, subscribe to updates, request a demo, configure your workspace, or otherwise interact with us. Other information is collected automatically through cookies, logs, analytics technologies, and similar tools when you browse or use the Services.
+
+We may also receive personal data from customers who upload contact records or use the Services to manage communications, from third-party services that users connect to ReachDem, from payment processors, authentication providers, analytics vendors, and other providers supporting our operations.
+
+5. How We Use Personal Data
+
+We use personal data to provide, operate, maintain, secure, support, and improve the Services. This includes creating and managing accounts, authenticating users, enabling workspace and team collaboration, managing customer data environments, supporting messaging workflows, maintaining public profile pages, operating shortened links, and generating analytics and reports.
+
+We also use personal data to communicate with users and customers, including for onboarding, service notices, billing, support, product updates, and legal or administrative notices. Where permitted by law, we may use certain personal data to send marketing communications, promote our Services, and inform users about new features, events, or updates.
+
+Personal data may also be used to personalize product experiences, improve usability, analyze performance, monitor service quality, detect and prevent abuse, spam, fraud, unauthorized access, or security incidents, enforce our terms and policies, comply with legal obligations, and protect our rights, users, and business operations.
+
+Where AI-assisted functionality is offered, we may use relevant data inputs to provide content suggestions, personalization features, predictive insights, workflow recommendations, or analytics enhancements. Users remain responsible for reviewing and approving generated outputs before using them in live communications or business workflows.
+
+6. Legal Bases for Processing
+
+Where required by applicable law, we process personal data on one or more legal bases. These may include the performance of a contract, where processing is necessary to provide the Services or fulfill our obligations; legitimate interests, where processing is reasonably necessary for operating, improving, securing, or growing our business and Services; consent, where required for certain activities such as specific marketing communications or optional cookies; and compliance with legal obligations.
+
+When we process personal data on behalf of our customers, the customer is responsible for determining the appropriate legal basis for the collection and use of that data.
+
+7. Cookies and Similar Technologies
+
+We use cookies and similar technologies to operate the website and Services, remember preferences, secure user sessions, measure traffic and performance, understand how users interact with pages and features, improve usability, support analytics, and help maintain the integrity of the platform.
+
+These technologies may include strictly necessary cookies, functional cookies, analytics cookies, and similar tools used for performance monitoring, diagnostics, or user experience improvements. Depending on the jurisdiction and configuration of the website, users may be offered cookie controls or consent choices. You may also manage cookies through your browser settings, although disabling certain cookies may affect the functionality of the Services.
+
+8. Public Profiles, Pages, and Shared Content
+
+Certain features of ReachDem, including Links by ReachDem and related public-facing profile or business card experiences, may allow users to publish information intended to be publicly accessible. This may include names, professional descriptions, contact methods, business details, media, social links, promotional links, booking links, forms, and other content deliberately made public by the user.
+
+Any information that a user chooses to publish publicly may be viewed, accessed, copied, or used by third parties. Users are responsible for ensuring that the information they choose to make public is accurate, appropriate, and lawful to share.
+
+9. Customer Data and Communications Sent Through ReachDem
+
+Where customers use ReachDem to manage contacts, segments, campaigns, link tracking, or communication workflows, ReachDem generally processes that personal data on the customer’s behalf. In those cases, the customer is typically the data controller, and ReachDem acts as a processor or service provider.
+
+Customers are responsible for ensuring that they have the necessary rights, notices, and lawful basis to collect, upload, use, and communicate with their contacts through the Services. This includes complying with applicable privacy laws, anti-spam rules, telecom rules, messaging platform policies, and unsubscribe or opt-out obligations.
+
+ReachDem does not independently determine the intended recipients of customer campaigns or the legality of customer outreach. However, we reserve the right to investigate, suspend, or restrict activity that appears unlawful, abusive, deceptive, fraudulent, or inconsistent with our terms or platform rules.
+
+10. How We Share Personal Data
+
+We may share personal data with service providers, contractors, subprocessors, and business partners that help us operate the Services. This may include providers of hosting, cloud infrastructure, storage, authentication, analytics, monitoring, payment processing, customer support tools, communication delivery infrastructure, security services, AI infrastructure, and related operational tools.
+
+We may also share data with communication and delivery providers when necessary to route or send SMS, email, WhatsApp, or other supported communications, and with integration partners where a user or customer has chosen to connect third-party services to the platform.
+
+Personal data may be shared internally with authorized personnel and, within a customer workspace, with account owners, administrators, team members, or collaborators based on applicable permissions and roles.
+
+We may disclose personal data where necessary to comply with law, regulation, legal process, lawful requests from public authorities, or to protect our legal rights, investigate suspected fraud or abuse, enforce our agreements, or respond to security incidents.
+
+If ReachDem is involved in a merger, acquisition, reorganization, asset sale, financing transaction, or similar corporate event, personal data may be disclosed or transferred as part of that transaction, subject to appropriate safeguards and legal requirements.
+
+We do not sell personal data in the ordinary sense of exchanging it for monetary value. We also do not share personal data for third-party behavioral advertising except as otherwise disclosed and permitted by applicable law.
+
+11. International Data Transfers
+
+Because ReachDem operates online and may rely on service providers located in multiple countries, personal data may be processed, stored, or accessed outside the country in which it was originally collected. This may include transfers to jurisdictions that do not offer the same level of legal protection as the country of origin.
+
+Where required by law, we implement appropriate safeguards for international data transfers, which may include contractual protections, internal review processes, and other legally recognized transfer mechanisms.
+
+12. Data Retention
+
+We retain personal data for as long as necessary to provide the Services, fulfill contractual obligations, maintain legitimate business records, comply with legal requirements, resolve disputes, enforce agreements, and protect the security and integrity of our platform.
+
+Retention periods may vary depending on the nature of the data, the purpose for which it was collected, customer instructions, technical constraints, and legal obligations. When personal data is no longer needed, we will delete it, anonymize it, or securely isolate it, unless continued retention is required or permitted by law.
+
+Backup copies and archived records may continue to exist for a limited period after deletion as part of normal business continuity and disaster recovery processes.
+
+13. Data Security
+
+We implement reasonable technical, organizational, and administrative measures designed to protect personal data from unauthorized access, use, disclosure, loss, destruction, or alteration. These measures may include access controls, authentication safeguards, encryption in transit, environment protections, logging, monitoring, incident response procedures, internal permissions management, and vendor oversight.
+
+Although we strive to protect personal data using commercially reasonable safeguards, no method of transmission or storage is completely secure. For that reason, we cannot guarantee absolute security. Users are responsible for maintaining the confidentiality of their credentials and for notifying us promptly if they suspect unauthorized access or misuse.
+
+14. Your Rights and Choices
+
+Depending on your location and the laws that apply to you, you may have the right to request access to personal data, request correction of inaccurate or incomplete data, request deletion, object to or restrict certain processing, withdraw consent where processing relies on consent, or request portability of certain data.
+
+Where ReachDem processes personal data on behalf of a customer, requests relating to that data should generally be directed to the relevant customer, since that customer controls the processing. Where ReachDem acts as the controller of the data, you may submit requests directly to us using the contact details provided below.
+
+We may request information necessary to verify identity before processing a privacy request. We may also decline or limit requests where permitted by law, including where a request is manifestly unfounded, excessive, conflicts with legal obligations, or adversely affects the rights of others.
+
+15. Marketing Communications
+
+Where permitted by law, we may send newsletters, product announcements, event information, promotional content, or other marketing communications. You may opt out of receiving marketing emails by using the unsubscribe link included in such messages or by contacting us directly.
+
+Even if you opt out of marketing communications, we may still send transactional or service-related communications, including notices relating to your account, subscription, billing, support, security, legal updates, or changes to the Services.
+
+16. Children’s Privacy
+
+The Services are intended for business, professional, entrepreneurial, organizational, or commercial use and are not directed to children. We do not knowingly collect personal data directly from children in a manner that would require parental consent under applicable law.
+
+If you believe that personal data of a child has been provided to us unlawfully, please contact us so that we can review the matter and take appropriate action.
+
+17. Third-Party Services
+
+Our website or Services may contain links to third-party websites, products, payment services, communication channels, forms, or external platforms. We are not responsible for the privacy, security, or data handling practices of those third parties. Your interactions with those services are governed by their own terms and privacy policies.
+
+18. AI Features and Automated Processing
+
+ReachDem may offer AI-powered or automated features designed to assist users with message drafting, content suggestions, personalization, campaign recommendations, performance insights, or predictive analysis. These features may rely on user-provided inputs, campaign context, historical performance indicators, or related operational data to generate outputs.
+
+AI-generated outputs may not always be accurate, complete, or suitable for every context. Users remain responsible for reviewing and validating outputs before relying on them in communications, strategic decisions, or compliance-sensitive workflows.
+
+Unless expressly stated otherwise in a separate agreement or product notice, customer data is not used to train generalized public AI models in a way that would make that data publicly attributable to the customer.
+
+19. Regional Privacy Disclosures
+
+Depending on where you are located, additional legal rights or disclosures may apply. If you are in the European Economic Area, the United Kingdom, or another jurisdiction with similar privacy protections, you may have rights under applicable data protection laws, subject to local limitations and conditions.
+
+If you are a resident of a U.S. state with privacy-specific legislation, you may also have certain rights relating to access, correction, deletion, portability, and opt-out rights, where applicable. We will honor such rights to the extent required by applicable law.
+
+20. Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time to reflect changes in our Services, business practices, technologies, legal requirements, or compliance obligations. When we do so, we will revise the “Last Updated” date at the top of this page and may provide additional notice where required by law or where the changes are material.
+
+Your continued use of the Services after an updated version becomes effective will be treated as acknowledgment of the revised Privacy Policy, to the extent permitted by law.
+
+21. Contact Us
+
+If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, you may contact us at:
+
+REACHDEM INC.  
+Miami, Florida, USA  
+Email: contact@reachdem.cc  
