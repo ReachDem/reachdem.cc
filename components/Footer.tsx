@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaTelegram, FaXTwitter } from "react-icons/fa6";
 import { FontSwitcher } from "@/components/FontSwitcher";
