@@ -1,5 +1,6 @@
 import { CTASection } from "@/components/landing/CTASection";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
+import {Feature322}  from "@/components/feature322";
 import { Hero195 } from "@/components/landing/Hero195";
 import { LogosSection } from "@/components/landing/LogosSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
@@ -37,7 +38,8 @@ export default function Home() {
         secondaryButtonUrl="/support"
       />
       <LogosSection />
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
+      <Feature322 />
       <ProcessSection />
       <CTASection />
     </>

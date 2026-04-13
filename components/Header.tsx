@@ -27,7 +27,7 @@ export function Header() {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const { resolvedTheme, setTheme } = useTheme();
     const mounted = useSyncExternalStore(
-        () => () => {},
+        () => () => { },
         () => true,
         () => false,
     );
@@ -82,7 +82,7 @@ export function Header() {
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md dark:bg-black/80 dark:border-white/10">
-            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto flex h-16 lg:px-12 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 {/* Block 1: Logo + Name */}
                 <div className="flex items-center gap-2">
                     <Link href="/" className="flex items-center gap-2">
@@ -134,18 +134,18 @@ export function Header() {
                                                     <Badge variant="outline" size="xs" className="rounded-full bg-transparent">Analytics</Badge>
                                                 </div>
                                                 <div className="space-y-3">
-                                                {productFeatures.map((feature) => (
-                                                    <div key={feature.title} className="flex items-start gap-3">
-                                                        <div className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/12 text-primary">
-                                                            <Check className="h-3.5 w-3.5" />
-                                                        </div>
-                                                        <div>
-                                                            <div className="text-[13px] font-medium text-gray-950 dark:text-white">
-                                                                {feature.title}
+                                                    {productFeatures.map((feature) => (
+                                                        <div key={feature.title} className="flex items-start gap-3">
+                                                            <div className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/12 text-primary">
+                                                                <Check className="h-3.5 w-3.5" />
+                                                            </div>
+                                                            <div>
+                                                                <div className="text-[13px] font-medium text-gray-950 dark:text-white">
+                                                                    {feature.title}
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                ))}
+                                                    ))}
                                                 </div>
                                             </CardContent>
                                         </Card>

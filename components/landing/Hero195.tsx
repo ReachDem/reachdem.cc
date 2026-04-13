@@ -46,8 +46,8 @@ export function Hero195({
         <div className="aspect-square bg-[radial-gradient(closest-side,var(--color-accent),transparent)]" />
       </div>
 
-      <div className="relative z-20 container">
-        <div className="border-x border-border py-20 md:py-24">
+      <div className="relative z-20 container mask-[linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]">
+        <div className="md:border-x border-border md:border-1 border-slate-1 py-20 md:py-12">
           <div className="relative mx-auto max-w-5xl p-2">
             <div className="absolute inset-x-10 top-4 -z-10 h-40 rounded-full bg-primary/15 blur-3xl" />
             <h1 className="mx-auto mt-6 max-w-[16ch] text-center text-5xl font-bold leading-[0.95] tracking-tighter md:max-w-[22ch] md:text-7xl">
@@ -68,7 +68,7 @@ export function Hero195({
             </div>
           </div>
 
-          <div className="relative mx-auto mt-16 w-full max-w-[1000px] overflow-hidden rounded-xl shadow-[4px_2px_3.123rem_rgba(0,0,0,.15)]">
+          <div className="relative  mx-auto mt-16 w-full max-w-[1000px] overflow-hidden rounded-sm lg:rounded-md shadow-[4px_2px_3.123rem_rgba(0,0,0,.15)]">
             <div className="relative aspect-[1.406469761/1] w-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
