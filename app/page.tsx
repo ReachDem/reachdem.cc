@@ -38,8 +38,7 @@ export default function Home() {
         secondaryButtonUrl="/support"
       />
       <LogosSection />
-      {/* <FeaturesSection /> */}
-      <Feature322 />
+      <FeaturesSection />
       <ProcessSection />
       <CTASection />
     </>
