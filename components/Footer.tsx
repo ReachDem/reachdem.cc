@@ -12,7 +12,7 @@ const navigation = [
       { name: "Email", href: "/pricing" },
       { name: "Campaigns", href: "/campaigns" },
       { name: "Contacts", href: "/contacts" },
-      { name: "API", href: "#" },
+      { name: "API", href: "https://app.reachdem.cc/api-config" },
     ],
   },
   {

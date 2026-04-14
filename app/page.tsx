@@ -34,7 +34,7 @@ export default function Home() {
         }
         description="Maximize your communications impact by reaching all your customers through SMS, from one fast and reliable platform."
         primaryButtonText="Get started for free"
-        primaryButtonUrl="/signup"
+        primaryButtonUrl="https://app.reachdem.cc/register"
         secondaryButtonText="Talk to Sales"
         secondaryButtonUrl="/support"
       />

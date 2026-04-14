@@ -16,7 +16,7 @@ const FeaturesSection = ({ className }: FeaturesSectionProps) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-24">
         <div className="flex w-full flex-col items-center justify-center">
           <span className="text-sm font-semibold uppercase tracking-[0.32em] text-primary">Platform</span>
-          <h2 className="relative z-20 mt-3 text-center font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="relative z-20 mt-3 text-center font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
             Everything You Need to Reach Your Audience
           </h2>
           <p className="mt-4 text-center text-lg text-muted-foreground mx-auto max-w-xl">

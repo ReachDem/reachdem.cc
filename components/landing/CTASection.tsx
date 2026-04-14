@@ -39,7 +39,7 @@ export function CTASection() {
               className="group h-12 rounded-xl bg-[#09090b] px-8 text-base font-semibold text-white hover:bg-[#09090b]/90"
               asChild
             >
-              <Link href="/signup">
+              <Link href="https://app.reachdem.cc/register">
                 Get Started Free
                 <ArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
               </Link>

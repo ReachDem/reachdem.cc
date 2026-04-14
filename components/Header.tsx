@@ -271,10 +271,10 @@ export function Header() {
                 {/* Block 3: Actions */}
                 <div className="hidden md:flex items-center gap-4">
 
-                    <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                    <Link href="https://app.reachdem.cc/login" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                         Log in
                     </Link>
-                    <Link href="/signup" className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 hover:shadow-md">
+                    <Link href="https://app.reachdem.cc/register" className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 hover:shadow-md">
                         Get Started
                     </Link>
 
@@ -371,10 +371,10 @@ export function Header() {
                             </div>
 
                             <div className="mt-4 flex flex-col gap-2 border-t border-gray-100 pt-4 dark:border-white/10">
-                                <Link href="/login" className="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-base font-medium text-gray-900 hover:text-gray-900 hover:bg-gray-50 dark:bg-black dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800">
+                                <Link href="https://app.reachdem.cc/login" className="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-base font-medium text-gray-900 hover:text-gray-900 hover:bg-gray-50 dark:bg-black dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800">
                                     Log in
                                 </Link>
-                                <Link href="/signup" className="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-2 text-base font-medium text-primary-foreground hover:bg-primary/90">
+                                <Link href="https://app.reachdem.cc/register" className="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-2 text-base font-medium text-primary-foreground hover:bg-primary/90">
                                     Get Started
                                 </Link>
                             </div>

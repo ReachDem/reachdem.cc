@@ -123,7 +123,7 @@ export function PricingExperience() {
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg" className="rounded-lg px-7">
-                <Link href="/signup">
+                <Link href="https://app.reachdem.cc/register">
                   Get started
                   <ArrowRight className="h-4 w-4" />
                 </Link>
