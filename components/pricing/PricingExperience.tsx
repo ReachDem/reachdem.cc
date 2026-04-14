@@ -111,15 +111,14 @@ export function PricingExperience() {
             className="mx-auto max-w-4xl text-center"
           >
             <div className="inline-flex items-center gap-2 text-primary rounded-full border border-border bg-background/80 px-4 py-2 text-sm font-medium text-muted-foreground backdrop-blur">
-              Pricing built for African SMB execution
+              Pricing built for growing African businesses
             </div>
             <h1 className="mt-6 text-5xl font-bold tracking-[-0.05em] sm:text-6xl lg:text-7xl">
               Simple pricing for messaging, growth, and custom operations.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground sm:text-xl">
-              The structure follows the strongest signals from the Epic Report:
-              simple multichannel delivery, segmentation, automation, and ROI
-              tracking for businesses that outgrow manual tools.
+              Choose a plan that matches your stage, from simple outreach to
+              advanced campaigns, automation, and team workflows.
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -163,9 +162,9 @@ export function PricingExperience() {
               Three pricing tiers, plus a custom enterprise path.
             </h2>
             <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-              The first plan stays intentionally light. The Growth layer carries
-              the strongest differentiators from the Epic Report. Enterprise is
-              positioned for tailored operational rollouts.
+              Start with the essentials, upgrade as your campaigns grow, and
+              move to enterprise support when you need custom workflows or
+              integrations.
             </p>
           </div>
         </div>
@@ -311,7 +310,7 @@ export function PricingExperience() {
                   <Gauge className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-semibold">Usage pricing logic</p>
+                  <p className="font-semibold">Usage pricing</p>
                   <p className="text-sm text-muted-foreground">
                     {selectedProduct.label} costs{" "}
                     {formatMoney(
@@ -429,7 +428,7 @@ export function PricingExperience() {
                 <div className="rounded-lg border border-border bg-background p-4">
                   <p className="text-sm text-muted-foreground">Current tier</p>
                   <p className="mt-2 text-xl font-semibold">
-                    {messages < 100 ? "Starter usage" : "Volume usage"}
+                    {messages < 500 ? "Starter usage" : "Volume usage"}
                   </p>
                 </div>
                 <div className="rounded-lg border border-border bg-background p-4">
@@ -451,7 +450,7 @@ export function PricingExperience() {
                   userLocale,
                 )}
                 {" "}
-                below 100, then{" "}
+                below 500, then{" "}
                 {formatMoney(
                   displayCurrency === "USD"
                     ? selectedProduct.from500 / USD_TO_XAF
@@ -460,7 +459,7 @@ export function PricingExperience() {
                   userLocale,
                 )}
                 {" "}
-                from 100 and above.
+                from 500 and above.
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row">

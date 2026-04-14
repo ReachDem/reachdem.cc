@@ -33,7 +33,7 @@ export const pricingPlans: PricingPlan[] = [
     cadence: "/month",
     eyebrow: "For solo operators",
     summary:
-      "Built for early teams that need simple outreach without scattered tools.",
+      "For small teams that want a simple way to send campaigns and manage contacts.",
     accent: "bg-primary/10 text-primary",
     ctaLabel: "Start basic",
     ctaHref: "/signup",
@@ -52,7 +52,7 @@ export const pricingPlans: PricingPlan[] = [
     cadence: "/month",
     eyebrow: "For growing SMBs",
     summary:
-      "The core package for businesses that want multichannel campaigns and measurable ROI.",
+      "For businesses that want multichannel campaigns, automation, and clearer performance tracking.",
     accent: "bg-emerald-500/10 text-emerald-500",
     ctaLabel: "Choose growth",
     ctaHref: "/signup",
@@ -75,7 +75,7 @@ export const pricingPlans: PricingPlan[] = [
     cadence: "/month",
     eyebrow: "operators and agencies",
     summary:
-      "Higher-control delivery for teams managing volume, approvals, and integrations.",
+      "For teams that need more control, higher volume, approvals, and integrations.",
     accent: "bg-sky-500/10 text-sky-500",
     ctaLabel: "Scale with pro",
     ctaHref: "/signup",
@@ -97,7 +97,7 @@ export const pricingPlans: PricingPlan[] = [
     cadence: "",
     eyebrow: "For tailored deployments",
     summary:
-      "Designed for custom business rules, integrations, compliance needs, and dedicated rollout support.",
+      "For organizations that need custom workflows, integrations, compliance support, and a tailored rollout.",
     accent: "bg-orange-500/10 text-orange-500",
     ctaLabel: "Contact sales",
     ctaHref: "/support",
