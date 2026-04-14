@@ -5,6 +5,7 @@ import { Hero195 } from "@/components/landing/Hero195";
 import { LogosSection } from "@/components/landing/LogosSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
 import { WordRotate } from "@/components/magicui/word-rotate";
+import { Feature274 } from "@/components/landing/feature274";
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
       <LogosSection />
       <FeaturesSection />
       <ProcessSection />
+      {/* <Feature274 /> */}
       <CTASection />
     </>
   );

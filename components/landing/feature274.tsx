@@ -6,51 +6,50 @@ import React from "react";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { cn } from "@/lib/utils";
 
-interface FeaturesSectionProps {
+interface Feature274Props {
   className?: string;
 }
 
-const FeaturesSection = ({ className }: FeaturesSectionProps) => {
+const Feature274 = ({ className }: Feature274Props) => {
   return (
-    <section id="features" className={cn("relative overflow-hidden bg-background py-24 sm:py-32", className)}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-24">
+    <section className={cn("overflow-hidden py-12", className)}>
+      <div className="container px-4 md:px-6 lg:px-24">
         <div className="flex w-full flex-col items-center justify-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.32em] text-primary">Platform</span>
-          <h2 className="relative z-20 mt-3 text-center font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Everything You Need to Reach Your Audience
+          <h2 className="relative z-20 py-2 text-center text-4xl font-semibold tracking-tighter md:py-7 lg:text-5xl">
+            What our customers say
           </h2>
-          <p className="mt-4 text-center text-lg text-muted-foreground mx-auto max-w-xl">
-            One platform for SMS, email, contacts, and links. Built for speed and simplicity.
+          <p className="text-md text-muted-foreground mx-auto max-w-xl text-center lg:text-lg">
+            Discover why our clients choose our platform to boost their campaigns
+            and engage their contacts.
           </p>
 
-          <div className="mt-16 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div className="mt-10 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card
-              defaultText="SMS Campaigns"
-              revealText="Send personalized bulk SMS to thousands of contacts instantly. Schedule, target, and track delivery in real time."
-              animationSpeed={3}
-              containerClassName="bg-primary"
-              colors={[[59, 130, 246]]}
+              defaultText="TGVAIRWABO"
+              revealText="An incredible tool that saved us precious time managing our campaigns."
+              animationSpeed={5.1}
+              containerClassName="bg-emerald-900"
             />
             <Card
-              defaultText="Email Marketing"
-              revealText="Craft beautiful email campaigns with our intuitive builder. Templates, personalization, and analytics built in."
+              defaultText="TechFlow"
+              revealText="The interface is intuitive and the results exceeded our expectations. Highly recommended!"
               animationSpeed={3}
               colors={[
-                [59, 130, 246],
-                [147, 197, 253],
+                [236, 72, 153],
+                [232, 121, 249],
               ]}
               dotSize={2}
             />
             <Card
-              defaultText="Contact Management"
-              revealText="Organize your audience with smart segments, tags, and filters. Import from CSV or sync with your tools."
+              defaultText="Mboers"
+              revealText="Excellent support and a very robust platform for our mass sending."
               animationSpeed={3}
-              containerClassName="bg-emerald-600"
-              colors={[[16, 185, 129]]}
+              containerClassName="bg-sky-600"
+              colors={[[125, 211, 252]]}
             />
             <Card
-              defaultText="Link Shortener"
-              revealText="Shorten, brand, and track every link you share. See click analytics and geographic data in real time."
+              defaultText="Lowejo"
+              revealText="ReachDem's simplicity allowed us to double our conversions."
               animationSpeed={4}
               containerClassName="bg-orange-600"
               colors={[[249, 115, 22]]}
@@ -63,7 +62,7 @@ const FeaturesSection = ({ className }: FeaturesSectionProps) => {
   );
 };
 
-export { FeaturesSection };
+export { Feature274 };
 
 const Card = ({
   defaultText,
@@ -87,7 +86,7 @@ const Card = ({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group/canvas-card border-border relative mx-auto flex h-[25rem] w-full max-w-sm items-center justify-center rounded-2xl border bg-card p-4 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04]"
+      className="group/canvas-card border-border relative mx-auto flex h-[25rem] w-full max-w-sm items-center justify-center border p-4"
     >
       <BorderIllustration className="text-foreground absolute -top-3 -left-3 h-6 w-6" />
       <BorderIllustration className="text-foreground absolute -bottom-3 -left-3 h-6 w-6" />
@@ -99,7 +98,7 @@ const Card = ({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute inset-0 h-full w-full rounded-2xl overflow-hidden"
+            className="absolute inset-0 h-full w-full"
           >
             <CanvasRevealEffect
               animationSpeed={animationSpeed}
@@ -115,11 +114,11 @@ const Card = ({
       </AnimatePresence>
 
       <div className="relative z-20">
-        <div className="absolute inset-0 mx-auto flex w-full items-center justify-center p-2 text-center font-display text-2xl font-semibold tracking-tight transition duration-200 group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 text-foreground">
+        <div className="absolute inset-0 mx-auto flex w-full items-center justify-center p-2 text-center text-4xl font-semibold tracking-tight transition duration-200 group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0">
           {defaultText}
         </div>
-        <div className="absolute relative inset-0 z-10 flex flex-col items-center justify-center p-2 text-center text-base font-medium tracking-tight opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100">
-          <span className="mb-2 font-display text-xl font-bold">{defaultText}</span>
+        <div className="text-foreground absolute relative inset-0 z-10 flex flex-col items-center justify-center p-2 text-center text-base font-medium tracking-tight opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100">
+          <span className="mb-2 text-xl font-bold">{defaultText}</span>
           <span>{revealText}</span>
         </div>
       </div>
