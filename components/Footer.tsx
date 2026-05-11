@@ -6,31 +6,31 @@ import { Input } from "@/components/ui/input";
 
 const navigation = [
   {
-    title: "Products",
+    title: "Solutions",
     links: [
-      { name: "SMS", href: "/pricing" },
-      { name: "Email", href: "/pricing" },
-      { name: "Campaigns", href: "/campaigns" },
-      { name: "Contacts", href: "/contacts" },
-      { name: "API", href: "https://app.reachdem.cc/api-config" },
+      { name: "For SMEs", href: "/use-cases/smes" },
+      { name: "For restaurants", href: "/use-cases/restaurants" },
+      { name: "For logistics", href: "/use-cases/logistics" },
+      { name: "For developers", href: "/use-cases/developers" },
     ],
   },
   {
-    title: "Support",
+    title: "Product",
     links: [
       { name: "Pricing", href: "/pricing" },
-      { name: "FAQ", href: "/faq" },
-      { name: "Demo", href: "/demo" },
-      { name: "Contact", href: "/about" },
+      { name: "ReachDem Links", href: "/links" },
+      { name: "Getting started", href: "/docs/getting-started" },
+      { name: "Support", href: "/support" },
     ],
   },
   {
     title: "Company",
     links: [
+      { name: "FAQ", href: "/faq" },
       { name: "Roadmap", href: "/roadmap" },
-      { name: "About", href: "/about" },
-      { name: "Terms of Service", href: "/terms" },
-      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Changelog", href: "/changelog" },
+      { name: "Terms", href: "/terms" },
+      { name: "Privacy", href: "/privacy" },
     ],
   },
 ];
@@ -51,15 +51,14 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="max-w-md">
             <Link href="/" className="inline-block">
-                <img
-                  src="/icon.png"
-                  alt="ReachDem icon"
-                  className="h-10 object-cover invert"
-                />
+              <img
+                src="/icon.png"
+                alt="ReachDem icon"
+                className="h-10 object-cover invert"
+              />
             </Link>
             <p className="mt-4 text-base leading-relaxed text-white/50">
-              Building communication solutions for businesses and individuals around the globe.
-              Send SMS and emails efficiently with our platform.
+              ReachDem helps SMEs, restaurants, logistics teams, and developers build direct customer channels with SMS, email, contacts, tracked links, and API-ready workflows.
             </p>
 
             <form className="mt-6 flex flex-col gap-3 sm:flex-row">

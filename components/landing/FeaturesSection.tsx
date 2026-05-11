@@ -17,23 +17,23 @@ const FeaturesSection = ({ className }: FeaturesSectionProps) => {
         <div className="flex w-full flex-col items-center justify-center">
           <span className="text-sm font-semibold uppercase tracking-[0.32em] text-primary">Platform</span>
           <h2 className="relative z-20 mt-3 text-center font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-            Everything You Need to Reach Your Audience
+            Everything You Need to Turn Attention Into Customers
           </h2>
           <p className="mt-4 text-center text-lg text-muted-foreground mx-auto max-w-xl">
-            One platform for SMS, email, contacts, and links. Built for speed and simplicity.
+            SMS, email, contacts, segmentation, tracked links, and APIs in one customer communication platform.
           </p>
 
           <div className="mt-16 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             <Card
               defaultText="SMS Campaigns"
-              revealText="Send personalized bulk SMS to thousands of contacts instantly. Schedule, target, and track delivery in real time."
+              revealText="Send targeted SMS campaigns for promos, delivery updates, reminders, and customer reactivation. Schedule, segment, and monitor performance."
               animationSpeed={3}
               containerClassName="bg-primary"
               colors={[[59, 130, 246]]}
             />
             <Card
               defaultText="Email Marketing"
-              revealText="Craft beautiful email campaigns with our intuitive builder. Templates, personalization, and analytics built in."
+              revealText="Create clear customer updates, newsletters, and follow-up campaigns with templates, personalization, and analytics built in."
               animationSpeed={3}
               colors={[
                 [59, 130, 246],
@@ -43,14 +43,14 @@ const FeaturesSection = ({ className }: FeaturesSectionProps) => {
             />
             <Card
               defaultText="Contact Management"
-              revealText="Organize your audience with smart segments, tags, and filters. Import from CSV or sync with your tools."
+              revealText="Organize customers into groups and segments for restaurants, logistics teams, agencies, and SMEs. Import from CSV or sync with your tools."
               animationSpeed={3}
               containerClassName="bg-emerald-600"
               colors={[[16, 185, 129]]}
             />
             <Card
               defaultText="Link Shortener"
-              revealText="Shorten, brand, and track every link you share. See click analytics and geographic data in real time."
+              revealText="Shorten, brand, and track every campaign link. Understand clicks, sources, and customer intent before you follow up."
               animationSpeed={4}
               containerClassName="bg-orange-600"
               colors={[[249, 115, 22]]}

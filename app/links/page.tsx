@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "ReachDem Links - Prelaunch",
+  title: "ReachDem Links | Smart Links, Payment Links & Digital Profiles",
   description:
-    "Join the ReachDem Links waitlist and get notified when the profile and smart-link experience becomes available.",
+    "Join the ReachDem Links waitlist for smart profiles, shortened links, payment links, QR codes, and click tracking for cards, campaigns, and business pages.",
+  alternates: { canonical: "/links" },
 };
 
 const features = [

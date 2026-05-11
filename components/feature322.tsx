@@ -89,7 +89,7 @@ const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
         alt={testimonial.author}
         className="h-8 dark:invert"
       />
-      <p className="mt-8 text-lg leading-tight">"{testimonial.quote}"</p>
+      <p className="mt-8 text-lg leading-tight">&ldquo;{testimonial.quote}&rdquo;</p>
       <p className="mt-4 text-sm font-medium">
         &mdash; {testimonial.author}{" "}
         <span className="font-light">{testimonial.designation}</span>

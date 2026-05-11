@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import { PricingExperience } from "@/components/pricing/PricingExperience";
 
 export const metadata: Metadata = {
-  title: "Pricing | ReachDem",
+  title: "ReachDem Pricing | SMS, Email, Contacts & Link Tracking Plans",
   description:
-    "Explore ReachDem pricing across Basic, Growth, Pro, custom enterprise plans, and pay-as-you-use message credits.",
+    "Compare ReachDem plans for SMEs, restaurants, logistics companies, and developer teams that need SMS, email campaigns, contact management, link tracking, and API workflows.",
+  alternates: { canonical: "/pricing" },
 };
 
 export default function PricingPage() {

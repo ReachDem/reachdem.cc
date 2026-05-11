@@ -257,6 +257,9 @@ export function Header() {
                         </AnimatePresence>
                     </div>
 
+                    <Link href="/use-cases/smes" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
+                        Use cases
+                    </Link>
                     <Link href="/faq" className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
                         FAQ
                     </Link>
@@ -348,6 +351,8 @@ export function Header() {
                             <div className="py-2">
                                 <div className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-gray-400">Product</div>
                                 <Link href="/#features" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Features</Link>
+                                <Link href="/use-cases" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Use cases</Link>
+                                <Link href="/links" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Links</Link>
                                 <Link href="/docs/getting-started" className="block rounded-lg px-2 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-zinc-800">Getting Started</Link>
                             </div>
                             <div className="py-2">

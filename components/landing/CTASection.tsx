@@ -27,11 +27,10 @@ export function CTASection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-display text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
-            Ready to Reach Your Audience?
+            Build a Customer Channel You Own.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-primary-foreground/70">
-            Join thousands of businesses using ReachDem to send SMS and email campaigns that deliver
-            results.
+            Start with SMS, email, contacts, and tracked links. Grow into a measurable customer messaging system for your business.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button
@@ -40,7 +39,7 @@ export function CTASection() {
               asChild
             >
               <Link href="https://app.reachdem.cc/register">
-                Get Started Free
+                Start Free
                 <ArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </Button>

@@ -8,23 +8,23 @@ const steps = [
   {
     number: "01",
     icon: UserPlus,
-    title: "Create Your Account",
+    title: "Create Your Workspace",
     description:
-      "Sign up in seconds. No credit card required. Get instant access to all features with a free trial.",
+      "Set up a business workspace for your team, market, or client base. Start simple and expand when traction grows.",
   },
   {
     number: "02",
     icon: Upload,
-    title: "Import Your Contacts",
+    title: "Import and Segment Contacts",
     description:
-      "Upload your contact list via CSV, or add contacts manually. Organize them into smart segments.",
+      "Upload customers, leads, riders, diners, or prospects. Organize them by behavior, channel, location, or campaign.",
   },
   {
     number: "03",
     icon: Rocket,
-    title: "Launch & Track",
+    title: "Launch, Track, Follow Up",
     description:
-      "Send SMS and email campaigns to your audience. Monitor delivery, opens, and clicks in real time.",
+      "Send SMS and email campaigns, track link clicks, measure response signals, and follow up with the right people.",
   },
 ];
 
@@ -43,7 +43,7 @@ export function ProcessSection() {
         >
           <span className="text-sm font-semibold uppercase tracking-[0.32em] text-primary">How It Works</span>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Up and Running in 3 Steps
+            From Contact List to Measurable Campaign in 3 Steps
           </h2>
         </motion.div>
 
