@@ -44,8 +44,8 @@ export function RoadmapTimeline() {
               How ReachDem is evolving across audience, analytics, and automation.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              This roadmap translates the platform direction into concrete milestones so the product can scale from
-              campaign execution to full communication operations.
+              This roadmap turns the current ReachDem build into concrete product milestones: audience operations,
+              measurable campaigns, WhatsApp onboarding, Links, Cards, team controls, and platform APIs.
             </p>
           </div>
         </div>

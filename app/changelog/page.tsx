@@ -14,74 +14,97 @@ import {
 
 export const metadata: Metadata = {
   title: "ReachDem - Changelog",
-  description: "Follow the latest product milestones and what has already shipped across ReachDem.",
+  description:
+    "Follow the latest ReachDem product milestones across WhatsApp onboarding, campaign execution, tracked links, contacts, and platform infrastructure.",
 };
 
 const entries = [
   {
-    phase: "Stage 3",
-    period: "Planned",
-    title: "Campaign detail, aggregated stats, and links analytics",
+    phase: "Current build",
+    period: "May 2026",
+    title: "WhatsApp onboarding, session pairing, and campaign readiness",
     excerpt:
-      "The next phase focuses on turning ReachDem into a stronger reporting surface, with dedicated campaign views, aggregated metrics, and clearer links analytics.",
-    status: "Planned",
-    accent: "from-violet-100 via-white to-indigo-100 dark:from-violet-500/10 dark:via-zinc-950 dark:to-zinc-900",
+      "The current product focus is making WhatsApp usable end-to-end: a guided onboarding flow, QR-code phone pairing, session status, test messages, and WhatsApp campaign creation.",
+    status: "In progress",
+    accent: "from-emerald-100 via-white to-teal-100 dark:from-emerald-500/10 dark:via-zinc-950 dark:to-zinc-900",
     bullets: [
-      "Dedicated campaign detail screen.",
-      "Aggregated statistics backed by Redis caching.",
-      "Links module with listing and analytics.",
-      "More actionable performance reporting.",
+      "WhatsApp setup flow planned around five guided screens.",
+      "QR-code pairing connects a user phone through provider session APIs.",
+      "Transactional WhatsApp tests validate delivery before campaigns.",
+      "WhatsApp composer uses tracked links and campaign-safe message limits.",
     ],
     detail: [
-      "A dedicated campaign screen will make it easier to track delivery progress, click activity, and message-level status in one place.",
-      "A stats API will aggregate delivery and engagement data while keeping response times fast through Redis caching.",
-      "The Links module will provide a focused view of tracked links, tied back to the campaign or message that created them.",
-      "This phase is about turning ReachDem into a stronger operating console, not just a sending engine.",
-      "The goal is to make it obvious what is working, what is blocked, and what needs optimization next.",
+      "ReachDem is adding a dedicated WhatsApp onboarding path before users create WhatsApp campaigns, so the setup feels like a product flow rather than a technical configuration page.",
+      "The planned flow covers the value proposition, prerequisites, QR-code connection, a test message, and a final ready state that sends users into WhatsApp campaign creation.",
+      "The connection layer is designed around session APIs: create or refresh a WhatsApp session, display the QR code, poll for connection status, and recover cleanly from disconnected or error states.",
+      "The campaign side is being prepared so WhatsApp messages can use the same ReachDem primitives as other channels: audiences, drafts, tracked links, delivery jobs, and reporting context.",
+      "This release turns WhatsApp from a placeholder channel into a guided workflow teams can actually understand, test, and operate.",
+    ],
+  },
+  {
+    phase: "Stage 3",
+    period: "April - May 2026",
+    title: "Campaign detail, async jobs, and measurable link performance",
+    excerpt:
+      "ReachDem is tightening the operational layer around campaigns: asynchronous workers, campaign detail views, tracked links, and clearer reporting for sends and clicks.",
+    status: "In progress",
+    accent: "from-violet-100 via-white to-indigo-100 dark:from-violet-500/10 dark:via-zinc-950 dark:to-zinc-900",
+    bullets: [
+      "Campaign detail surfaces expose launch and delivery context.",
+      "Worker infrastructure supports SMS, email, WhatsApp, scheduler, and campaign jobs.",
+      "rcdm.ink tracked links connect clicks back to campaigns and contacts.",
+      "Reporting is moving toward delivery, engagement, and attribution in one place.",
+    ],
+    detail: [
+      "The campaign engine is evolving from a create-and-send form into an operating console where teams can inspect what happened after a campaign launches.",
+      "Async workers keep delivery work outside the main interface, making larger sends safer and easier to reason about across channels.",
+      "Tracked links through rcdm.ink are being connected to messages, contacts, and campaigns so engagement can be attributed instead of only counted globally.",
+      "The Links module is part of the same direction: every short link should be measurable, reusable, and tied to the business action that created it.",
+      "This stage makes ReachDem more useful after the send, not only before it.",
     ],
   },
   {
     phase: "Stage 2",
-    period: "March 9 - March 14, 2026",
-    title: "Campaign engine, async messaging, and tracked links",
+    period: "March - April 2026",
+    title: "Campaign engine, composer flows, and channel foundations",
     excerpt:
-      "ReachDem moved from contact operations to full campaign orchestration, asynchronous sending, and tracked-link infrastructure for measurable engagement.",
-    status: "In progress",
+      "ReachDem moved from audience management into real campaign orchestration, with the first channel-specific composer flows and a delivery architecture designed for multiple providers.",
+    status: "Shipped",
     accent: "from-sky-100 via-white to-indigo-100 dark:from-sky-500/10 dark:via-zinc-950 dark:to-zinc-900",
     bullets: [
-      "Campaign orchestration API delivered.",
-      "Async delivery architecture under review.",
-      "Tracked links through rcdm.ink in progress.",
-      "Campaign management interface in progress.",
+      "Campaign APIs resolve audiences and create message records.",
+      "SMS and email composer flows support draft, target, and launch steps.",
+      "Provider-aware message records prepare the product for additional channels.",
+      "Idempotency and delivery state make sends safer to retry and inspect.",
     ],
     detail: [
-      "The campaigns API now resolves audiences, creates per-contact messages, and orchestrates sends through a single product flow.",
-      "Async processing through workers is being introduced so large sends no longer block the main interface.",
-      "Tracked links under the rcdm.ink domain are being connected to campaigns, messages, and contacts for click-level visibility.",
-      "The campaign interface is moving toward one place to draft, target, save, and launch outbound communication.",
-      "This phase lays the operational foundation for reliable execution at scale with stronger engagement visibility.",
+      "The campaigns API now resolves selected audiences, creates per-contact messages, and gives the product one place to coordinate outbound communication.",
+      "Composer flows separate content, audience selection, scheduling, and launch decisions so operators can prepare campaigns with fewer mistakes.",
+      "The messaging model is channel-aware, which is why WhatsApp can now be added without rewriting the whole product around a single provider.",
+      "Provider logs, idempotency, and delivery status are part of the reliability layer needed before scaling larger sends.",
+      "This stage created the product foundation for SMS, email, and WhatsApp to share the same operational model.",
     ],
   },
   {
     phase: "Stage 1",
-    period: "Late February - March 7, 2026",
-    title: "Foundations: onboarding, contacts, and audiences",
+    period: "Late February - March 2026",
+    title: "Foundations: onboarding, contacts, imports, and audiences",
     excerpt:
-      "ReachDem became a complete workspace for importing, organizing, and segmenting contacts, with the infrastructure required to support reliable outbound messaging.",
+      "ReachDem became a complete workspace for getting teams and audiences ready: onboarding, workspace setup, contact records, CSV import, groups, and segmentation basics.",
     status: "Shipped",
     accent: "from-amber-100 via-white to-stone-100 dark:from-amber-500/10 dark:via-zinc-950 dark:to-zinc-900",
     bullets: [
-      "Guided onboarding and workspace setup.",
-      "Contacts with standard and custom fields.",
-      "CSV import with visual mapping.",
-      "Groups, segments, and audience preview.",
+      "Guided account and workspace onboarding.",
+      "Contacts with standard fields and workspace isolation.",
+      "CSV import with mapping, validation, and duplicate handling.",
+      "Groups, segments, and audience preview for campaign preparation.",
     ],
     detail: [
-      "ReachDem introduced a guided four-step onboarding flow so teams can create an account, configure a workspace, and get moving faster.",
-      "The contacts layer now supports both standard and custom fields, with workspace isolation and duplicate management built in.",
-      "CSV import includes visual mapping, line-by-line error feedback, and duplicate detection for larger databases.",
-      "Audience building is split between manual groups and dynamic segments with a visual query builder and real-time preview.",
-      "The messaging foundation already includes provider logs, automatic fallback behavior, and idempotent SMS delivery in production.",
+      "ReachDem introduced guided onboarding so teams can create an account, configure a workspace, and reach the product value faster.",
+      "The contacts layer supports structured customer records with workspace isolation, giving campaigns a reliable audience source.",
+      "CSV import includes visual mapping, validation feedback, and duplicate handling for teams bringing existing databases into ReachDem.",
+      "Audience preparation is split between manual groups and segmentation logic so operators can target the right contacts before launching campaigns.",
+      "This foundation matters because every later channel — SMS, email, WhatsApp, Links, and Cards — depends on clean audience data.",
     ],
   },
 ];
@@ -98,12 +121,12 @@ export default function ChangelogPage() {
                 <p className="text-sm font-medium">Changelog</p>
               </div>
               <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                Latest Enhancements
+                Product Build Log
                 <br />
-                & Platform News
+                & Platform Milestones
               </h1>
               <p className="max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
-                A running view of what ReachDem has already shipped, what is currently in progress, and what is planned next.
+                A contextual view of what ReachDem has shipped, what is actively being built, and what each phase changes for teams using the platform.
               </p>
               <div className="absolute right-0 bottom-0 left-0 h-px w-[200vw] -translate-x-1/2 bg-border" />
               <div className="absolute top-0 right-0 left-0 h-px w-[200vw] -translate-x-1/2 bg-border" />
@@ -182,7 +205,7 @@ export default function ChangelogPage() {
                       <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <Radio className="h-4 w-4 text-primary" />
-                          ReachDem MVP
+                          ReachDem product build
                         </div>
                         <DialogTrigger asChild>
                           <Button variant="ghost" size="sm" className="rounded-full">

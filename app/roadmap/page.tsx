@@ -4,7 +4,8 @@ import { RoadmapTimeline } from "@/components/roadmap/RoadmapTimeline";
 
 export const metadata: Metadata = {
   title: "Roadmap | ReachDem",
-  description: "See the upcoming ReachDem product roadmap across audience management, analytics, collaboration, and automation.",
+  description:
+    "Follow the ReachDem product roadmap across contacts, campaign execution, WhatsApp onboarding, Links, Cards, analytics, and platform APIs.",
 };
 
 export default function RoadmapPage() {
