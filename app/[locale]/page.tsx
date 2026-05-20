@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getDictionary, type Locale } from "@/lib/dictionary";
 import { CTASection } from "@/components/landing/CTASection";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
 import { Hero195 } from "@/components/landing/Hero195";
@@ -9,14 +10,18 @@ import { WordRotate } from "@/components/magicui/word-rotate";
 const siteUrl = "https://reachdem.cc";
 const appUrl = "https://app.reachdem.cc/register";
 
-export const metadata: Metadata = {
-  title: "ReachDem | Messaging OS for SMEs, Restaurants, Logistics & APIs",
-  description:
-    "ReachDem centralizes contacts, SMS and email campaigns, tracked links, and customer engagement workflows for SMEs, restaurants, logistics companies, and developer teams.",
-  alternates: {
-    canonical: "/",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = await getDictionary(locale);
+
+  return {
+    title: "ReachDem | Messaging OS for SMEs, Restaurants, Logistics & APIs",
+    description: dict.hero.description,
+    alternates: {
+      canonical: `/${locale}`,
+    },
+  };
+}
 
 const faqSchema = [
   {
@@ -140,7 +145,10 @@ const proofPoints = [
   "Simple enough for operators, structured enough for growth",
 ];
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  const dict = await getDictionary(locale);
+
   return (
     <>
       <script
@@ -152,29 +160,29 @@ export default function Home() {
         title={
           <>
             <span className="block lg:hidden">
-              <span className="block">Reach customers</span>
+              <span className="block">{dict.hero.titlePrefix}</span>
               <WordRotate
                 className="mt-1 block"
                 duration={3500}
-                words={["faster", "everywhere", "with proof"]}
+                words={dict.hero.words}
               />
             </span>
             <span className="hidden lg:inline-flex lg:items-baseline lg:gap-[0.35em] lg:whitespace-nowrap">
-              <span className="inline">Reach customers</span>
+              <span className="inline">{dict.hero.titlePrefix}</span>
               <WordRotate
                 className="lg:min-w-0"
                 duration={3500}
                 smoothWidth
-                words={["faster", "everywhere", "with proof"]}
+                words={dict.hero.words}
               />
             </span>
           </>
         }
-        description="The customer messaging operating system for SMEs, restaurants, logistics companies, and developer teams: manage contacts, send SMS and email campaigns, track links, and measure what converts."
-        primaryButtonText="Start free"
+        description={dict.hero.description}
+        primaryButtonText={dict.hero.primaryAction}
         primaryButtonUrl={appUrl}
-        secondaryButtonText="Talk to Sales"
-        secondaryButtonUrl="/support"
+        secondaryButtonText={dict.hero.secondaryAction}
+        secondaryButtonUrl={`/${locale}/support`}
       />
       <LogosSection />
       <section className="bg-background py-16 sm:py-24">

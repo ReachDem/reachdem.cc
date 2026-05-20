@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "product": "Produit",
+    "resources": "Ressources",
+    "useCases": "Cas d'usage",
+    "faq": "FAQ",
+    "pricing": "Tarifs",
+    "support": "Support",
+    "login": "Connexion",
+    "getStarted": "Commencer"
+  },
+  "hero": {
+    "titlePrefix": "Atteignez vos clients",
+    "words": ["plus vite", "partout", "avec preuve"],
+    "description": "Le système d'exploitation de messagerie client pour les PME, restaurants, entreprises de logistique et équipes de développement : gérez vos contacts, envoyez des campagnes SMS et email, suivez les liens et mesurez ce qui convertit.",
+    "primaryAction": "Démarrer gratuitement",
+    "secondaryAction": "Parler aux ventes"
+  }
+}

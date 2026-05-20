@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function SupportPage(): JSX.Element {
+export function SupportForm(): JSX.Element {
   return (
     <section className="bg-sand-100 min-h-screen py-16 md:py-24">
       <div className="container max-w-3xl space-y-12">

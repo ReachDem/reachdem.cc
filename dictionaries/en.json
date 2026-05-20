@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "product": "Product",
+    "resources": "Resources",
+    "useCases": "Use cases",
+    "faq": "FAQ",
+    "pricing": "Pricing",
+    "support": "Support",
+    "login": "Log in",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "titlePrefix": "Reach customers",
+    "words": ["faster", "everywhere", "with proof"],
+    "description": "The customer messaging operating system for SMEs, restaurants, logistics companies, and developer teams: manage contacts, send SMS and email campaigns, track links, and measure what converts.",
+    "primaryAction": "Start free",
+    "secondaryAction": "Talk to Sales"
+  }
+}
