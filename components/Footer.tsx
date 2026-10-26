@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaTelegram, FaXTwitter } from "react-icons/fa6";
-import { FontSwitcher } from "@/components/FontSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -123,7 +122,6 @@ export function Footer() {
               <p className="text-sm text-white/30">
                 &copy; {new Date().getFullYear()} ReachDem. All rights reserved.
               </p>
-              <FontSwitcher dark />
             </div>
 
             <div className="flex items-center gap-1">

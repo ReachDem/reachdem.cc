@@ -92,6 +92,13 @@ vigueur. Attention : les listes de fonctions des plans dans le catalogue (et don
 
 ### Design system
 
-- Accent orange `#ff8a3d → #ffc89a` et vert très clair `#dff0d8 → #f3faef`, dégradés
-  linéaires à 135°, une seule teinte à la fois, jamais les deux mélangées.
-- Polices : Syne (titres, `font-display`), Geist, Neue Montreal (fichiers locaux).
+- Couleur primaire : orange ReachDem `#ff751f` (`oklch(0.717 0.189 46.4)`), la même que
+  l'app (`apps/web/app/globals.css`). Texte sur fond orange : sombre (`#09090b`, contraste
+  7,4:1). Le blanc sur orange (2,7:1) et l'orange en texte sur fond blanc (2,7:1) échouent
+  au WCAG AA : réserver l'orange aux surfaces, aux boutons et aux grands titres.
+- Avatars : dégradés orange `#ff8a3d → #ffc89a` ou vert très clair `#dff0d8 → #f3faef`, à
+  135°, une seule teinte à la fois.
+- Police : Neue Montreal partout (fichiers locaux `public/fonts`), comme l'app ; Geist en
+  repli. Syne est abandonnée (2026-10-26), ne pas la réintroduire.
+- Inspiration de référence : la homepage de Linear (linear.app). S'inspirer des principes,
+  ne copier ni ses textes, ni ses visuels, ni son code.

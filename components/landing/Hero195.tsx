@@ -50,7 +50,7 @@ export function Hero195({
         <div className="md:border-x border-border md:border-1 border-slate-1 py-20 md:py-12">
           <div className="relative mx-auto max-w-5xl p-2">
             <div className="absolute inset-x-10 top-4 -z-10 h-40 rounded-full bg-primary/15 blur-3xl" />
-            <h1 className="mx-auto mt-6 max-w-[16ch] text-center text-5xl font-bold leading-[0.95] tracking-tighter md:max-w-[22ch] md:text-7xl">
+            <h1 className="mx-auto mt-6 max-w-[16ch] text-center text-5xl font-bold leading-[0.95] tracking-tight md:max-w-[22ch] md:text-7xl">
               {title}
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-muted-foreground md:text-xl">

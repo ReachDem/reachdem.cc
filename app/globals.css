@@ -39,9 +39,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --font-sans: 'Neue Montreal', var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-inter: var(--font-geist-sans);
-  --font-inter-tight: var(--font-syne);
-  --font-display: var(--font-syne);
+  --font-inter-tight: 'Neue Montreal', var(--font-geist-sans);
+  --font-display: 'Neue Montreal', var(--font-geist-sans);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -205,16 +206,8 @@
     font-family: var(--font-display), sans-serif;
   }
 
-  .font-syne {
-    font-family: var(--font-syne), sans-serif;
-  }
-
   .font-neue {
     font-family: 'Neue Montreal', var(--font-inter), sans-serif;
-  }
-
-  .font-syne-default {
-    font-family: var(--font-syne), sans-serif;
   }
 
   h1,
@@ -256,8 +249,8 @@
     --card-foreground: oklch(0.141 0.005 285.823); /* #09090B */
     --popover: oklch(1 0 0); /* #FFFFFF */
     --popover-foreground: oklch(0.141 0.005 285.823); /* #09090B */
-    --primary: oklch(0.795 0.184 86.047); /* gold */
-    --primary-foreground: oklch(0.421 0.095 57.708);
+    --primary: oklch(0.717 0.189 46.4); /* #ff751f, ReachDem orange */
+    --primary-foreground: oklch(0.141 0.005 285.823);
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
     --muted: oklch(0.967 0.001 286.375);
@@ -268,7 +261,7 @@
     --destructive-foreground: oklch(1 0 0); /* #FFFFFF */
     --border: oklch(0.92 0.004 286.32);
     --input: oklch(0.92 0.004 286.32);
-    --ring: oklch(0.795 0.184 86.047);
+    --ring: oklch(0.717 0.189 46.4);
     --chart-1: oklch(0.646 0.222 41.116); /* #E65C41 */
     --chart-2: oklch(0.6 0.118 184.704); /* #2A9D8F */
     --chart-3: oklch(0.398 0.07 227.392); /* #264653 */
@@ -287,12 +280,12 @@
 
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.141 0.005 285.823);
-    --sidebar-primary: oklch(0.795 0.184 86.047);
-    --sidebar-primary-foreground: oklch(0.421 0.095 57.708);
+    --sidebar-primary: oklch(0.717 0.189 46.4);
+    --sidebar-primary-foreground: oklch(0.141 0.005 285.823);
     --sidebar-accent: oklch(0.967 0.001 286.375);
     --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
     --sidebar-border: oklch(0.92 0.004 286.32);
-    --sidebar-ring: oklch(0.795 0.184 86.047);
+    --sidebar-ring: oklch(0.717 0.189 46.4);
   }
 
   .dark {
@@ -302,8 +295,8 @@
     --card-foreground: oklch(1 0 0); /* #FFFFFF */
     --popover: oklch(0.21 0.006 285.885);
     --popover-foreground: oklch(1 0 0); /* #FFFFFF */
-    --primary: oklch(0.795 0.184 86.047);
-    --primary-foreground: oklch(0.421 0.095 57.708);
+    --primary: oklch(0.717 0.189 46.4);
+    --primary-foreground: oklch(0.141 0.005 285.823);
     --secondary: oklch(0.274 0.006 286.033);
     --secondary-foreground: oklch(1 0 0); /* #FFFFFF */
     --muted: oklch(0.274 0.006 286.033);
@@ -314,7 +307,7 @@
     --destructive-foreground: oklch(1 0 0); /* #FFFFFF */
     --border: oklch(1 0 0 / 10%); /* #FFFFFF1A */
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.554 0.135 66.442);
+    --ring: oklch(0.717 0.189 46.4);
     --chart-1: oklch(0.488 0.243 264.376);
     --chart-2: oklch(0.696 0.17 162.48);
     --chart-3: oklch(0.769 0.188 70.08);
@@ -333,12 +326,12 @@
 
     --sidebar: oklch(0.21 0.006 285.885);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.795 0.184 86.047);
-    --sidebar-primary-foreground: oklch(0.421 0.095 57.708);
+    --sidebar-primary: oklch(0.717 0.189 46.4);
+    --sidebar-primary-foreground: oklch(0.141 0.005 285.823);
     --sidebar-accent: oklch(0.274 0.006 286.033);
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.554 0.135 66.442);
+    --sidebar-ring: oklch(0.717 0.189 46.4);
   }
 }
 
@@ -368,23 +361,6 @@ body {
 }
 body {
   position: relative;
-}
-
-body.font-syne-default {
-  font-family: var(--font-syne), sans-serif;
-}
-
-body.font-syne-default p,
-body.font-syne-default span,
-body.font-syne-default a,
-body.font-syne-default button,
-body.font-syne-default input,
-body.font-syne-default select,
-body.font-syne-default textarea,
-body.font-syne-default li,
-body.font-syne-default label,
-body.font-syne-default div {
-  font-family: inherit;
 }
 
 .grain {
