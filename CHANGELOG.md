@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 
 
+## PR #16 - docs(landing): navigation and product offer for the redesign
+- **Author:** @latioms
+- **Date:** 2026-11-06
+- **Link:** [View PR](https://github.com/ReachDem/reachdem.cc/pull/16)
+
+### Commits:
+- docs(landing): define navigation and product offer for the redesign (13eb2b8)
+
+---
+
+
+
 ## PR #14 - Feature/rea2 52 privacy and terms
 - **Author:** @latioms
 - **Date:** 2026-03-19
