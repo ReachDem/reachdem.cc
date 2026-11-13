@@ -5,7 +5,8 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
-import sharp from 'sharp'
+
+import { resolveConnectionString } from './lib/db/connection'
 
 import { Users } from './payload/collections/Users'
 import { Media } from './payload/collections/Media'
@@ -26,6 +27,9 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 const serverURL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
+// Top-level await : le binding Hyperdrive n'est lisible qu'asynchronement.
+const connectionString = await resolveConnectionString()
 
 /**
  * R2 est branché uniquement si les variables sont présentes.
@@ -71,10 +75,17 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL || process.env.POSTGRES_URL || '',
+      // Hyperdrive en Worker, DATABASE_URI/DATABASE_URL en Node.
+      connectionString,
+      // Un Worker ne réutilise pas un socket d'une requête à l'autre.
+      // `maxUses: 1` ferme le client après chaque usage ; Hyperdrive tient le vrai pool.
+      maxUses: 1,
+      idleTimeoutMillis: 0,
     },
   }),
-  sharp,
+  // Pas d'option `sharp` : le binaire natif ne tourne pas dans workerd.
+  // Les redimensionnements d'images sont faits à la périphérie (next/image →
+  // transformations Cloudflare), pas à l'upload.
   cors: [serverURL],
   csrf: [serverURL],
   plugins: r2Configured
