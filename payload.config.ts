@@ -15,6 +15,11 @@ import { PricingPlans } from './payload/collections/PricingPlans'
 import { FaqItems } from './payload/collections/FaqItems'
 import { RoadmapMilestones } from './payload/collections/RoadmapMilestones'
 import { LegalDocuments } from './payload/collections/LegalDocuments'
+import { Categories } from './payload/collections/Categories'
+import { Posts } from './payload/collections/Posts'
+import { Courses } from './payload/collections/Courses'
+import { Lessons } from './payload/collections/Lessons'
+import { LessonProgress } from './payload/collections/LessonProgress'
 import { SiteSettings } from './payload/globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
@@ -52,6 +57,11 @@ export default buildConfig({
     FaqItems,
     RoadmapMilestones,
     LegalDocuments,
+    Categories,
+    Posts,
+    Courses,
+    Lessons,
+    LessonProgress,
   ],
   globals: [SiteSettings],
   editor: lexicalEditor(),
