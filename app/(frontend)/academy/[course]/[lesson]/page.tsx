@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
-import { getCompletedLessonIds, setLessonCompleted } from '@/app/academy/actions'
+import { getCompletedLessonIds, setLessonCompleted } from '@/app/(frontend)/academy/actions'
 import { getPayloadClient, getPublishedCourse } from '@/lib/payload'
 import { getReachDemUser, requireReachDemUser } from '@/lib/reachdem-auth'
 

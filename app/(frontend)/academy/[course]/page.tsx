@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
-import { getCompletedLessonIds } from '@/app/academy/actions'
+import { getCompletedLessonIds } from '@/app/(frontend)/academy/actions'
 import { getPayloadClient, getPublishedCourse } from '@/lib/payload'
 import { getReachDemUser } from '@/lib/reachdem-auth'
 

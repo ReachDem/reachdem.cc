@@ -6,8 +6,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
 
-import { resolveConnectionString } from './lib/db/connection'
-
 import { Users } from './payload/collections/Users'
 import { Media } from './payload/collections/Media'
 import { Pages } from './payload/collections/Pages'
@@ -28,8 +26,16 @@ const dirname = path.dirname(filename)
 
 const serverURL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
-// Top-level await : le binding Hyperdrive n'est lisible qu'asynchronement.
-const connectionString = await resolveConnectionString()
+/**
+ * Connexion résolue **synchronement**, volontairement.
+ *
+ * Le CLI Payload compile cette config en CJS, format qui n'accepte pas le
+ * top-level await : la moindre promesse au chargement du module casse
+ * `payload migrate` et `payload generate:types`. On a donc supprimé Hyperdrive
+ * du chemin de la config — le Worker lit le contenu en périphérie, l'admin
+ * tourne sur un hôte Node qui garde un pool `pg` classique.
+ */
+const connectionString = process.env.DATABASE_URI || process.env.DATABASE_URL || ''
 
 /**
  * R2 est branché uniquement si les variables sont présentes.
@@ -75,12 +81,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      // Hyperdrive en Worker, DATABASE_URI/DATABASE_URL en Node.
       connectionString,
-      // Un Worker ne réutilise pas un socket d'une requête à l'autre.
-      // `maxUses: 1` ferme le client après chaque usage ; Hyperdrive tient le vrai pool.
-      maxUses: 1,
-      idleTimeoutMillis: 0,
     },
   }),
   // Pas d'option `sharp` : le binaire natif ne tourne pas dans workerd.
