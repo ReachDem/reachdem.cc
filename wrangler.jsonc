@@ -1,0 +1,66 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "reachdem-cc",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-12",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  // Hyperdrive : un Worker ne garde pas de socket vers Postgres.
+  // `id` à créer par environnement (voir README ci-dessous) :
+  //   wrangler hyperdrive create reachdem-cc-prod \
+  //     --connection-string="postgres://…" --caching-disabled --origin-connection-limit=10
+  // `opennextjs-cloudflare preview|deploy` refuse de démarrer sans localConnectionString.
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "REMPLACER_PAR_ID_HYPERDRIVE",
+      "localConnectionString": "postgres://dev:dev@localhost:5432/reachdem_cc"
+    }
+  ],
+
+  // Médias : même bucket que celui déjà utilisé par la plateforme.
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "reachdem-cc-media"
+    }
+  ],
+
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://reachdem.cc"
+  },
+
+  // Rapproche le Worker de la base.
+  "placement": { "mode": "smart" },
+  "observability": { "enabled": true },
+
+  "env": {
+    // staging tape Neon, prod tape Cloud SQL : deux configs Hyperdrive distinctes.
+    "staging": {
+      "name": "reachdem-cc-staging",
+      "vars": { "NEXT_PUBLIC_SITE_URL": "https://staging.reachdem.cc" },
+      "hyperdrive": [
+        {
+          "binding": "HYPERDRIVE",
+          "id": "REMPLACER_PAR_ID_HYPERDRIVE_STAGING",
+          "localConnectionString": "postgres://dev:dev@localhost:5432/reachdem_cc"
+        }
+      ]
+    },
+    "production": {
+      "name": "reachdem-cc-production",
+      "hyperdrive": [
+        {
+          "binding": "HYPERDRIVE",
+          "id": "REMPLACER_PAR_ID_HYPERDRIVE_PROD",
+          "localConnectionString": "postgres://dev:dev@localhost:5432/reachdem_cc"
+        }
+      ]
+    }
+  }
+}

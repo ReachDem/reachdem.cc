@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/*
+ * Base volontairement minimale.
+ * Aucun token de marque ici : la palette et la typographie seront décidées
+ * quand la première section sera dessinée, pas avant.
+ */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
