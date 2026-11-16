@@ -45,12 +45,15 @@ export default function Home() {
           <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-[12px]">
             design/sketches/out/
           </code>
-          . On remplace les blocs un par un, en commençant par le navbar et le hero.
+          . On remplace les blocs un par un. La{' '}
+          <strong className="text-neutral-700">navbar</strong> est livrée (rendue par le layout,
+          pas par cette pile) : elle vient du global Payload « Réglages du site » et retombe sur{' '}
+          <code>lib/navigation.ts</code> quand la base n’est pas joignable.
         </p>
       </header>
 
       <div className="flex flex-col gap-4">
-        {SECTIONS.map((s) => (
+        {SECTIONS.filter((s) => s.id !== 'navbar').map((s) => (
           <section
             key={s.id}
             id={s.id}

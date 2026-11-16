@@ -7,6 +7,25 @@ const linkFields = [
 ]
 
 /**
+ * Un lien de menu porte en plus un badge de disponibilité : « Nouveau » pour
+ * ce qui vient de sortir (Forms), « Bientôt » pour ce qui est annoncé mais pas
+ * livré (Workflows). C'est une information produit, pas un ornement.
+ */
+const navLinkFields = [
+  ...linkFields,
+  {
+    name: 'badge',
+    type: 'select' as const,
+    defaultValue: 'none' as const,
+    options: [
+      { label: 'Aucun', value: 'none' },
+      { label: 'Nouveau', value: 'new' },
+      { label: 'Bientôt', value: 'soon' },
+    ],
+  },
+]
+
+/**
  * Réglages globaux du site : navigation, pied de page, contacts.
  * Évite d'avoir le menu et le footer codés en dur dans `components/Header.tsx`
  * et `components/Footer.tsx`.
@@ -50,11 +69,19 @@ export const SiteSettings: GlobalConfig = {
       fields: [
         { name: 'label', type: 'text', required: true },
         {
+          name: 'href',
+          type: 'text',
+          admin: {
+            description:
+              'Renseigné = lien direct, sans panneau (cas de « Prix »). Laisser vide pour un menu déroulant.',
+          },
+        },
+        {
           name: 'columns',
           type: 'array',
           fields: [
             { name: 'heading', type: 'text' },
-            { name: 'links', type: 'array', fields: linkFields },
+            { name: 'links', type: 'array', fields: navLinkFields },
           ],
         },
         {
