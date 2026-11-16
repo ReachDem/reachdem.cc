@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 
 
+## PR #19 - Feat/landing cms
+- **Author:** @latioms
+- **Date:** 2026-11-16
+- **Link:** [View PR](https://github.com/ReachDem/reachdem.cc/pull/19)
+
+### Commits:
+- Merge pull request #17 from ReachDem/feat/legal-pages-privacy-terms (9ee4f87)
+- feat(legal): add privacy and terms pages (b9cbeb1)
+- chore(landing): repartir de zero — couche design supprimee (994481e)
+- design(sketches): 15 sketches de sections en GIF + generateur (5d17872)
+- feat(cms): script de seed rejouable pour pricing et roadmap (94d33dc)
+- refactor(app): isoler l'admin Payload du layout du site (acf48e9)
+- feat(workers): cibler Cloudflare Workers avec OpenNext, Hyperdrive et R2 (7ee1342)
+- feat(blog,academy): pages /blog et /academy branchées sur Payload (cf0495a)
+- chore: versionner .env.example (exception au .env* du .gitignore) (86c865c)
+- feat(cms): intégrer Payload CMS 3.93 au site de la landing (a1b5204)
+
+---
+
+
+
 ## PR #16 - docs(landing): navigation and product offer for the redesign
 - **Author:** @latioms
 - **Date:** 2026-11-06
