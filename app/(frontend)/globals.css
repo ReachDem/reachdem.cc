@@ -1,16 +1,121 @@
 @import "tailwindcss";
 
 /*
- * Base volontairement minimale.
- * Aucun token de marque ici : la palette et la typographie seront décidées
- * quand la première section sera dessinée, pas avant.
+ * Tokens de la landing.
+ *
+ * Le dépôt est reparti de zéro côté design : ce fichier pose la base minimale
+ * dont la navbar a besoin (encre, surfaces, trait, orange de marque, rayon) et
+ * le jeu de tokens shadcn que les composants de `components/ui` attendent déjà
+ * (`background`, `muted-foreground`, `border`, `ring`…). Sans eux, ces classes
+ * ne génèrent rien : les pages blog et légales s'affichent aujourd'hui sans
+ * couleur secondaire ni focus.
+ *
+ * La palette reste volontairement courte. Elle s'étendra quand les sections
+ * suivantes seront dessinées.
  */
 
-html {
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+@theme {
+  --font-sans: var(--font-neue), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-neue), ui-sans-serif, system-ui, sans-serif;
+
+  /* Marque */
+  --color-brand: #ff751f;
+  --color-brand-strong: #e9620f;
+  --color-brand-soft: #fff2e8;
+
+  /* Encres et surfaces */
+  --color-ink: #0b0b0c;
+  --color-ink-soft: #52525b;
+  --color-surface: #ffffff;
+  --color-surface-2: #fafafa;
+  --color-line: #e8e8ea;
+  --color-line-strong: #d6d6da;
+
+  /* Tokens shadcn (style new-york, base zinc) */
+  --color-background: var(--color-surface);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-surface);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-surface);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--color-surface-2);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted: var(--color-surface-2);
+  --color-muted-foreground: var(--color-ink-soft);
+  --color-accent: var(--color-surface-2);
+  --color-accent-foreground: var(--color-ink);
+  --color-destructive: #dc2626;
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-ring: var(--color-brand);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 }
 
-body {
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
+
+  /* Un seul anneau de focus, partout : orange, jamais le contour par défaut. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /*
+   * Le libellé qui roule (micro-animation sent.dm).
+   *
+   * Chaque lettre est une boîte à deux faces identiques, empilées sur l'axe X :
+   * au survol de la zone parente, la boîte pivote de 90° et la face arrière
+   * prend la place de la face avant. Le décalage d'une lettre à l'autre vient
+   * de `--i / --n`, posé par le composant.
+   *
+   * Le libellé est dupliqué pour l'animation ; la copie est `aria-hidden` dans
+   * le composant, donc les lecteurs d'écran n'entendent le texte qu'une fois.
+   */
+  .roll {
+    display: inline-block;
+    position: relative;
+    white-space: pre;
+    transform-style: preserve-3d;
+    transform: perspective(320px) translateZ(-0.6em);
+  }
+
+  .roll > span {
+    display: block;
+    backface-visibility: hidden;
+    transform: translateZ(0.6em);
+  }
+
+  .roll > span + span {
+    position: absolute;
+    inset: 0;
+    transform: rotateX(-90deg) translateZ(0.6em);
+  }
+
+  /* Les deux déclencheurs reconnus : `.roll-host` (bouton) et `.group` (Tailwind). */
+  @media (prefers-reduced-motion: no-preference) {
+    .roll-host:hover .roll,
+    .group:hover .roll,
+    .roll-host:focus-visible .roll {
+      transform: perspective(320px) translateZ(-0.6em) rotateX(91deg);
+      transition: transform 0.26s cubic-bezier(0.24, 0.9, 0.35, 1.02);
+      transition-delay: calc(0.06s + var(--i) / var(--n) * 0.18s);
+    }
+  }
 }

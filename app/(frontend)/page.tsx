@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { SECTIONS } from './sections';
 
 /**
@@ -43,12 +45,15 @@ export default function Home() {
           <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-[12px]">
             design/sketches/out/
           </code>
-          . On remplace les blocs un par un, en commençant par le navbar et le hero.
+          . On remplace les blocs un par un. La{' '}
+          <strong className="text-neutral-700">navbar</strong> est livrée (rendue par le layout,
+          pas par cette pile) : elle vient du global Payload « Réglages du site » et retombe sur{' '}
+          <code>lib/navigation.ts</code> quand la base n’est pas joignable.
         </p>
       </header>
 
       <div className="flex flex-col gap-4">
-        {SECTIONS.map((s) => (
+        {SECTIONS.filter((s) => s.id !== 'navbar').map((s) => (
           <section
             key={s.id}
             id={s.id}
@@ -70,8 +75,16 @@ export default function Home() {
         ))}
       </div>
 
-      <footer className="mt-12 border-t border-neutral-200 pt-6 font-mono text-[11px] text-neutral-400">
-        {SECTIONS.length} emplacements · aucun contenu · aucun style de marque
+      <footer className="mt-12 flex flex-col gap-3 border-t border-neutral-200 pt-6 font-mono text-[11px] text-neutral-400 sm:flex-row sm:items-center sm:justify-between">
+        <span>{SECTIONS.length} emplacements · aucun contenu · aucun style de marque</span>
+        <nav aria-label="Liens légaux" className="flex gap-4">
+          <Link href="/privacy" className="transition-colors hover:text-neutral-700">
+            Confidentialité
+          </Link>
+          <Link href="/terms" className="transition-colors hover:text-neutral-700">
+            Conditions d’utilisation
+          </Link>
+        </nav>
       </footer>
     </main>
   );
