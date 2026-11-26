@@ -2,6 +2,8 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 
+import { HeroBento, HeroPanels } from './heroes'
+
 /**
  * Le rendu des blocs Payload.
  *
@@ -73,6 +75,16 @@ function Actions({ actions }: { actions?: Action[] | null }) {
 type Block = Record<string, any>
 
 function Hero({ block }: { block: Block }) {
+  const props = {
+    eyebrow: block.eyebrow,
+    title: block.title,
+    subtitle: block.subtitle,
+    actions: block.actions,
+  }
+
+  if (block.design === 'bento') return <HeroBento {...props} />
+  if (block.design === 'panels') return <HeroPanels {...props} />
+
   const imageUrl = typeof block.image === 'object' ? block.image?.url : undefined
 
   return (

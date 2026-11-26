@@ -19,6 +19,7 @@ const VARIANTS = [
     slug: 'lp-a',
     title: 'Home A — promesse produit',
     hero: {
+      design: 'panels' as const,
       eyebrow: 'Campagnes, liens, formulaires',
       title: 'Envoyez, mesurez, recommencez.',
       subtitle:
@@ -33,6 +34,7 @@ const VARIANTS = [
     slug: 'lp-b',
     title: 'Home B — promesse résultat',
     hero: {
+      design: 'bento' as const,
       eyebrow: 'Pensé pour les équipes terrain',
       title: 'Vos clients vous lisent. Enfin.',
       subtitle:
