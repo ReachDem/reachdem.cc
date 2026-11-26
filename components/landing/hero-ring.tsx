@@ -23,6 +23,9 @@ import { cn } from '@/lib/utils'
  */
 
 const ACCENT = '#ff751f'
+/** Les panneaux n'empruntent pas l'orange : il reste réservé au bouton principal
+ *  et à deux détails. Un accent partout n'est plus un accent. */
+const PANEL_ACCENT = '#0b0b0c'
 
 type PanelProps = { accent: string }
 
@@ -45,7 +48,7 @@ const PANELS: {
           <div
             key={String(t)}
             className="border-line flex items-center gap-2 rounded-md border px-2 py-1.5 text-[11px]"
-            style={on ? { borderColor: accent } : undefined}
+            style={on ? { borderColor: ACCENT } : undefined}
           >
             <span className="text-ink-soft font-mono">{t}</span>
             <span className="truncate">{n}</span>
@@ -86,12 +89,12 @@ const PANELS: {
             <span key={i}>{d}</span>
           ))}
           {Array.from({ length: 21 }).map((_, i) => {
-            const on = [0, 1, 3, 5, 6, 7, 9, 10, 12, 13, 16, 17, 18].includes(i)
+            const on = [1, 5, 9, 12, 17].includes(i)
             return (
               <span
                 key={i}
                 className="bg-surface-2 h-5 rounded-sm"
-                style={on ? { background: accent, opacity: 0.75 } : undefined}
+                style={on ? { background: accent, opacity: 0.18 } : undefined}
               />
             )
           })}
@@ -109,7 +112,7 @@ const PANELS: {
           {[0, 1, 2, 3].map((i) => (
             <span
               key={i}
-              className="ring-surface from-brand-soft to-brand/40 size-7 rounded-full bg-gradient-to-br ring-2"
+              className="ring-surface from-surface-2 to-line size-7 rounded-full bg-gradient-to-br ring-2"
             />
           ))}
         </div>
@@ -176,7 +179,7 @@ const PANELS: {
               key={i}
               className="flex aspect-square items-center justify-center rounded-sm"
               style={
-                i === 13 ? { background: accent, color: 'white' } : i % 7 > 4 ? { opacity: 0.35 } : undefined
+                i === 13 ? { background: ACCENT, color: 'white' } : i % 7 > 4 ? { opacity: 0.35 } : undefined
               }
             >
               {i + 1}
@@ -192,7 +195,7 @@ const PANELS: {
     render: () => (
       <div className="flex flex-col gap-1">
         <p className="text-ink-soft text-[11px]">Envoyés cette semaine</p>
-        <p className="text-3xl font-semibold tracking-tight">32</p>
+        <p className="text-2xl font-semibold tracking-tight">32</p>
         <p className="text-ink-soft text-[11px]">6 de plus que la semaine passée</p>
       </div>
     ),
@@ -263,8 +266,8 @@ const PANELS: {
     render: ({ accent }) => (
       <div className="flex flex-col gap-1">
         <p className="text-ink-soft text-[11px]">Revenu attribué</p>
-        <p className="text-2xl font-semibold tracking-tight">2,4 M FCFA</p>
-        <p className="text-[11px]" style={{ color: accent }}>
+        <p className="text-xl font-semibold tracking-tight">2,4 M FCFA</p>
+        <p className="text-ink-soft text-[11px]">
           Sur 30 jours, campagnes email
         </p>
       </div>
@@ -280,7 +283,7 @@ const PANELS: {
           {[38, 52, 44, 66, 58, 74, 69, 84].map((h, i) => (
             <span
               key={i}
-              className={i === 7 ? 'bg-brand w-full rounded-sm' : 'bg-surface-2 w-full rounded-sm'}
+              className={i === 7 ? 'bg-ink w-full rounded-sm' : 'bg-surface-2 w-full rounded-sm'}
               style={{ height: `${h * 0.5}px` }}
             />
           ))}
@@ -450,9 +453,9 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
                     delay: 0.2 + (index % 8) * 0.05,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="border-line bg-surface/90 text-ink size-full rounded-2xl border p-4 shadow-sm"
+                  className="border-line/70 bg-surface/55 text-ink size-full rounded-2xl border p-4 shadow-[0_12px_32px_-26px_rgba(0,0,0,0.35)] backdrop-blur-sm"
                 >
-                  {panel.render({ accent: ACCENT })}
+                  {panel.render({ accent: PANEL_ACCENT })}
                 </motion.div>
               </div>
             ))}

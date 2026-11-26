@@ -258,7 +258,7 @@ function PhotoTile({ className = '' }: { className?: string }) {
   return (
     <div
       aria-hidden
-      className={`from-brand-soft via-brand/25 to-surface-2 rounded-2xl bg-gradient-to-br ${className}`}
+      className={`from-surface-2 via-surface-2 to-line/60 rounded-2xl bg-gradient-to-br ${className}`}
     />
   )
 }
@@ -278,7 +278,7 @@ function Collage() {
             <Zap className="size-4 fill-[var(--color-brand)] stroke-[var(--color-brand)]" />
           </span>
           <div>
-            <div className="text-brand-strong text-sm font-semibold">Alerte</div>
+            <div className="text-ink text-sm font-semibold">Alerte</div>
             <div className="text-ink-soft text-sm">Rebonds traités</div>
           </div>
         </div>
