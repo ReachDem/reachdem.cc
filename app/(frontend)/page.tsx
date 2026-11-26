@@ -3,7 +3,9 @@ import { headers } from 'next/headers';
 
 import { SECTIONS } from './sections';
 import { ExposureBeacon } from '@/components/analytics/exposure-beacon';
+import { RenderBlocks } from '@/components/landing/render-blocks';
 import { VARIANT_HEADER, normalizeVariant } from '@/lib/experiments';
+import { getPageBySlugSafe } from '@/lib/pages';
 
 /**
  * Page d'accueil provisoire.
@@ -37,6 +39,19 @@ export default async function Home() {
   // asynchrone depuis Next 15, et le cookie ne serait pas encore lisible ici
   // lors de la toute première visite.
   const variant = normalizeVariant((await headers()).get(VARIANT_HEADER)) ?? 'a';
+
+  // Une page Payload par variante : `lp-a` et `lp-b`. Le slug n'apparaît jamais
+  // dans l'URL — le middleware a déjà tranché, la page ne fait que suivre.
+  const variantPage = await getPageBySlugSafe(`lp-${variant}`);
+
+  if (variantPage?.layout && Array.isArray(variantPage.layout) && variantPage.layout.length > 0) {
+    return (
+      <main className="bg-surface" data-variant={variant}>
+        <ExposureBeacon variant={variant} />
+        <RenderBlocks blocks={variantPage.layout} />
+      </main>
+    );
+  }
 
   return (
     <main className="mx-auto w-full max-w-5xl px-6 py-14" data-variant={variant}>
