@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { headers } from 'next/headers';
 
 import { SECTIONS } from './sections';
+import { ExposureBeacon } from '@/components/analytics/exposure-beacon';
+import { VARIANT_HEADER, normalizeVariant } from '@/lib/experiments';
 
 /**
  * Page d'accueil provisoire.
@@ -29,9 +32,15 @@ const HEIGHT: Record<string, string> = {
   footer: 'min-h-[260px]',
 };
 
-export default function Home() {
+export default async function Home() {
+  // Le middleware a déjà tranché ; on ne fait que lire. `headers()` est
+  // asynchrone depuis Next 15, et le cookie ne serait pas encore lisible ici
+  // lors de la toute première visite.
+  const variant = normalizeVariant((await headers()).get(VARIANT_HEADER)) ?? 'a';
+
   return (
-    <main className="mx-auto w-full max-w-5xl px-6 py-14">
+    <main className="mx-auto w-full max-w-5xl px-6 py-14" data-variant={variant}>
+      <ExposureBeacon variant={variant} />
       <header className="mb-10 border-b border-neutral-200 pb-8">
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
           reconstruction en cours
