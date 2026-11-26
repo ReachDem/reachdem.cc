@@ -1,6 +1,7 @@
 # Landing ReachDem : navigation et offre
 
 > Décidé le 2026-11-06. Document de travail pour la refonte de la landing. Rien n'est encore implémenté.
+> Mis à jour le 2026-11-26 : ajout du menu **Ressources**.
 
 ## Principes
 
@@ -12,7 +13,7 @@
 ## Barre de navigation
 
 ```
-ReachDem   Produit ▾   Solutions ▾   Développeurs ▾   Prix        [Parler à l'équipe]  [Commencer]
+ReachDem   Produit ▾   Solutions ▾   Développeurs ▾   Ressources ▾   Prix        [Parler à l'équipe]  [Commencer]
 ```
 
 - **Prix** est un lien direct vers `/pricing`, sans menu.
@@ -53,10 +54,24 @@ ReachDem   Produit ▾   Solutions ▾   Développeurs ▾   Prix        [Parler
 | **Démarrage rapide** : Envoyez votre premier email par API | **Changelog** : Ce qui est sorti récemment |
 | **Référence API** : Chaque endpoint et chaque champ | **Statut de l'API** : Disponibilité en direct |
 | **SDK** : Node, Python et d'autres | **Roadmap** : Ce qui arrive ensuite |
-| **Webhooks** : Statuts de livraison signés | **Support** : Une vraie personne qui répond |
+| **Webhooks** : Statuts de livraison signés | |
 | **Serveur MCP** : Pilotez ReachDem depuis vos agents | |
 
 Encart à droite : **Obtenir une clé API**, « Premier envoi en quelques minutes », bouton « Créer un compte ».
+
+### Ressources
+
+| ReachDem |
+|---|
+| **À propos** : Qui nous sommes, et pourquoi |
+| **Carrières** : Les postes ouverts |
+| **Support** : Une vraie personne qui répond |
+
+Cartes « à la une » à droite : **Blog** et **Academy**.
+
+- **Support quitte Développeurs** : c'est une ressource pour tout le monde, pas seulement pour ceux qui intègrent l'API.
+- **Blog et Academy sont des cartes**, pas des liens de colonne : ce sont des contenus qu'on parcourt, pas des destinations de même rang que « À propos ».
+- Pages : `/about`, `/careers`, `/support`, `/blog`, `/academy` — Blog et Academy existent déjà.
 
 ## Prérequis de publication
 

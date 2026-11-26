@@ -12,8 +12,9 @@
  *   l'admin ne repart jamais d'une page blanche.
  *
  * Structure décidée dans `docs/landing/navigation.md` (2026-11-06) :
- * Produit · Solutions · Développeurs · Prix, puis « Parler à l'équipe » et
- * « Commencer ». Prix est un lien direct, les trois autres ouvrent un panneau.
+ * Produit · Solutions · Développeurs · Ressources · Prix, puis « Parler à
+ * l'équipe » et « Commencer ». Prix est un lien direct, les quatre autres
+ * ouvrent un panneau.
  *
  * Les `href` pointent vers des routes encore à construire : la landing n'est
  * pas publiée tant que ces pages n'existent pas (voir les prérequis de
@@ -49,6 +50,12 @@ export type NavMenu = {
   href?: string
   columns: NavColumn[]
   featured?: NavFeatured
+  /**
+   * Destinations mises en avant dans le panneau, en cartes empilées plutôt
+   * qu'en colonne. Sert à Ressources : Blog et Academy sont des contenus
+   * qu'on parcourt, pas des entrées de même rang que « À propos ».
+   */
+  featuredLinks?: NavLink[]
 }
 
 export type HeaderAction = {
@@ -253,11 +260,6 @@ export const DEFAULT_NAVIGATION: NavModel = {
               description: 'Ce qui arrive ensuite',
               href: '/roadmap',
             },
-            {
-              label: 'Support',
-              description: 'Une vraie personne qui répond',
-              href: '/support',
-            },
           ],
         },
       ],
@@ -267,6 +269,44 @@ export const DEFAULT_NAVIGATION: NavModel = {
         ctaLabel: 'Créer un compte',
         ctaHref: '/signup',
       },
+    },
+    {
+      id: 'ressources',
+      label: 'Ressources',
+      columns: [
+        {
+          heading: 'ReachDem',
+          links: [
+            {
+              label: 'À propos',
+              description: 'Qui nous sommes, et pourquoi',
+              href: '/about',
+            },
+            {
+              label: 'Carrières',
+              description: 'Les postes ouverts',
+              href: '/careers',
+            },
+            {
+              label: 'Support',
+              description: 'Une vraie personne qui répond',
+              href: '/support',
+            },
+          ],
+        },
+      ],
+      featuredLinks: [
+        {
+          label: 'Blog',
+          description: 'Ce qu’on apprend en construisant ReachDem',
+          href: '/blog',
+        },
+        {
+          label: 'Academy',
+          description: 'Des guides courts pour mieux envoyer',
+          href: '/academy',
+        },
+      ],
     },
     {
       id: 'prix',

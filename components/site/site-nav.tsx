@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
+import { ArrowUpRight, Menu } from 'lucide-react'
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
@@ -80,6 +80,34 @@ function Panel({ menu }: { menu: NavMenu }) {
       {menu.columns.map((column, index) => (
         <PanelColumn key={column.heading ?? index} column={column} />
       ))}
+
+      {menu.featuredLinks && menu.featuredLinks.length > 0 && (
+        <div className="ml-1 flex w-[236px] shrink-0 flex-col self-start">
+          <p className="mb-1.5 px-2.5 text-[11px] font-medium tracking-[0.1em] text-ink-soft uppercase">
+            À la une
+          </p>
+          <div className="flex flex-col gap-1.5">
+            {menu.featuredLinks.map((link) => (
+              <NavigationMenuLink key={link.href} asChild>
+                <Link
+                  href={link.href}
+                  className="group rounded-lg border border-line bg-surface-2 p-3 transition-colors hover:border-line-strong"
+                >
+                  <span className="flex items-center gap-1 text-[13.5px] leading-5 font-medium text-ink">
+                    {link.label}
+                    <ArrowUpRight className="size-3.5 text-ink-soft transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                  {link.description && (
+                    <span className="mt-0.5 block text-xs leading-4 text-ink-soft">
+                      {link.description}
+                    </span>
+                  )}
+                </Link>
+              </NavigationMenuLink>
+            ))}
+          </div>
+        </div>
+      )}
 
       {menu.featured && (
         <div className="ml-1 w-[224px] shrink-0 self-start rounded-lg border border-line bg-surface-2 p-3.5">
@@ -181,6 +209,30 @@ function MobileNav({ nav }: { nav: NavModel }) {
                         ))}
                       </div>
                     ))}
+                    {menu.featuredLinks && menu.featuredLinks.length > 0 && (
+                      <div className="mt-2 border-t border-line pt-2">
+                        <p className="px-3 py-1 text-[11px] font-medium tracking-[0.1em] text-ink-soft uppercase">
+                          À la une
+                        </p>
+                        {menu.featuredLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setOpen(false)}
+                            className="block rounded-md px-3 py-2 hover:bg-surface-2"
+                          >
+                            <span className="flex items-center text-[13.5px] font-medium text-ink">
+                              {link.label}
+                            </span>
+                            {link.description && (
+                              <span className="mt-0.5 block text-xs text-ink-soft">
+                                {link.description}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
               ),

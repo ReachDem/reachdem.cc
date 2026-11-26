@@ -95,6 +95,16 @@ export const SiteSettings: GlobalConfig = {
             { name: 'ctaHref', type: 'text' },
           ],
         },
+        {
+          name: 'featuredLinks',
+          type: 'array',
+          label: 'Cartes « À la une »',
+          admin: {
+            description:
+              'Destinations mises en avant dans le panneau, en cartes empilées (Blog, Academy…). Remplacent l’encart à droite.',
+          },
+          fields: navLinkFields,
+        },
       ],
     },
     {

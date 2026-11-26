@@ -39,6 +39,13 @@ type SettingsRecord = {
       ctaLabel?: string | null
       ctaHref?: string | null
     } | null
+    featuredLinks?:
+      | {
+          label?: string | null
+          href?: string | null
+          description?: string | null
+        }[]
+      | null
   }[]
   headerActions?: {
     label?: string | null
@@ -106,6 +113,15 @@ function toNavModel(settings: SettingsValue): NavModel | null {
         }
       : undefined
 
+    // Cartes « À la une » : même exigence qu'un lien de colonne, label et href
+    // obligatoires, sinon on rend une carte qui ne mène nulle part.
+    const featuredLinks = (group.featuredLinks ?? []).flatMap((link) => {
+      const linkLabel = typeof link?.label === 'string' ? link.label.trim() : ''
+      const href = typeof link?.href === 'string' ? link.href.trim() : ''
+      if (!linkLabel || !href) return []
+      return [{ label: linkLabel, href, description: link?.description?.trim() || undefined }]
+    })
+
     return [
       {
         id: slugify(label) || `menu-${index}`,
@@ -113,6 +129,7 @@ function toNavModel(settings: SettingsValue): NavModel | null {
         href: group.href?.trim() || undefined,
         columns,
         featured,
+        featuredLinks: featuredLinks.length > 0 ? featuredLinks : undefined,
       },
     ]
   })
