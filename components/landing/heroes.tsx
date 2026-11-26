@@ -340,7 +340,7 @@ export function HeroBento({ eyebrow, title, subtitle, actions }: HeroProps) {
                 {eyebrow}
               </p>
             )}
-            <h1 className="text-ink mb-[0.625rem] text-center text-5xl leading-tight font-semibold tracking-[-1px] sm:text-[3.375rem] md:text-[5.625rem] md:leading-[6.18rem] lg:text-left">
+            <h1 className="text-ink mb-[0.625rem] text-center text-4xl leading-[1.06] font-medium tracking-[-0.03em] sm:text-[3rem] md:text-[4.75rem] md:leading-[5.1rem] lg:text-left">
               {title}
             </h1>
             <p className="text-ink mb-10 text-center text-2xl leading-9 font-medium lg:text-left">

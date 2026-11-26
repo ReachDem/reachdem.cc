@@ -453,7 +453,7 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
                     delay: 0.2 + (index % 8) * 0.05,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="border-line/70 bg-surface/55 text-ink size-full rounded-2xl border p-4 shadow-[0_12px_32px_-26px_rgba(0,0,0,0.35)] backdrop-blur-sm"
+                  className="border-line bg-surface/92 text-ink size-full rounded-2xl border p-4 shadow-sm"
                 >
                   {panel.render({ accent: PANEL_ACCENT })}
                 </motion.div>
@@ -470,7 +470,7 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="flex max-w-2xl flex-col items-center gap-5"
         >
-          <h1 className="text-ink text-4xl font-semibold tracking-tight text-balance md:text-6xl">
+          <h1 className="text-ink text-4xl font-medium tracking-[-0.03em] text-balance md:text-[3.5rem] md:leading-[1.05]">
             {title}
           </h1>
           <p className="text-ink-soft max-w-xl text-base md:text-lg">{subtitle}</p>
