@@ -39,7 +39,7 @@ const PANELS: {
     h: 190,
     render: ({ accent }) => (
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold">Aujourd’hui, jeu. 14</p>
+        <p className="text-xs font-medium">Aujourd’hui, jeu. 14</p>
         {[
           ['09:30', 'Campagne « Rentrée »', true],
           ['11:00', 'Relance panier', false],
@@ -65,14 +65,14 @@ const PANELS: {
         <div className="flex items-center gap-2">
           <span className="from-brand to-brand-strong size-8 rounded-full bg-gradient-to-br" />
           <div>
-            <p className="text-xs font-semibold">Awa Diallo</p>
+            <p className="text-xs font-medium">Awa Diallo</p>
             <p className="text-ink-soft text-[11px]">Profil Links</p>
           </div>
         </div>
         <div className="bg-surface-2 rounded-md px-2 py-1.5 font-mono text-[11px]">
           reachdem.cc/awa
         </div>
-        <span className="self-start rounded-md px-2 py-1 text-[11px] font-medium text-white" style={{ background: accent }}>
+        <span className="border-line text-ink self-start rounded-md border bg-transparent px-2 py-1 text-[11px] font-medium">
           Copier le lien
         </span>
       </div>
@@ -83,7 +83,7 @@ const PANELS: {
     h: 170,
     render: ({ accent }) => (
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold">Délivrabilité, 7 jours</p>
+        <p className="text-xs font-medium">Délivrabilité, 7 jours</p>
         <div className="text-ink-soft grid grid-cols-7 gap-1 text-center text-[10px]">
           {['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((d, i) => (
             <span key={i}>{d}</span>
@@ -107,7 +107,7 @@ const PANELS: {
     h: 140,
     render: () => (
       <div className="flex flex-col gap-3">
-        <p className="text-xs font-semibold">Segment actif</p>
+        <p className="text-xs font-medium">Segment actif</p>
         <div className="flex -space-x-2">
           {[0, 1, 2, 3].map((i) => (
             <span
@@ -125,14 +125,11 @@ const PANELS: {
     h: 110,
     render: ({ accent }) => (
       <div className="flex gap-3">
-        <span
-          className="flex size-8 shrink-0 items-center justify-center rounded-md text-white"
-          style={{ background: accent }}
-        >
+        <span className="border-line bg-surface-2 text-ink flex size-8 shrink-0 items-center justify-center rounded-md border">
           <Mail className="size-4" />
         </span>
         <div>
-          <p className="text-xs font-semibold">Rappel envoyé</p>
+          <p className="text-xs font-medium">Rappel envoyé</p>
           <p className="text-ink-soft text-[11px]">Relance automatique à J+3.</p>
         </div>
       </div>
@@ -143,7 +140,7 @@ const PANELS: {
     h: 150,
     render: ({ accent }) => (
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold">Fuseaux : Abidjan / Paris</p>
+        <p className="text-xs font-medium">Fuseaux : Abidjan / Paris</p>
         {[
           ['Abidjan', 8, 18],
           ['Paris', 14, 24],
@@ -172,7 +169,7 @@ const PANELS: {
     h: 190,
     render: ({ accent }) => (
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold">Novembre</p>
+        <p className="text-xs font-medium">Novembre</p>
         <div className="grid grid-cols-7 gap-1 text-center text-[10px]">
           {Array.from({ length: 28 }).map((_, i) => (
             <span
@@ -195,7 +192,7 @@ const PANELS: {
     render: () => (
       <div className="flex flex-col gap-1">
         <p className="text-ink-soft text-[11px]">Envoyés cette semaine</p>
-        <p className="text-2xl font-semibold tracking-tight">32</p>
+        <p className="text-2xl font-medium tracking-tight">32</p>
         <p className="text-ink-soft text-[11px]">6 de plus que la semaine passée</p>
       </div>
     ),
@@ -206,13 +203,10 @@ const PANELS: {
     render: ({ accent }) => (
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2">
-          <span
-            className="flex size-6 items-center justify-center rounded-full text-white"
-            style={{ background: accent }}
-          >
+          <span className="border-line bg-surface-2 text-ink flex size-6 items-center justify-center rounded-full border">
             <Check className="size-3.5" />
           </span>
-          <p className="text-xs font-semibold">Campagne envoyée</p>
+          <p className="text-xs font-medium">Campagne envoyée</p>
         </div>
         <div className="flex items-center gap-2 text-[11px]">
           <span className="from-brand-soft to-brand/40 size-6 rounded-full bg-gradient-to-br" />
@@ -229,7 +223,7 @@ const PANELS: {
     h: 130,
     render: () => (
       <div className="flex flex-col gap-2 text-[11px]">
-        <p className="text-xs font-semibold">Limites d’envoi</p>
+        <p className="text-xs font-medium">Limites d’envoi</p>
         {[
           ['Par minute', '600'],
           ['Par jour', '50 000'],
@@ -248,7 +242,7 @@ const PANELS: {
     h: 140,
     render: () => (
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold">Intégrations</p>
+        <p className="text-xs font-medium">Intégrations</p>
         <div className="text-ink-soft flex flex-wrap items-center gap-2 text-[11px]">
           {['Forms', 'Links', 'Cards', 'WhatsApp'].map((n) => (
             <span key={n} className="border-line rounded-full border px-2 py-1">
@@ -266,7 +260,7 @@ const PANELS: {
     render: ({ accent }) => (
       <div className="flex flex-col gap-1">
         <p className="text-ink-soft text-[11px]">Revenu attribué</p>
-        <p className="text-xl font-semibold tracking-tight">2,4 M FCFA</p>
+        <p className="text-xl font-medium tracking-tight">2,4 M FCFA</p>
         <p className="text-ink-soft text-[11px]">
           Sur 30 jours, campagnes email
         </p>
@@ -278,7 +272,7 @@ const PANELS: {
     h: 120,
     render: () => (
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold">Taux d’ouverture</p>
+        <p className="text-xs font-medium">Taux d’ouverture</p>
         <div className="flex items-end gap-1">
           {[38, 52, 44, 66, 58, 74, 69, 84].map((h, i) => (
             <span
