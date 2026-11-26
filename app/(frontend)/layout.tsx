@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
 import { SiteHeader } from '@/components/site/site-header';
+import { ConsentBanner } from '@/components/analytics/consent-banner';
+import { GoogleTagManager } from '@/components/analytics/google-tag-manager';
 
 import './globals.css';
 import { neueMontreal } from './fonts';
@@ -23,6 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <SiteHeader />
         <div id="contenu">{children}</div>
+        <ConsentBanner />
+        <GoogleTagManager />
       </body>
     </html>
   );
