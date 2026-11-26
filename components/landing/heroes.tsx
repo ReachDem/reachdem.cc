@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Check, Play, Star, Zap } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 
@@ -231,117 +232,149 @@ export function HeroPanels({ eyebrow, title, subtitle, actions }: HeroProps) {
   )
 }
 
-function StatTile() {
+function Donut({ value = 43 }: { value?: number }) {
+  const radius = 64
+  const circumference = 2 * Math.PI * radius
+
   return (
-    <Card className="col-span-1 row-span-2 flex flex-col justify-between p-4">
-      <div>
-        <p className="text-ink-soft text-[11px]">Ouvertures</p>
-        <p className="text-ink mt-1 text-2xl leading-none font-medium tabular-nums">42,8 %</p>
-      </div>
-      <div className="mt-6 flex h-24 items-end gap-1.5">
-        {[42, 58, 46, 72, 64, 88, 76].map((height, index) => (
-          <span
-            key={index}
-            className={index === 5 ? 'bg-brand flex-1 rounded-sm' : 'bg-surface-2 flex-1 rounded-sm'}
-            style={{ height: `${height}%` }}
-          />
-        ))}
-      </div>
-    </Card>
+    <svg viewBox="0 0 148 148" className="size-[7.5rem]">
+      <circle cx="74" cy="74" r={radius} fill="none" stroke="var(--color-surface-2)" strokeWidth="13" />
+      <circle
+        cx="74"
+        cy="74"
+        r={radius}
+        fill="none"
+        stroke="var(--color-brand)"
+        strokeWidth="13"
+        strokeLinecap="round"
+        strokeDasharray={`${(value / 100) * circumference} ${circumference}`}
+        transform="rotate(-90 74 74)"
+      />
+    </svg>
   )
 }
 
-function MessageTile() {
+function PhotoTile({ className = '' }: { className?: string }) {
   return (
-    <Card className="flex flex-col justify-between p-4">
-      <div>
-        <div className="flex items-center gap-2">
-          <span className="from-brand to-brand-strong size-6 shrink-0 rounded-full bg-gradient-to-br" />
-          <div className="min-w-0">
-            <p className="text-ink truncate text-[12px] font-medium">Nouvelle campagne</p>
-            <p className="text-ink-soft truncate text-[11px]">Segment : actifs 90 jours</p>
+    <div
+      aria-hidden
+      className={`from-brand-soft via-brand/25 to-surface-2 rounded-2xl bg-gradient-to-br ${className}`}
+    />
+  )
+}
+
+/**
+ * Géométrie reprise de hero104 : deux colonnes de 10,375 rem, six rangées
+ * fixes et des gaps de 1,375 rem. C'est ce qui donne le rythme du collage —
+ * pas les cartes elles-mêmes.
+ */
+function Collage() {
+  return (
+    <div className="grid grid-cols-[repeat(2,10.375rem)] grid-rows-[2.4375rem_7.18rem_3.187rem_7.125rem_3.75rem_4.625rem] gap-x-8 gap-y-[1.375rem] bg-[radial-gradient(closest-side,var(--color-surface-2),var(--color-transparent))] bg-[length:100%_100%] bg-center bg-no-repeat">
+      <div className="relative col-[1/2] row-[1/3]">
+        <PhotoTile className="h-full w-full" />
+        <div className="bg-surface absolute bottom-0 flex min-w-[15rem] gap-3 rounded-2xl p-3 shadow-2xl">
+          <span className="bg-brand-soft grid size-11 shrink-0 place-items-center rounded-full">
+            <Zap className="size-4 fill-[var(--color-brand)] stroke-[var(--color-brand)]" />
+          </span>
+          <div>
+            <div className="text-brand-strong text-sm font-semibold">Alerte</div>
+            <div className="text-ink-soft text-sm">Rebonds traités</div>
           </div>
         </div>
-        <div className="mt-3 space-y-1.5">
-          <div className="bg-surface-2 h-1.5 w-full rounded-full" />
-          <div className="bg-surface-2 h-1.5 w-2/3 rounded-full" />
+      </div>
+
+      <div className="col-[2/3] row-[2/4]">
+        <div className="bg-surface flex h-full w-full flex-col justify-between rounded-2xl p-2 shadow-lg">
+          <div className="size-5 rounded-full bg-black/10" />
+          <div className="from-surface-2 to-brand-soft relative flex h-[9.18rem] w-full rounded-2xl bg-gradient-to-br">
+            <span className="bg-ink m-auto grid size-10 place-items-center rounded-full">
+              <Play className="size-4 fill-white stroke-white" />
+            </span>
+          </div>
         </div>
       </div>
-      <div className="mt-4 flex items-center justify-between">
-        <span className="text-ink-soft text-[11px] tabular-nums">12 480 contacts</span>
-        <span className="bg-brand text-surface rounded-full px-2.5 py-1 text-[10.5px] font-medium">
-          Envoyer
-        </span>
-      </div>
-    </Card>
-  )
-}
 
-function ProofTile() {
-  return (
-    <Card className="relative isolate p-4">
-      <div className="from-brand-soft to-surface-2 absolute inset-0 -z-10 rounded-xl bg-gradient-to-br opacity-80" />
-      <p className="text-ink text-[12px] font-medium">Preuve de diffusion</p>
-      <p className="text-ink-soft mt-1 text-[11px] leading-4">
-        Chaque vue, chaque clic, par créateur.
-      </p>
-      <div className="mt-3 flex -space-x-2">
-        {[0, 1, 2].map((index) => (
-          <span
-            key={index}
-            className="border-surface bg-surface-2 size-6 rounded-full border-2"
-          />
-        ))}
-        <span className="border-surface bg-ink text-surface grid size-6 place-items-center rounded-full border-2 text-[9px]">
-          +9
-        </span>
+      <div className="col-[1/2] row-[3/5]">
+        <div className="bg-surface flex h-full w-full flex-col justify-between rounded-2xl p-2 shadow-lg">
+          <div className="size-5 rounded-full bg-black/10" />
+          <div className="from-brand-soft to-surface-2 flex h-[9.18rem] w-full rounded-2xl bg-gradient-to-tl">
+            <div className="bg-ink m-2 mx-auto flex h-fit w-fit items-center gap-1 self-end rounded-xl p-2 text-white">
+              <Star className="size-4" />
+              <div className="text-xs font-semibold">700 campagnes</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </Card>
+
+      <div className="col-[2/3] row-[4/-2]">
+        <div className="bg-surface flex h-full w-full flex-col justify-between rounded-2xl p-4 shadow-lg">
+          <div>
+            <div className="h-2 w-[80%] rounded-2xl bg-black/10" />
+            <div className="mt-2 h-2 w-[50%] rounded-2xl bg-black/10" />
+          </div>
+          <div className="relative mx-auto">
+            <Donut />
+            <p className="text-ink absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-sm font-bold whitespace-nowrap tabular-nums">
+              12 480
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-[1/2] row-[-1/-3]">
+        <PhotoTile className="h-full w-full" />
+      </div>
+    </div>
   )
 }
 
 export function HeroBento({ eyebrow, title, subtitle, actions }: HeroProps) {
   return (
-    <section className="border-line border-b px-4 py-16 sm:px-6 lg:py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_1fr]">
-        <div>
-          {eyebrow && (
-            <p className="text-ink-soft text-[11px] font-medium tracking-[0.14em] uppercase">
-              {eyebrow}
-            </p>
-          )}
-          <h1 className="text-ink mt-4 text-4xl leading-[1.05] font-medium tracking-[-0.025em] sm:text-5xl">
-            {title}
-          </h1>
-          {subtitle && (
-            <p className="text-ink-soft mt-5 max-w-lg text-base leading-relaxed sm:text-lg">
+    <section className="py-12 md:py-20">
+      <div className="mx-auto w-full max-w-[75rem] px-4 sm:px-6">
+        <div className="flex gap-8">
+          <div className="mx-auto max-w-[50rem] lg:max-w-full">
+            {eyebrow && (
+              <p className="text-ink-soft mb-3 text-center text-[11px] font-medium tracking-[0.14em] uppercase lg:text-left">
+                {eyebrow}
+              </p>
+            )}
+            <h1 className="text-ink mb-[0.625rem] text-center text-5xl leading-tight font-semibold tracking-[-1px] sm:text-[3.375rem] md:text-[5.625rem] md:leading-[6.18rem] lg:text-left">
+              {title}
+            </h1>
+            <p className="text-ink mb-10 text-center text-2xl leading-9 font-medium lg:text-left">
               {subtitle}
             </p>
-          )}
-          <Actions actions={actions} />
-          <ul className="text-ink-soft mt-7 space-y-2 text-[13px]">
-            {['Email, Links, Cards, Forms : un seul compte', 'Délivrabilité suivie en direct', 'Support en français'].map(
-              (item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <span className="bg-brand-soft text-brand-strong grid size-4 place-items-center rounded-full text-[9px]">
-                    ✓
-                  </span>
-                  {item}
-                </li>
-              ),
-            )}
-          </ul>
-        </div>
 
-        <div className="relative">
-          <div
-            aria-hidden
-            className="from-brand-soft/80 pointer-events-none absolute -inset-6 -z-0 rounded-3xl bg-gradient-to-br to-transparent blur-2xl"
-          />
-          <div className="relative grid min-h-[336px] grid-cols-2 grid-rows-2 gap-3">
-            <StatTile />
-            <MessageTile />
-            <ProofTile />
+            <div className="flex flex-col items-center justify-center gap-5 sm:flex-row lg:justify-normal">
+              {actions?.map((action, index) => (
+                <Link
+                  key={`${action.href}-${index}`}
+                  href={action.href ?? '#'}
+                  className={
+                    action.variant === 'outline'
+                      ? 'border-line-strong text-ink hover:border-brand inline-flex h-fit w-full items-center justify-center rounded-lg border-2 px-8 py-4 text-lg font-semibold transition-all sm:w-fit'
+                      : 'bg-brand text-surface hover:bg-brand/85 border-brand inline-flex h-fit w-full items-center justify-center rounded-lg border-2 px-8 py-4 text-lg font-semibold transition-all sm:w-fit'
+                  }
+                >
+                  {action.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-ink-soft mt-6 flex flex-wrap justify-center gap-7 lg:justify-normal">
+              {['Essai de 30 jours', 'Sans carte bancaire', 'Résiliable à tout moment'].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <Check className="text-ink-soft size-3" />
+                  <p className="text-ink-soft text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden lg:block">
+            <Collage />
           </div>
         </div>
       </div>
