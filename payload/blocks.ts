@@ -13,11 +13,15 @@ export const HeroBlock: Block = {
     {
       name: 'design',
       type: 'select',
-      defaultValue: 'panels',
-      admin: { description: 'Mise en page du hero. « Panneaux » = cartes produit flottantes ; « Bento » = texte à gauche, tuiles à droite.' },
+      defaultValue: 'ring',
+      admin: {
+        description:
+          'Mise en page du hero. « Manège » = panneaux produit en 3D qui tournent et se glissent à la main ; « Bento » = texte à gauche, collage à droite.',
+      },
       options: [
-        { label: 'Panneaux flottants', value: 'panels' },
-        { label: 'Bento', value: 'bento' },
+        { label: 'Manège 3D (hero734)', value: 'ring' },
+        { label: 'Bento éditorial (hero104)', value: 'bento' },
+        { label: 'Cartes flottantes (ancien)', value: 'panels' },
       ],
     },
     { name: 'eyebrow', type: 'text' },

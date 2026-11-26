@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 import { HeroBento, HeroPanels } from './heroes'
+import { HeroRing } from './hero-ring'
 
 /**
  * Le rendu des blocs Payload.
@@ -83,6 +84,7 @@ function Hero({ block }: { block: Block }) {
   }
 
   if (block.design === 'bento') return <HeroBento {...props} />
+  if (block.design === 'ring') return <HeroRing {...props} />
   if (block.design === 'panels') return <HeroPanels {...props} />
 
   const imageUrl = typeof block.image === 'object' ? block.image?.url : undefined

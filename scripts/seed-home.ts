@@ -19,7 +19,7 @@ const VARIANTS = [
     slug: 'lp-a',
     title: 'Home A — promesse produit',
     hero: {
-      design: 'panels' as const,
+      design: 'ring' as const,
       eyebrow: 'Délivrabilité mesurée',
       title: 'Vos emails arrivent. Vous le savez.',
       subtitle:
