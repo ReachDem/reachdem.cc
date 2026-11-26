@@ -10,6 +10,16 @@ export const HeroBlock: Block = {
   slug: 'hero',
   labels: { singular: 'Hero', plural: 'Heros' },
   fields: [
+    {
+      name: 'design',
+      type: 'select',
+      defaultValue: 'panels',
+      admin: { description: 'Mise en page du hero. « Panneaux » = cartes produit flottantes ; « Bento » = texte à gauche, tuiles à droite.' },
+      options: [
+        { label: 'Panneaux flottants', value: 'panels' },
+        { label: 'Bento', value: 'bento' },
+      ],
+    },
     { name: 'eyebrow', type: 'text' },
     { name: 'title', type: 'text', required: true },
     { name: 'subtitle', type: 'textarea' },
