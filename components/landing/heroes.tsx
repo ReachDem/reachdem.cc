@@ -320,7 +320,7 @@ export function HeroBento({ eyebrow, title, subtitle, actions }: HeroProps) {
           )}
           <Actions actions={actions} />
           <ul className="text-ink-soft mt-7 space-y-2 text-[13px]">
-            {['Sans carte bancaire', 'Premier envoi en 10 minutes', 'Support en français'].map(
+            {['Email, Links, Cards, Forms : un seul compte', 'Délivrabilité suivie en direct', 'Support en français'].map(
               (item) => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="bg-brand-soft text-brand-strong grid size-4 place-items-center rounded-full text-[9px]">

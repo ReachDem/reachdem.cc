@@ -20,12 +20,12 @@ const VARIANTS = [
     title: 'Home A — promesse produit',
     hero: {
       design: 'panels' as const,
-      eyebrow: 'Campagnes, liens, formulaires',
-      title: 'Envoyez, mesurez, recommencez.',
+      eyebrow: 'Délivrabilité mesurée',
+      title: 'Vos emails arrivent. Vous le savez.',
       subtitle:
-        'Une seule plateforme pour vos campagnes email, vos pages Links et vos formulaires. Un seul jeu de données, aucune réconciliation à faire.',
+        'Routage surveillé, rebonds traités, délivrabilité lue en direct. Fini les envois à l’aveugle : vous voyez ce qui est parti, ce qui est arrivé, et ce qui a été lu.',
       actions: [
-        { label: 'Commencer', href: '/signup', variant: 'primary' },
+        { label: 'Envoyer ma première campagne', href: '/signup', variant: 'primary' },
         { label: 'Voir les tarifs', href: '/pricing', variant: 'outline' },
       ],
     },
@@ -35,10 +35,10 @@ const VARIANTS = [
     title: 'Home B — promesse résultat',
     hero: {
       design: 'bento' as const,
-      eyebrow: 'Pensé pour les équipes terrain',
-      title: 'Vos clients vous lisent. Enfin.',
+      eyebrow: 'Preuve, pas promesse',
+      title: 'Montrez ce que vos campagnes rapportent.',
       subtitle:
-        'La plateforme email des équipes qui n’ont pas le temps d’échouer : délivrabilité suivie, segmentation simple, résultats lisibles le lundi matin.',
+        'Ouvertures, clics, ventes attribuées — et la preuve de diffusion, créateur par créateur. Des chiffres que vous posez sur la table, pas ceux qu’il faut défendre.',
       actions: [
         { label: 'Créer mon compte', href: '/signup', variant: 'primary' },
         { label: 'Parler à l’équipe', href: '/sales', variant: 'outline' },
