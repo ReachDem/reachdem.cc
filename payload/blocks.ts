@@ -13,11 +13,15 @@ export const HeroBlock: Block = {
     {
       name: 'design',
       type: 'select',
-      defaultValue: 'panels',
-      admin: { description: 'Mise en page du hero. « Panneaux » = cartes produit flottantes ; « Bento » = texte à gauche, tuiles à droite.' },
+      defaultValue: 'ring',
+      admin: {
+        description:
+          'Mise en page du hero. « Manège » = panneaux produit en 3D qui tournent et se glissent à la main ; « Bento » = texte à gauche, collage à droite.',
+      },
       options: [
-        { label: 'Panneaux flottants', value: 'panels' },
-        { label: 'Bento', value: 'bento' },
+        { label: 'Manège 3D (hero734)', value: 'ring' },
+        { label: 'Bento éditorial (hero104)', value: 'bento' },
+        { label: 'Cartes flottantes (ancien)', value: 'panels' },
       ],
     },
     { name: 'eyebrow', type: 'text' },
@@ -56,6 +60,17 @@ export const FeaturesBlock: Block = {
   slug: 'features',
   labels: { singular: 'Fonctionnalités', plural: 'Fonctionnalités' },
   fields: [
+    {
+      name: 'design',
+      type: 'select',
+      defaultValue: 'cards',
+      options: [
+        { label: 'Cartes (défaut)', value: 'cards' },
+        { label: 'Valeurs éditoriales (feature42)', value: 'values' },
+        { label: 'Encadré éditorial (feature239)', value: 'inset' },
+        { label: 'Écrans produit (feature72)', value: 'showcase' },
+      ],
+    },
     { name: 'eyebrow', type: 'text' },
     { name: 'title', type: 'text', required: true },
     { name: 'description', type: 'textarea' },
@@ -69,8 +84,24 @@ export const FeaturesBlock: Block = {
         { name: 'icon', type: 'text', admin: { description: 'Nom d’icône lucide-react (ex. Mail).' } },
         { name: 'badge', type: 'text', admin: { description: 'Ex. « Nouveau », « Bientôt ».' } },
         { name: 'href', type: 'text' },
+        {
+          name: 'visual',
+          type: 'select',
+          admin: { description: 'Variante « écrans » uniquement.' },
+          options: [
+            { label: 'Liste d’envois', value: 'sends' },
+            { label: 'Revenu attribué', value: 'revenue' },
+          ],
+        },
       ],
     },
+    { name: 'linkLabel', type: 'text', admin: { description: 'Lien ou bouton selon la variante.' } },
+    { name: 'linkHref', type: 'text' },
+    { name: 'cardKicker', type: 'text', admin: { description: 'Variante « encadré » : sur-titre de la carte de droite.' } },
+    { name: 'cardTitle', type: 'text' },
+    { name: 'cardCaption', type: 'text' },
+    { name: 'cardLinkLabel', type: 'text' },
+    { name: 'cardHref', type: 'text' },
   ],
 }
 
@@ -78,12 +109,33 @@ export const LogosBlock: Block = {
   slug: 'logos',
   labels: { singular: 'Logos', plural: 'Logos' },
   fields: [
-    { name: 'title', type: 'text' },
+    {
+      name: 'title',
+      type: 'text',
+      defaultValue: 'Sponsored and powered by the best',
+      admin: { description: 'Ligne au-dessus des marques.' },
+    },
     {
       name: 'items',
       type: 'array',
+      admin: {
+        description:
+          'Choisir une marque connue suffit : le logo est dessiné en SVG, net à toutes les densités. Ne remplir « logo » que pour une marque absente de la liste.',
+      },
       fields: [
-        { name: 'name', type: 'text', required: true },
+        {
+          name: 'brand',
+          type: 'select',
+          options: [
+            { label: 'Google', value: 'google' },
+            { label: 'Meta', value: 'meta' },
+            { label: 'Cloudflare', value: 'cloudflare' },
+            { label: 'ElevenLabs', value: 'elevenlabs' },
+            { label: 'Vercel', value: 'vercel' },
+            { label: 'DeepSeek', value: 'deepseek' },
+          ],
+        },
+        { name: 'name', type: 'text', admin: { description: 'Libellé affiché si aucune marque n’est choisie.' } },
         { name: 'logo', type: 'upload', relationTo: 'media' },
       ],
     },
