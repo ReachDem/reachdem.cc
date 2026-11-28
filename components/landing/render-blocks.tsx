@@ -4,6 +4,10 @@ import { Button } from '@/components/ui/button'
 
 import { HeroBento, HeroPanels } from './heroes'
 import { HeroRing } from './hero-ring'
+import { LogoCloud } from './logo-cloud'
+import { FeatureValues } from './feature-values'
+import { FeatureInset } from './feature-inset'
+import { FeatureShowcase } from './feature-showcase'
 
 /**
  * Le rendu des blocs Payload.
@@ -121,6 +125,48 @@ function Hero({ block }: { block: Block }) {
 }
 
 function Features({ block }: { block: Block }) {
+  if (block.design === 'showcase') {
+    return (
+      <FeatureShowcase
+        title={block.title}
+        description={block.description}
+        linkLabel={block.linkLabel}
+        linkHref={block.linkHref}
+        items={block.items}
+      />
+    )
+  }
+
+  if (block.design === 'inset') {
+    return (
+      <FeatureInset
+        badge={block.eyebrow}
+        title={block.title}
+        description={block.description}
+        linkLabel={block.linkLabel}
+        linkHref={block.linkHref}
+        cardKicker={block.cardKicker}
+        cardTitle={block.cardTitle}
+        cardCaption={block.cardCaption}
+        cardLinkLabel={block.cardLinkLabel}
+        cardHref={block.cardHref}
+      />
+    )
+  }
+
+  if (block.design === 'values') {
+    return (
+      <FeatureValues
+        eyebrow={block.eyebrow}
+        title={block.title}
+        description={block.description}
+        items={block.items}
+        linkLabel={block.linkLabel}
+        linkHref={block.linkHref}
+      />
+    )
+  }
+
   return (
     <section className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
@@ -161,8 +207,17 @@ function Features({ block }: { block: Block }) {
 }
 
 function Logos({ block }: { block: Block }) {
+  const marks = (block.items ?? [])
+    .map((item: Block) => item.brand)
+    .filter(Boolean) as string[]
+
+  // Dès qu'une marque connue est choisie, on passe au bandeau dessiné en SVG.
+  if (marks.length) {
+    return <LogoCloud title={block.title} items={marks.map((name) => ({ name: name as never }))} />
+  }
+
   return (
-    <section className="border-line border-y px-4 py-10 sm:px-6">
+    <section className="px-4 py-8 sm:px-6 sm:py-10">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-10 gap-y-4">
         {block.title && <p className="text-ink-soft text-xs">{block.title}</p>}
         {(block.items ?? []).map((item: Block, index: number) => (

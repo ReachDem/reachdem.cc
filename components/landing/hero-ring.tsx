@@ -47,7 +47,7 @@ const PANELS: {
         ].map(([t, n, on]) => (
           <div
             key={String(t)}
-            className="border-line flex items-center gap-2 rounded-md border px-2 py-1.5 text-[11px]"
+            className="border-line flex items-center gap-2 rounded-md border px-2 py-1.5 text-xs"
             style={on ? { borderColor: ACCENT } : undefined}
           >
             <span className="text-ink-soft font-mono">{t}</span>
@@ -63,16 +63,16 @@ const PANELS: {
     render: ({ accent }) => (
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
-          <span className="from-brand to-brand-strong size-8 rounded-full bg-gradient-to-br" />
+          <span className="from-surface-2 to-line border-line size-8 rounded-full border bg-gradient-to-br" />
           <div>
             <p className="text-xs font-medium">Awa Diallo</p>
             <p className="text-ink-soft text-[11px]">Profil Links</p>
           </div>
         </div>
-        <div className="bg-surface-2 rounded-md px-2 py-1.5 font-mono text-[11px]">
+        <div className="bg-surface-2 rounded-md px-2 py-1.5 font-mono text-xs">
           reachdem.cc/awa
         </div>
-        <span className="border-line text-ink self-start rounded-md border bg-transparent px-2 py-1 text-[11px] font-medium">
+        <span className="border-line text-ink self-start rounded-md border bg-transparent px-2 py-1 text-xs font-medium">
           Copier le lien
         </span>
       </div>
@@ -84,7 +84,7 @@ const PANELS: {
     render: ({ accent }) => (
       <div className="flex flex-col gap-2">
         <p className="text-xs font-medium">Délivrabilité, 7 jours</p>
-        <div className="text-ink-soft grid grid-cols-7 gap-1 text-center text-[10px]">
+        <div className="text-ink-soft grid grid-cols-7 gap-1 text-center text-[11px]">
           {['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((d, i) => (
             <span key={i}>{d}</span>
           ))}
@@ -145,7 +145,7 @@ const PANELS: {
           ['Abidjan', 8, 18],
           ['Paris', 14, 24],
         ].map(([c, a, b]) => (
-          <div key={String(c)} className="flex items-center gap-2 text-[11px]">
+          <div key={String(c)} className="flex items-center gap-2 text-xs">
             <span className="text-ink-soft w-14">{c}</span>
             <div className="bg-surface-2 relative h-3 flex-1 rounded-full">
               <div
@@ -170,7 +170,7 @@ const PANELS: {
     render: ({ accent }) => (
       <div className="flex flex-col gap-2">
         <p className="text-xs font-medium">Novembre</p>
-        <div className="grid grid-cols-7 gap-1 text-center text-[10px]">
+        <div className="grid grid-cols-7 gap-1 text-center text-[11px]">
           {Array.from({ length: 28 }).map((_, i) => (
             <span
               key={i}
@@ -208,11 +208,11 @@ const PANELS: {
           </span>
           <p className="text-xs font-medium">Campagne envoyée</p>
         </div>
-        <div className="flex items-center gap-2 text-[11px]">
+        <div className="flex items-center gap-2 text-xs">
           <span className="from-brand-soft to-brand/40 size-6 rounded-full bg-gradient-to-br" />
           <span>12 480 contacts, ven. 21, 10:00</span>
         </div>
-        <div className="text-ink-soft flex items-center gap-1.5 text-[11px]">
+        <div className="text-ink-soft flex items-center gap-1.5 text-xs">
           <Video className="size-3.5" /> Lien de désinscription ajouté
         </div>
       </div>
@@ -222,7 +222,7 @@ const PANELS: {
     w: 230,
     h: 130,
     render: () => (
-      <div className="flex flex-col gap-2 text-[11px]">
+      <div className="flex flex-col gap-2 text-xs">
         <p className="text-xs font-medium">Limites d’envoi</p>
         {[
           ['Par minute', '600'],
@@ -243,7 +243,7 @@ const PANELS: {
     render: () => (
       <div className="flex flex-col gap-2">
         <p className="text-xs font-medium">Intégrations</p>
-        <div className="text-ink-soft flex flex-wrap items-center gap-2 text-[11px]">
+        <div className="text-ink-soft flex flex-wrap items-center gap-2 text-xs">
           {['Forms', 'Links', 'Cards', 'WhatsApp'].map((n) => (
             <span key={n} className="border-line rounded-full border px-2 py-1">
               {n}
@@ -306,18 +306,19 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
   const vel = useRef(0)
   const drag = useRef<{ x: number; t: number; id: number } | null>(null)
   const lastTouch = useRef(-10000)
-  const [radius, setRadius] = useState(820)
+  const [width, setWidth] = useState(0)
   const [inView, setInView] = useState(true)
+  const mobile = width > 0 && width < 640
+  const ring = mobile ? PANELS.slice(0, 7) : RING
+  const step = 360 / ring.length
+  const radius = mobile ? 559 : width && width < 1024 ? 760 : 980
 
-  // Le rayon suit la largeur : un cylindre de 860 px sur mobile mettrait les
-  // panneaux hors champ.
+  // Sous 640 px, on garde le cylindre mais avec sept cartes au lieu de
+  // vingt-six : même rayon, donc plus de place entre elles.
   useEffect(() => {
     const el = sectionRef.current
     if (!el) return
-    const observer = new ResizeObserver(() => {
-      const w = el.clientWidth
-      setRadius(w < 640 ? 520 : w < 1024 ? 700 : 860)
-    })
+    const observer = new ResizeObserver(() => setWidth(el.clientWidth))
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
@@ -339,7 +340,7 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
       }
       panelRefs.current.forEach((panel, index) => {
         if (!panel) return
-        let angle = (((rot.current - index * STEP) % 360) + 540) % 360
+        let angle = (((rot.current - index * (360 / panelRefs.current.length)) % 360) + 540) % 360
         angle -= 180
         const fade = 1 - Math.min(1, Math.max(0, (Math.abs(angle) - 58) / 22))
         panel.style.opacity = String(fade)
@@ -378,7 +379,7 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
 
     frame = requestAnimationFrame(loop)
     return () => cancelAnimationFrame(frame)
-  }, [reduce, inView, radius])
+  }, [reduce, inView, radius, mobile])
 
   const onPointerDown = (event: React.PointerEvent<HTMLElement>) => {
     if (reduce || (event.target as HTMLElement).closest('a,button')) return
@@ -419,12 +420,19 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
         lastTouch.current = performance.now()
       }}
       style={{ touchAction: 'pan-y' }}
-      className="bg-surface-2/60 relative h-svh max-h-[1100px] min-h-[680px] w-full cursor-grab overflow-hidden select-none active:cursor-grabbing"
+      className={cn(
+        'relative w-full overflow-hidden select-none',
+        mobile ? 'min-h-[46rem] pb-6' : 'h-svh max-h-[1100px] min-h-[680px] cursor-grab active:cursor-grabbing',
+      )}
     >
-      <div aria-hidden className="absolute inset-x-0 top-[62%] h-0" style={{ perspective: 900 }}>
+      <div
+        aria-hidden
+        className={cn('absolute inset-x-0 bottom-0', mobile ? 'top-[74%]' : 'top-[66%]')}
+        style={{ perspective: 900 }}
+      >
         <div className="absolute top-0 left-1/2" style={{ transformStyle: 'preserve-3d' }}>
           <div ref={ringRef} style={{ transformStyle: 'preserve-3d' }}>
-            {RING.map((panel, index) => (
+            {ring.map((panel, index) => (
               <div
                 key={index}
                 ref={(el) => {
@@ -435,8 +443,8 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
                   width: panel.w,
                   height: panel.h,
                   marginLeft: -panel.w / 2,
-                  marginTop: -panel.h / 2 + (index % 2 ? 92 : -92),
-                  transform: `rotateY(${-index * STEP}deg) translateZ(${-radius}px)`,
+                  marginTop: -panel.h / 2 + (index % 2 ? 56 : -56),
+                  transform: `rotateY(${-index * step}deg) translateZ(${-radius}px)`,
                 }}
               >
                 <motion.div
@@ -447,7 +455,7 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
                     delay: 0.2 + (index % 8) * 0.05,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="border-line bg-surface/92 text-ink size-full rounded-2xl border p-4 shadow-sm"
+                  className="border-line bg-surface text-ink size-full rounded-2xl border p-4 shadow-sm"
                 >
                   {panel.render({ accent: PANEL_ACCENT })}
                 </motion.div>
@@ -457,7 +465,12 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
         </div>
       </div>
 
-      <div className="pointer-events-none relative z-10 mx-auto flex h-full w-full max-w-[75rem] flex-col items-center px-4 pt-20 text-center md:pt-24">
+      <div
+        className={cn(
+          'pointer-events-none relative z-10 mx-auto flex w-full max-w-[75rem] flex-col items-center px-4 text-center',
+          mobile ? 'pt-10 pb-6' : 'h-full pt-20 md:pt-24',
+        )}
+      >
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -488,6 +501,7 @@ export function HeroRing({ title, subtitle, actions }: HeroRingProps) {
           </div>
         </motion.div>
       </div>
+
     </section>
   )
 }
