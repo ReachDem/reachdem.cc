@@ -12,6 +12,7 @@
  */
 import { getPayload } from 'payload'
 
+import { HOME_TITLES, homeLayout } from '../lib/home-layout'
 import config from '../payload.config'
 
 const VARIANTS = [
@@ -117,22 +118,7 @@ export async function seedHome() {
       title: variant.title,
       slug: variant.slug,
       _status: 'published' as const,
-      layout: [
-        { blockType: 'hero' as const, ...variant.hero },
-        {
-          blockType: 'logos' as const,
-          title: 'Sponsored and powered by the best',
-          items: [
-            { brand: 'google' as const },
-            { brand: 'meta' as const },
-            { brand: 'cloudflare' as const },
-            { brand: 'elevenlabs' as const },
-            { brand: 'vercel' as const },
-            { brand: 'deepseek' as const },
-          ],
-        },
-        variant.slug === 'lp-b' ? FEATURES_SHOWCASE : FEATURES_INSET,
-      ],
+      layout: homeLayout(variant.slug === 'lp-b' ? 'b' : 'a'),
     }
 
     if (existing.docs[0]) {
